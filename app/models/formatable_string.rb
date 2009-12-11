@@ -60,9 +60,9 @@
       escape_rules =[]
       RULES.each do |key, value|
         while (@content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m and $& !~ /#{"\\"+key}([A-Z]+?)\%/ and @content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m)
-          if !$&.include?(key+key)
+          if !$&.include?(key + key)
             @content = $` + value.delete("/") + $1 + value + $'
-          else
+          else#?
             if @content =~ /#{"\\"+key}(.+)#{"\\"+key}/m
               escape_rule = [Kernel.rand.to_s, $&]
               escape_rules << escape_rule
@@ -85,12 +85,12 @@
     end
     
     def generate_escape_rule(un_escape_rule)
-      escape_rule = un_escape_rule.map{|rule| ["\\"+rule[1],rule[0]]}
+      escape_rule = un_escape_rule.map{|rule| ["\\" + rule[1], rule[0]]}
       return escape_rule
     end
     
     def escape(escape_rules)
-      escape_rules.each { |escape_rule| @content.gsub!(escape_rule[0],escape_rule[1]) }
+      escape_rules.each { |escape_rule| @content.gsub!(escape_rule[0], escape_rule[1]) }
     end
   end
 
