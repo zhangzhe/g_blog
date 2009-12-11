@@ -33,5 +33,25 @@ class BlogsController < ApplicationController
     @blog.destroy
     redirect_to(blogs_url) 
   end
+  
+  def example
+    render :text => "chinese:
+
+title:
+title here
+
+content:
+content here
+
+=====
+
+english:
+
+title:
+title here
+
+content:
+content here"
+  end
 end
 

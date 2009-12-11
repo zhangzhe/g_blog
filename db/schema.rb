@@ -9,38 +9,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091207100244) do
+ActiveRecord::Schema.define(:version => 20091204083017) do
 
-  create_table "blogs", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
+  create_table "blog_groups", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "upload_file_groups", :force => true do |t|
-    t.integer  "upload_file_id"
+  create_table "blogs", :force => true do |t|
     t.string   "title"
+    t.string   "type"
+    t.text     "content"
+    t.integer  "blog_group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "upload_files", :force => true do |t|
     t.integer  "size"
-    t.integer  "blog_id"
+    t.integer  "blog_group_id"
     t.string   "filename"
     t.string   "content_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-  end
-
-  create_table "versions", :force => true do |t|
-    t.integer  "blog_id"
-    t.string   "title"
-    t.string   "tag"
-    t.string   "version_type"
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

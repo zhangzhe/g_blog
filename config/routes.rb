@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :blogs #example
+  map.resources :blogs, :collection => {:example => :get}
   map.resources :sessions
   map.resources :upload_files
   map.resources :upload_file_groups
