@@ -18,16 +18,6 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
 
-  # def create
-  #   @blog = Blog.new(params[:blog])
-  #   if @blog.save
-  #     flash[:notice] = t('Blog was successfully_created')
-  #     redirect_to(@blog)
-  #   else
-  #     render :action => "new"
-  #   end 
-  # end
-
   def update
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(params[:blog])

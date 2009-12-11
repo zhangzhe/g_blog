@@ -3,9 +3,6 @@ h1 {font-size:28px;margin:.5em 0;}
 h2 {font-size:16px;margin-bottom:1em;}
 h3 {font-size:14px;line-height:1.2;margin:.5em 0;}
 
-
-
-
 body {
     margin: 0px;
     padding: 0px;
@@ -128,7 +125,7 @@ a img {
 
 #my_content {
     float: right;
-    width: 670px;
+    width: 680px;
 }
 
 .post {
@@ -153,7 +150,7 @@ a img {
 
 #sidebar {
     float: left;
-    width: 200px;
+    width: 160px;
 }
 
 #sidebar-bgtop {
@@ -275,3 +272,9 @@ a img {
 .CodeRay .sy { color:#6C9CBD }                      /* symbol */
 .CodeRay .ta { color:#E7BE69 }                      /* html tag */
 .CodeRay .pc { color:#6C9CBD }                      /* boolean */
+/*buttuns*/
+.fixed_buttons {
+    top: 250px;
+    right: 16px;
+    position: absolute;
+}

@@ -14,8 +14,7 @@
 	</div>
 	<div id="menu">
 	  <ul>
-	    <%= g_link_to("home", blogs_url, "blogs") %>
-	    <%= g_link_to("Photo", upload_files_url, "upload_files") %>	    
+	    <li><%= link_to("Files", upload_files_url) %></li>
 	    <li><%= link_to("About", "") %></li>
 	  </ul>
 	</div>
@@ -29,8 +28,9 @@
 	<div id="sidebar">
 	  <ul>
 	    <li>
-	      <h3><%= link_to "RSS Feed", blogs_url(:rss) %></h3>
-	      <h2>Recenttttttttttttttt</h2>
+	      <h3><%= link_to "RSS", blogs_url(:rss) %></h3>
+	      <h3><%= link_to "Blog List", ""%><h3>
+	      <h2>Recent</h2>
 	      <ul>
 		<li><%= link_to("Recent1", "") %></li>
 		<li><%= link_to("Recent2", "") %></li>
@@ -41,20 +41,10 @@
 	      </ul>
 	    </li>
 	    <li>
-	      <%= link_to "<h2> All </h2>", ""%>
-	      <h2> Tags </h2>
-	      <ul>
-		<li><%= link_to("fun", "") %></li>
-		<li><%= link_to("rails", "") %></li>
-		<li><%= link_to("spec", "") %></li>
-		<li><%= link_to("ubuntu", "") %></li>
-		<li><%= link_to("ironman", "") %></li>
-	      </ul>
-	    </li>
 	    <li id="search">
 	      <form method="get" action="">
 		<fieldset>
-		  <input type="text" id="s" name="s" value="" /> go
+		  <input type="text" id="s" name="s" value="" />
 		</fieldset>
 	      </form>
 	    </li>	  
