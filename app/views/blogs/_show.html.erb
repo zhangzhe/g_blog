@@ -1,0 +1,21 @@
+<% @blog.versions.each do |version| %>
+  <div id="<%= version.version_type %>">
+    <p>
+      <hv><%= version.version_type %> verion</hv>
+      <br>
+      <ht> <%=h version.title %> </ht>
+      <br>
+      <hd><%= @blog.created_at.to_date %></hd>
+    </p>
+    <div>   
+      <%= g_textile version.content %>
+    </div>
+  </div>
+  <br><br>
+<% end %>
+<div class="meta">
+  <p class="links">
+    <%= link_to "destroy", @blog, :confirm => 'Are you sure?', :method => :delete if admin? %> &nbsp;&nbsp;&nbsp; 
+    <%= link_to 'edit', edit_blog_path(@blog) if admin? %>
+  </p>
+</div>

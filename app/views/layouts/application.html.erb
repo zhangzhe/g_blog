@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :all %>
+    <title>Keeping strong</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+	<div id="logo">
+	  <h1><%= link_to("KEEPING STRONG!!", "/") %></h1>
+	</div>
+	<div id="menu">
+	  <ul>
+	    <%= g_link_to("home", blogs_url, "blogs") %>
+	    <%= g_link_to("Photo", upload_files_url, "upload_files") %>	    
+	    <li><%= link_to("About", "") %></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="page">
+	<div id="my_content">
+	  <div class="post">
+	    <%= yield %>
+	  </div>
+	</div>
+	<div id="sidebar">
+	  <ul>
+	    <li>
+	      <h3><%= link_to "RSS Feed", blogs_url(:rss) %></h3>
+	      <h2>Recenttttttttttttttt</h2>
+	      <ul>
+		<li><%= link_to("Recent1", "") %></li>
+		<li><%= link_to("Recent2", "") %></li>
+		<li><%= link_to("Recent3", "") %></li>
+		<li><%= link_to("Recent4", "") %></li>
+		<li><%= link_to("Recent5", "") %></li>
+		<li><%= link_to("Recent6", "") %></li>
+	      </ul>
+	    </li>
+	    <li>
+	      <%= link_to "<h2> All </h2>", ""%>
+	      <h2> Tags </h2>
+	      <ul>
+		<li><%= link_to("fun", "") %></li>
+		<li><%= link_to("rails", "") %></li>
+		<li><%= link_to("spec", "") %></li>
+		<li><%= link_to("ubuntu", "") %></li>
+		<li><%= link_to("ironman", "") %></li>
+	      </ul>
+	    </li>
+	    <li id="search">
+	      <form method="get" action="">
+		<fieldset>
+		  <input type="text" id="s" name="s" value="" /> go
+		</fieldset>
+	      </form>
+	    </li>	  
+	  </ul>
+	</div>
+	<div style="clear: both;">&nbsp;</div>
+      </div>
+    </div>
+    <div id="footer">
+      <p>(c) 2009 zhangzhe</a></p>
+  </div>
+</body>
+</html>

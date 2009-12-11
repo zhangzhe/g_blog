@@ -1,0 +1,25 @@
+
+<% @blog.versions.each do |@version| %>
+<hv>
+  <%= @version.version_type %> version
+</hv>
+<% form_for(@version) do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => 70 %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content, :size => "90x25" %>
+  </p>
+  <%= hidden_field_tag 'version_type', @version.version_type %>
+  <p>
+    <%= f.submit 'update' %>
+  </p>
+<% end %>
+<% end %>
+
+<%= render(:partial => "upload_files/create") %>
+
+<%= link_to 'show', @blog %> |
+<%= link_to 'back', blogs_path %>

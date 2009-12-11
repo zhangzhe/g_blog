@@ -1,0 +1,12 @@
+rules:
+  color:
+    red: "#FF0000"
+    green: "#088A4B"
+    blue: "#0000FF"
+  tag:
+    *: </b>
+    _: </i>
+    +: </u>
+
+version_types: 
+  [chinese, english]

@@ -1,0 +1,19 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh:
+  new: "新建"
+  edit: "修改"
+  delete: "删除"
+  show: "显示"
+  destroy: "删除"
+  title: "标题"
+  content: "内容"
+  app_title: "张哲的博客"
+  not_logged_in: "您还没有登录"
+  login: "登录"
+  sign Up: "注册"
+  logout: "离开"
+  login_info: "您的登录帐号为"
+  flash:
+    unauthorized: "请先登录"
