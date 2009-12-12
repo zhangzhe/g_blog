@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sat Dec 12 01:16:47 +0800 2009 with 
+      Generated on Sat Dec 12 19:32:18 +0800 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -174,16 +174,16 @@
     <td class='heading'> Total coverage </td> <td class='heading'> Code coverage
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='app-models-formatable_string_rb.html'> app/models/formatable_string.rb
-    </a> </td> <td class='lines_total'> <tt> 104 </tt> </td> <td
-    class='lines_code'> <tt> 92 </tt> </td> <td> <table cellspacing='0'
-    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_total'> 88.5%
+    </a> </td> <td class='lines_total'> <tt> 93 </tt> </td> <td
+    class='lines_code'> <tt> 81 </tt> </td> <td> <table cellspacing='0'
+    align='right' cellpadding='0'> <tr> <td> <tt class='coverage_total'> 100.0%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
-    width='100' cellpadding='0'> <tr> <td class='covered' width='88' /> <td
-    class='uncovered' width='12' /> </tr> </table> </td> </tr> </table> </td>
+    width='100' cellpadding='0'> <tr> <td class='covered' width='100' /> <td
+    class='uncovered' width='0' /> </tr> </table> </td> </tr> </table> </td>
     <td> <table cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
-    class='coverage_code'> 87.0% </tt> &nbsp; </td> <td> <table
+    class='coverage_code'> 100.0% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' width='100' cellpadding='0'> <tr> <td
-    class='covered' width='87' /> <td class='uncovered' width='13' /> </tr>
+    class='covered' width='100' /> <td class='uncovered' width='0' /> </tr>
     </table> </td> </tr> </table> </td> </tr> </tbody> </table><pre><span
     class="marked0"><a name="line1"></a> 1 class FormatableString &lt; String
     </span><span class="marked1"><a name="line2"></a> 2 def to_html_format
@@ -195,126 +195,109 @@
     class="inferred1"><a name="line6"></a> 6 end </span><span class="marked0"><a
     name="line7"></a> 7 return content </span><span class="inferred1"><a
     name="line8"></a> 8 end </span><span class="inferred0"><a name="line9"></a>
-    9 end </span><span class="inferred1"><a name="line10"></a> 10 </span><span
-    class="marked0"><a name="line11"></a> 11 class NString &lt; FormatableString
-    </span><span class="marked1"><a name="line12"></a> 12 def format
-    </span><span class="marked0"><a name="line13"></a> 13 return
-    self.gsub(&quot;\n&quot;, &quot;&lt;br/&gt;\n\r&quot;).gsub(&quot;\t&quot;,
+    9 end </span><span class="inferred1"><a name="line10"></a>10 </span><span
+    class="marked0"><a name="line11"></a>11 class NString &lt; FormatableString
+    </span><span class="marked1"><a name="line12"></a>12 def format </span><span
+    class="marked0"><a name="line13"></a>13 return self.gsub(&quot;\n&quot;,
+    &quot;&lt;br/&gt;\n\r&quot;).gsub(&quot;\t&quot;,
     &quot;&amp;nbsp;&amp;nbsp;&quot;) </span><span class="inferred1"><a
-    name="line14"></a> 14 end </span><span class="inferred0"><a
-    name="line15"></a> 15 end </span><span class="inferred1"><a
-    name="line16"></a> 16 </span><span class="marked0"><a name="line17"></a> 17
+    name="line14"></a>14 end </span><span class="inferred0"><a
+    name="line15"></a>15 end </span><span class="inferred1"><a
+    name="line16"></a>16 </span><span class="marked0"><a name="line17"></a>17
     class FontSizeString &lt; FormatableString </span><span class="marked1"><a
-    name="line18"></a> 18 def format </span><span class="marked0"><a
-    name="line19"></a> 19 return self.gsub(/\[f1\](.+)\[\/f1\]/,'&lt;span
+    name="line18"></a>18 def format </span><span class="marked0"><a
+    name="line19"></a>19 return self.gsub(/\[f1\](.+)\[\/f1\]/,'&lt;span
     style=&quot;font-size:17px&quot;&gt;\1&lt;/span&gt;') </span><span
-    class="inferred1"><a name="line20"></a> 20 end </span><span
-    class="inferred0"><a name="line21"></a> 21 end </span><span
-    class="inferred1"><a name="line22"></a> 22 </span><span class="marked0"><a
-    name="line23"></a> 23 class FontColorString &lt; FormatableString
-    </span><span class="marked1"><a name="line24"></a> 24 COLORS =
+    class="inferred1"><a name="line20"></a>20 end </span><span
+    class="inferred0"><a name="line21"></a>21 end </span><span
+    class="inferred1"><a name="line22"></a>22 </span><span class="marked0"><a
+    name="line23"></a>23 class FontColorString &lt; FormatableString
+    </span><span class="marked1"><a name="line24"></a>24 COLORS =
     {&quot;green&quot; =&gt; &quot;#33CC00&quot;, &quot;red&quot; =&gt;
     &quot;#FF2D2D&quot;, &quot;blue&quot; =&gt; &quot;#2828FF&quot;}
-    </span><span class="marked0"><a name="line25"></a> 25 def format
-    </span><span class="marked1"><a name="line26"></a> 26 content = self
-    </span><span class="marked0"><a name="line27"></a> 27 COLORS.each do |key,
-    value| </span><span class="marked1"><a name="line28"></a> 28
+    </span><span class="marked0"><a name="line25"></a>25 def format </span><span
+    class="marked1"><a name="line26"></a>26 content = self </span><span
+    class="marked0"><a name="line27"></a>27 COLORS.each do |key, value|
+    </span><span class="marked1"><a name="line28"></a>28
     content.gsub!(/\[#{key}\](.+?)\[\/#{key}\]/, '&lt;font color=\'' + value +
     '\'&gt;\1&lt;/font&gt;') </span><span class="inferred0"><a
-    name="line29"></a> 29 end </span><span class="marked1"><a name="line30"></a>
-    30 return content </span><span class="inferred0"><a name="line31"></a> 31
-    end </span><span class="inferred1"><a name="line32"></a> 32 end </span><span
-    class="inferred0"><a name="line33"></a> 33 </span><span class="marked1"><a
-    name="line34"></a> 34 class ImageString &lt; FormatableString </span><span
-    class="marked0"><a name="line35"></a> 35 def format </span><span
-    class="marked1"><a name="line36"></a> 36 return
-    self.gsub(/\[img(:*.*)\](.+?)\[\/img\]/,'&lt;img style=&quot;float\1&quot;
-    src=&quot;\2&quot;&gt;') </span><span class="inferred0"><a
-    name="line37"></a> 37 end </span><span class="inferred1"><a
-    name="line38"></a> 38 end </span><span class="inferred0"><a
-    name="line39"></a> 39 </span><span class="marked1"><a name="line40"></a> 40
-    class UrlString &lt; FormatableString </span><span class="marked0"><a
-    name="line41"></a> 41 def format </span><span class="marked1"><a
-    name="line42"></a> 42 return self.gsub(/\[link:(.+?)\](.+?)\[\/link\]/,
-    '&lt;a target=&quot;_blank&quot;
+    name="line29"></a>29 end </span><span class="marked1"><a
+    name="line30"></a>30 return content </span><span class="inferred0"><a
+    name="line31"></a>31 end </span><span class="inferred1"><a
+    name="line32"></a>32 end </span><span class="inferred0"><a
+    name="line33"></a>33 </span><span class="marked1"><a name="line34"></a>34
+    class ImageString &lt; FormatableString </span><span class="marked0"><a
+    name="line35"></a>35 def format </span><span class="marked1"><a
+    name="line36"></a>36 return self.gsub(/\[img(:*.*)\](.+?)\[\/img\]/,'&lt;img
+    style=&quot;float\1&quot; src=&quot;\2&quot;&gt;') </span><span
+    class="inferred0"><a name="line37"></a>37 end </span><span
+    class="inferred1"><a name="line38"></a>38 end </span><span
+    class="inferred0"><a name="line39"></a>39 </span><span class="marked1"><a
+    name="line40"></a>40 class UrlString &lt; FormatableString </span><span
+    class="marked0"><a name="line41"></a>41 def format </span><span
+    class="marked1"><a name="line42"></a>42 return
+    self.gsub(/\[link:(.+?)\](.+?)\[\/link\]/, '&lt;a target=&quot;_blank&quot;
     href=\2&gt;&lt;u&gt;\1&lt;/u&gt;&lt;/a&gt;') </span><span
-    class="inferred0"><a name="line43"></a> 43 end </span><span
-    class="inferred1"><a name="line44"></a> 44 end </span><span
-    class="inferred0"><a name="line45"></a> 45 </span><span class="marked1"><a
-    name="line46"></a> 46 class RuleString &lt; FormatableString </span><span
-    class="marked0"><a name="line47"></a> 47 RULES = {&quot;*&quot; =&gt;
+    class="inferred0"><a name="line43"></a>43 end </span><span
+    class="inferred1"><a name="line44"></a>44 end </span><span
+    class="inferred0"><a name="line45"></a>45 </span><span class="marked1"><a
+    name="line46"></a>46 class RuleString &lt; FormatableString </span><span
+    class="marked0"><a name="line47"></a>47 RULES = {&quot;*&quot; =&gt;
     &quot;&lt;/b&gt;&quot;, &quot;_&quot; =&gt; &quot;&lt;/i&gt;&quot;,
     &quot;+&quot; =&gt; &quot;&lt;/u&gt;&quot;} </span><span class="marked1"><a
-    name="line48"></a> 48 def format </span><span class="marked0"><a
-    name="line49"></a> 49 @content = self </span><span class="marked1"><a
-    name="line50"></a> 50 unescape_rule = generate_unescape_rule </span><span
-    class="marked0"><a name="line51"></a> 51 escape_rule =
+    name="line48"></a>48 def format </span><span class="marked0"><a
+    name="line49"></a>49 @content = self </span><span class="marked1"><a
+    name="line50"></a>50 unescape_rule = generate_unescape_rule </span><span
+    class="marked0"><a name="line51"></a>51 escape_rule =
     generate_escape_rule(unescape_rule) </span><span class="marked1"><a
-    name="line52"></a> 52 escape(escape_rule) </span><span class="marked0"><a
-    name="line53"></a> 53 convert_with_tag </span><span class="marked1"><a
-    name="line54"></a> 54 escape(unescape_rule) </span><span class="marked0"><a
-    name="line55"></a> 55 return @content </span><span class="inferred1"><a
-    name="line56"></a> 56 end </span><span class="inferred0"><a
-    name="line57"></a> 57 </span><span class="marked1"><a name="line58"></a> 58
-    private </span><span class="marked0"><a name="line59"></a> 59 def
-    convert_with_tag </span><span class="marked1"><a name="line60"></a> 60
-    escape_rules =[] </span><span class="marked0"><a name="line61"></a> 61
-    RULES.each do |key, value| </span><span class="marked1"><a
-    name="line62"></a> 62 while (@content =~
-    /#{&quot;\\&quot;+key}(.+?)#{&quot;\\&quot;+key}/m and $&amp; !~
-    /#{&quot;\\&quot;+key}([A-Z]+?)\%/ and @content =~
-    /#{&quot;\\&quot;+key}(.+?)#{&quot;\\&quot;+key}/m) </span><span
-    class="marked0"><a name="line63"></a> 63 if !$&amp;.include?(key + key)
-    </span><span class="marked1"><a name="line64"></a> 64 @content = $` +
+    name="line52"></a>52 escape(escape_rule) </span><span class="marked0"><a
+    name="line53"></a>53 convert </span><span class="marked1"><a
+    name="line54"></a>54 escape(unescape_rule) </span><span class="marked0"><a
+    name="line55"></a>55 return @content </span><span class="inferred1"><a
+    name="line56"></a>56 end </span><span class="inferred0"><a
+    name="line57"></a>57 </span><span class="marked1"><a name="line58"></a>58
+    private </span><span class="marked0"><a name="line59"></a>59 def convert
+    </span><span class="marked1"><a name="line60"></a>60 escape_rules =[]
+    </span><span class="marked0"><a name="line61"></a>61 RULES.each do |key,
+    value| </span><span class="marked1"><a name="line62"></a>62 while @content
+    =~ /#{&quot;\\&quot;+key}(.+?)#{&quot;\\&quot;+key}/m </span><span
+    class="marked0"><a name="line63"></a>63 @content = $` +
     value.delete(&quot;/&quot;) + $1 + value + $' </span><span
-    class="uncovered0"><a name="line65"></a> 65 else#? </span><span
-    class="uncovered1"><a name="line66"></a> 66 if @content =~
-    /#{&quot;\\&quot;+key}(.+)#{&quot;\\&quot;+key}/m </span><span
-    class="uncovered0"><a name="line67"></a> 67 escape_rule = [Kernel.rand.to_s,
-    $&amp;] </span><span class="uncovered1"><a name="line68"></a> 68
-    escape_rules &lt;&lt; escape_rule </span><span class="uncovered0"><a
-    name="line69"></a> 69 @content = $` + escape_rule[0] + $' </span><span
-    class="uncovered1"><a name="line70"></a> 70 end </span><span
-    class="uncovered0"><a name="line71"></a> 71 end </span><span
-    class="uncovered1"><a name="line72"></a> 72 end </span><span
-    class="uncovered0"><a name="line73"></a> 73 end </span><span
-    class="marked1"><a name="line74"></a> 74 escape_rules.each do |escape_rule|
-    </span><span class="uncovered0"><a name="line75"></a> 75
-    @content.gsub!(escape_rule[0],escape_rule[1]) </span><span
-    class="uncovered1"><a name="line76"></a> 76 end </span><span
-    class="uncovered0"><a name="line77"></a> 77 end </span><span
-    class="inferred1"><a name="line78"></a> 78 </span><span class="marked0"><a
-    name="line79"></a> 79 def generate_unescape_rule </span><span
-    class="marked1"><a name="line80"></a> 80 un_escape_rule = [] </span><span
-    class="marked0"><a name="line81"></a> 81 RULES.each_key do |key|
-    </span><span class="marked1"><a name="line82"></a> 82 un_escape_rule
-    &lt;&lt; [Kernel.rand.to_s, key] </span><span class="inferred0"><a
-    name="line83"></a> 83 end </span><span class="marked1"><a name="line84"></a>
-    84 return un_escape_rule </span><span class="inferred0"><a
-    name="line85"></a> 85 end </span><span class="inferred1"><a
-    name="line86"></a> 86 </span><span class="marked0"><a name="line87"></a> 87
-    def generate_escape_rule(un_escape_rule) </span><span class="marked1"><a
-    name="line88"></a> 88 escape_rule = un_escape_rule.map{|rule|
-    [&quot;\\&quot; + rule[1], rule[0]]} </span><span class="marked0"><a
-    name="line89"></a> 89 return escape_rule </span><span class="inferred1"><a
-    name="line90"></a> 90 end </span><span class="inferred0"><a
-    name="line91"></a> 91 </span><span class="marked1"><a name="line92"></a> 92
-    def escape(escape_rules) </span><span class="marked0"><a name="line93"></a>
-    93 escape_rules.each { |escape_rule| @content.gsub!(escape_rule[0],
-    escape_rule[1]) } </span><span class="inferred1"><a name="line94"></a> 94
-    end </span><span class="inferred0"><a name="line95"></a> 95 end </span><span
-    class="inferred1"><a name="line96"></a> 96 </span><span class="inferred0"><a
-    name="line97"></a> 97 #importent to put it in the end </span><span
-    class="marked1"><a name="line98"></a> 98 class ListString &lt;
-    FormatableString </span><span class="marked0"><a name="line99"></a> 99 def
-    format </span><span class="marked1"><a name="line100"></a>100 content = self
-    + &quot;\n&quot; # add \n </span><span class="marked0"><a
-    name="line101"></a>101 content.gsub!(/(^\* [^\n]+\n)+/) {|ul|
-    &quot;&lt;ul&gt;#{ul.gsub!(/\* [^\n]+\n/){|li|
-    &quot;&lt;li&gt;#{li[2..-2]}&lt;/li&gt;&quot;} }&lt;\/ul&gt;&quot;}
-    </span><span class="marked1"><a name="line102"></a>102 return content[0..-2]
-    # remove \n </span><span class="inferred0"><a name="line103"></a>103 end
-    </span><span class="inferred1"><a name="line104"></a>104 end </span></pre>
+    class="inferred1"><a name="line64"></a>64 end </span><span
+    class="inferred0"><a name="line65"></a>65 end </span><span
+    class="inferred1"><a name="line66"></a>66 end </span><span
+    class="inferred0"><a name="line67"></a>67 </span><span class="marked1"><a
+    name="line68"></a>68 def generate_unescape_rule </span><span
+    class="marked0"><a name="line69"></a>69 un_escape_rule = [] </span><span
+    class="marked1"><a name="line70"></a>70 RULES.each_key do |key| </span><span
+    class="marked0"><a name="line71"></a>71 un_escape_rule &lt;&lt;
+    [Kernel.rand.to_s, key] </span><span class="inferred1"><a
+    name="line72"></a>72 end </span><span class="marked0"><a
+    name="line73"></a>73 return un_escape_rule </span><span class="inferred1"><a
+    name="line74"></a>74 end </span><span class="inferred0"><a
+    name="line75"></a>75 </span><span class="marked1"><a name="line76"></a>76
+    def generate_escape_rule(un_escape_rule) </span><span class="marked0"><a
+    name="line77"></a>77 escape_rule = un_escape_rule.map{|rule| [&quot;\\&quot;
+    + rule[1], rule[0]]} </span><span class="marked1"><a name="line78"></a>78
+    return escape_rule </span><span class="inferred0"><a name="line79"></a>79
+    end </span><span class="inferred1"><a name="line80"></a>80 </span><span
+    class="marked0"><a name="line81"></a>81 def escape(escape_rules)
+    </span><span class="marked1"><a name="line82"></a>82 escape_rules.each {
+    |escape_rule| @content.gsub!(escape_rule[0], escape_rule[1]) } </span><span
+    class="inferred0"><a name="line83"></a>83 end </span><span
+    class="inferred1"><a name="line84"></a>84 end </span><span
+    class="inferred0"><a name="line85"></a>85 </span><span class="inferred1"><a
+    name="line86"></a>86 #importent to put it in the end </span><span
+    class="marked0"><a name="line87"></a>87 class ListString &lt;
+    FormatableString </span><span class="marked1"><a name="line88"></a>88 def
+    format </span><span class="marked0"><a name="line89"></a>89 content = self +
+    &quot;\n&quot; # add \n </span><span class="marked1"><a name="line90"></a>90
+    content.gsub!(/(^\* [^\n]+\n)+/) {|ul| &quot;&lt;ul&gt;#{ul.gsub!(/\*
+    [^\n]+\n/){|li| &quot;&lt;li&gt;#{li[2..-2]}&lt;/li&gt;&quot;}
+    }&lt;\/ul&gt;&quot;} </span><span class="marked0"><a name="line91"></a>91
+    return content[0..-2] # remove \n </span><span class="inferred1"><a
+    name="line92"></a>92 end </span><span class="inferred0"><a
+    name="line93"></a>93 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

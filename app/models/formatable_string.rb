@@ -50,29 +50,18 @@
       unescape_rule = generate_unescape_rule
       escape_rule = generate_escape_rule(unescape_rule)
       escape(escape_rule)
-      convert_with_tag
+      convert
       escape(unescape_rule)
       return @content
     end
     
     private
-    def convert_with_tag
+    def convert
       escape_rules =[]
       RULES.each do |key, value|
-        while (@content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m and $& !~ /#{"\\"+key}([A-Z]+?)\%/ and @content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m)
-          if !$&.include?(key + key)
-            @content = $` + value.delete("/") + $1 + value + $'
-          else#?
-            if @content =~ /#{"\\"+key}(.+)#{"\\"+key}/m
-              escape_rule = [Kernel.rand.to_s, $&]
-              escape_rules << escape_rule
-              @content = $` + escape_rule[0] + $' 
-            end
-          end
+        while @content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m
+          @content = $` + value.delete("/") + $1 + value + $'
         end
-      end
-      escape_rules.each do |escape_rule|
-        @content.gsub!(escape_rule[0],escape_rule[1])
       end
     end
     

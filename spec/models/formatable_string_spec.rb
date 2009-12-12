@@ -64,7 +64,7 @@ describe RuleString do
     
     it "should escape \\" do
       rule_string = RuleString.new("*b*_i_+u+1\+1=2* \\*\\* *")
-      rule_string.format.should == "<b>b</b><i>i</i><u>u</u>1+1=2<b> \*\* </b>"
+      rule_string.format.should == "<b>b</b><i>i</i><u>u</u>1+1=2<b> ** </b>"
      end
   end
 end
