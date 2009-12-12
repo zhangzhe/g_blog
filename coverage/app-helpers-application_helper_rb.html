@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sat Dec 12 19:32:18 +0800 2009 with 
+      Generated on Sat Dec 12 21:20:38 +0800 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -175,43 +175,45 @@
     </td> </tr> </thead> <tbody> <tr class='light'> <td> <a
     href='app-helpers-application_helper_rb.html'>
     app/helpers/application_helper.rb </a> </td> <td class='lines_total'> <tt>
-    22 </tt> </td> <td class='lines_code'> <tt> 21 </tt> </td> <td> <table
+    24 </tt> </td> <td class='lines_code'> <tt> 21 </tt> </td> <td> <table
     cellspacing='0' align='right' cellpadding='0'> <tr> <td> <tt
-    class='coverage_total'> 18.2% </tt> &nbsp; </td> <td> <table
+    class='coverage_total'> 16.7% </tt> &nbsp; </td> <td> <table
     class='percent_graph' cellspacing='0' width='100' cellpadding='0'> <tr> <td
-    class='covered' width='18' /> <td class='uncovered' width='82' /> </tr>
+    class='covered' width='17' /> <td class='uncovered' width='83' /> </tr>
     </table> </td> </tr> </table> </td> <td> <table cellspacing='0'
     align='right' cellpadding='0'> <tr> <td> <tt class='coverage_code'> 14.3%
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
     width='100' cellpadding='0'> <tr> <td class='covered' width='14' /> <td
     class='uncovered' width='86' /> </tr> </table> </td> </tr> </table> </td>
-    </tr> </tbody> </table><pre><span class="marked0"><a name="line1"></a> 1
-    module ApplicationHelper </span><span class="marked1"><a name="line2"></a> 2
-    def parse_coderay(text) </span><span class="uncovered0"><a name="line3"></a>
+    </tr> </tbody> </table><pre><span class="marked1"><a name="line1"></a> 1
+    module ApplicationHelper </span><span class="marked0"><a name="line2"></a> 2
+    def parse_coderay(text) </span><span class="uncovered1"><a name="line3"></a>
     3 text.scan(/(\[code\:([a-z].+?)\](.+?)\[\/code\])/m).each do |match|
-    </span><span class="uncovered1"><a name="line4"></a> 4 text.gsub!(match[0],
+    </span><span class="uncovered0"><a name="line4"></a> 4 text.gsub!(match[0],
     CodeRay.scan(match[2].strip, match[1].to_sym).div(:line_numbers =&gt;
-    :table,:css =&gt; :class)) </span><span class="uncovered0"><a
-    name="line5"></a> 5 end </span><span class="uncovered1"><a name="line6"></a>
-    6 return text </span><span class="uncovered0"><a name="line7"></a> 7 end
-    </span><span class="inferred1"><a name="line8"></a> 8 </span><span
-    class="marked0"><a name="line9"></a> 9 def g_textile(text) </span><span
-    class="uncovered1"><a name="line10"></a>10 if text </span><span
-    class="uncovered0"><a name="line11"></a>11 result = &quot;&quot;
-    </span><span class="uncovered1"><a name="line12"></a>12 if text =~
-    /(\[code\:([a-z].+?)\](.+?)\[\/code\])/m </span><span class="uncovered0"><a
+    :table,:css =&gt; :class)) </span><span class="uncovered1"><a
+    name="line5"></a> 5 end </span><span class="uncovered0"><a name="line6"></a>
+    6 return text </span><span class="uncovered1"><a name="line7"></a> 7 end
+    </span><span class="inferred0"><a name="line8"></a> 8 </span><span
+    class="marked1"><a name="line9"></a> 9 def g_textile(text) </span><span
+    class="uncovered0"><a name="line10"></a>10 if text </span><span
+    class="uncovered1"><a name="line11"></a>11 result = &quot;&quot;
+    </span><span class="uncovered0"><a name="line12"></a>12 if text =~
+    /(\[code\:([a-z].+?)\](.+?)\[\/code\])/m </span><span class="uncovered1"><a
     name="line13"></a>13 while text =~ /(\[code\:([a-z].+?)\](.+?)\[\/code\])/m
-    </span><span class="uncovered1"><a name="line14"></a>14 result &lt;&lt;
-    FormatString.new($`).html_format + $&amp; </span><span class="uncovered0"><a
-    name="line15"></a>15 text = $' </span><span class="uncovered1"><a
-    name="line16"></a>16 end </span><span class="uncovered0"><a
-    name="line17"></a>17 end </span><span class="uncovered1"><a
-    name="line18"></a>18 result &lt;&lt; FormatString.new(text).html_format
-    </span><span class="uncovered0"><a name="line19"></a>19
-    parse_coderay(result) </span><span class="uncovered1"><a
-    name="line20"></a>20 end </span><span class="uncovered0"><a
-    name="line21"></a>21 end </span><span class="uncovered1"><a
-    name="line22"></a>22 end </span></pre>
+    </span><span class="uncovered0"><a name="line14"></a>14 result &lt;&lt;
+    FormatableString.new($`).to_html_format + $&amp; </span><span
+    class="uncovered1"><a name="line15"></a>15 text = $' </span><span
+    class="uncovered0"><a name="line16"></a>16 end </span><span
+    class="uncovered1"><a name="line17"></a>17 end </span><span
+    class="uncovered0"><a name="line18"></a>18 result &lt;&lt;
+    FormatableString.new(text).to_html_format </span><span class="uncovered1"><a
+    name="line19"></a>19 parse_coderay(result) </span><span
+    class="uncovered0"><a name="line20"></a>20 #test later </span><span
+    class="uncovered1"><a name="line21"></a>21 #CoderayString.new(result).format
+    </span><span class="uncovered0"><a name="line22"></a>22 end </span><span
+    class="uncovered1"><a name="line23"></a>23 end </span><span
+    class="uncovered0"><a name="line24"></a>24 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov
     code coverage analysis tool for Ruby </a> version 0.8.1.2. </p>

@@ -156,7 +156,7 @@
       C0 code coverage information
     </h3>
     <p>
-      Generated on Sat Dec 12 19:32:18 +0800 2009 with 
+      Generated on Sat Dec 12 21:20:38 +0800 2009 with 
       <a href='http://eigenclass.org/hiki/rcov'>
         rcov 0.8.1.2
       </a>
@@ -185,29 +185,29 @@
     </tt> &nbsp; </td> <td> <table class='percent_graph' cellspacing='0'
     width='100' cellpadding='0'> <tr> <td class='covered' width='23' /> <td
     class='uncovered' width='77' /> </tr> </table> </td> </tr> </table> </td>
-    </tr> </tbody> </table><pre><span class="inferred1"><a name="line1"></a> 1
-    </span><span class="marked0"><a name="line2"></a> 2 class
+    </tr> </tbody> </table><pre><span class="inferred0"><a name="line1"></a> 1
+    </span><span class="marked1"><a name="line2"></a> 2 class
     UploadFilesController &lt; ApplicationController </span><span
-    class="marked1"><a name="line3"></a> 3 def create </span><span
-    class="uncovered0"><a name="line4"></a> 4 @upload_file =
+    class="marked0"><a name="line3"></a> 3 def create </span><span
+    class="uncovered1"><a name="line4"></a> 4 @upload_file =
     UploadFile.create(params[:upload_file].merge(:blog_id =&gt;
-    params[:blog_id])) </span><span class="uncovered1"><a name="line5"></a> 5
-    responds_to_parent do </span><span class="uncovered0"><a name="line6"></a> 6
-    render(:update) do |page| </span><span class="uncovered1"><a
+    params[:blog_id])) </span><span class="uncovered0"><a name="line5"></a> 5
+    responds_to_parent do </span><span class="uncovered1"><a name="line6"></a> 6
+    render(:update) do |page| </span><span class="uncovered0"><a
     name="line7"></a> 7 page.insert_html :bottom, &quot;files&quot;,
     &quot;#{@upload_file.public_filename.gsub(&quot;_&quot;,
-    &quot;\\_&quot;)}&quot; </span><span class="uncovered0"><a name="line8"></a>
-    8 end </span><span class="uncovered1"><a name="line9"></a> 9 end
-    </span><span class="uncovered0"><a name="line10"></a>10 end </span><span
-    class="inferred1"><a name="line11"></a>11 </span><span class="inferred0"><a
+    &quot;\\_&quot;)}&quot; </span><span class="uncovered1"><a name="line8"></a>
+    8 end </span><span class="uncovered0"><a name="line9"></a> 9 end
+    </span><span class="uncovered1"><a name="line10"></a>10 end </span><span
+    class="inferred0"><a name="line11"></a>11 </span><span class="inferred1"><a
     name="line12"></a>12 # in partial link_to_function
     image_tag(upload_file.public_filename, :size =&gt; &quot;120x100&quot;),
     &quot;alert('[img]#{upload_file.public_filename.gsub(&quot;_&quot;,
-    &quot;\\\\\\_&quot;)}[/img]')&quot; </span><span class="inferred1"><a
-    name="line13"></a>13 </span><span class="marked0"><a name="line14"></a>14
-    def index </span><span class="uncovered1"><a name="line15"></a>15
-    @upload_files = UploadFile.all </span><span class="uncovered0"><a
-    name="line16"></a>16 end </span><span class="uncovered1"><a
+    &quot;\\\\\\_&quot;)}[/img]')&quot; </span><span class="inferred0"><a
+    name="line13"></a>13 </span><span class="marked1"><a name="line14"></a>14
+    def index </span><span class="uncovered0"><a name="line15"></a>15
+    @upload_files = UploadFile.all </span><span class="uncovered1"><a
+    name="line16"></a>16 end </span><span class="uncovered0"><a
     name="line17"></a>17 end </span></pre>
     <hr />
     <p> Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'> rcov

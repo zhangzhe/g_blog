@@ -273,8 +273,23 @@ a img {
 .CodeRay .ta { color:#E7BE69 }                      /* html tag */
 .CodeRay .pc { color:#6C9CBD }                      /* boolean */
 /*buttuns*/
-.fixed_buttons {
+.chinese_fixed_buttons {
     top: 250px;
     right: 16px;
     position: absolute;
+}
+
+.english_fixed_buttons {
+    top: 673px;
+    right: 16px;
+    position: absolute;
+}
+
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
 }

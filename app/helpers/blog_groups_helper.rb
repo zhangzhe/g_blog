@@ -1,0 +1,2 @@
+module BlogGroupsHelper
+end

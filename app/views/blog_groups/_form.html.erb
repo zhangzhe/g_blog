@@ -1,0 +1,24 @@
+<% %w(chinese english).each do |version| %>
+  <% if @blog = @blog_group.send(version) %>
+ <hv><%= link_to_function "#{@blog[:type]}_version", "$('#{@blog[:type]}_form').toggle();" %></hv>
+    <div id="<%= @blog[:type] %>_form">
+      <% form_for(:blog, @blog, :url => blog_path(@blog), :html => {:method => :put, :id => @blog[:type]}) do |f| %>
+	<div class="<%= version %>_fixed_buttons">
+	  <h3>
+	    <%= link_to_function "Save", "$('#{@blog[:type]}').submit();" %><br />
+	    <%#= link_to 'Preview', ""%><br />
+	    <%#= link_to 'Save&Prev', ""%><br />
+	    <%#= link_to 'Update', "document.forms[0].submit()" %><br />
+	    <%= link_to "Example", example_blogs_path %><br />
+	  </h3>
+	</div>
+	<p>
+	  <%= f.text_field :title, :size => 85 %>
+	</p>
+	<%= f.text_area :content, :size => "97x20" %>
+	
+      <% end %>
+    </div>
+    <br><br>
+  <% end %>
+<% end %>

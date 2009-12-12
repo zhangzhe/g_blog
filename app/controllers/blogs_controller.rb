@@ -22,7 +22,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     if @blog.update_attributes(params[:blog])
       flash[:notice] = 'Blog was successfully updated.'
-      redirect_to(@blog) 
+      redirect_to blog_groups_path 
     else
       render :action => "edit"
     end
