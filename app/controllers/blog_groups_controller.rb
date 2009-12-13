@@ -26,4 +26,8 @@ class BlogGroupsController < ApplicationController
       render :action => "edit"
     end
   end
+  
+  def list
+    @blog_groups = BlogGroup.all
+  end
 end

@@ -8,4 +8,13 @@ module ApplicationHelper
     result << FormatableString.new(text).to_html_format
     return CoderayString.new(result).format 
   end
+  
+  def recent
+    @blog_groups = BlogGroup.find(:all, :limit => 3, :order => "created_at DESC")
+    result = "<ul>"
+    @blog_groups.each do |blog_group|
+      result << "<li>#{link_to(blog_group.title, blog_group_path(blog_group))}</li>"
+    end
+    result << "</ul>"
+  end
 end
