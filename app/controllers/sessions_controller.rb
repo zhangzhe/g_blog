@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   
   def create
     session[:password] = params[:password]
-    redirect_to blogs_path
+    redirect_to blog_groups_path
   end
 
   def destroy

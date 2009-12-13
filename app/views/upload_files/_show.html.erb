@@ -1,0 +1,1 @@
+ <%= link_to_function image_tag(upload_file.public_filename, :size => "200x160"), "alert('[img]#{upload_file.public_filename.gsub("_", "\\\\\\_")}[/img]')" %>

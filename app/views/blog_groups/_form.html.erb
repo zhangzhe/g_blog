@@ -9,7 +9,8 @@
 	    <%#= link_to 'Preview', ""%><br />
 	    <%#= link_to 'Save&Prev', ""%><br />
 	    <%#= link_to 'Update', "document.forms[0].submit()" %><br />
-	    <%= link_to "Example", example_blogs_path %><br />
+	    <%= link_to "Example", example_blogs_path, :popup => true %><br />
+	    <%= link_to "File", blog_group_upload_files_path(:blog_group_id => @blog_group), :popup => true %><br />
 	  </h3>
 	</div>
 	<p>

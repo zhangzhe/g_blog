@@ -1,3 +1,11 @@
-<% @upload_files.each do |upload_file| %>
-  <%= image_tag(upload_file.public_filename) %>
+<% form_for(UploadFile.new, :url => blog_group_upload_files_path(:blog_group_id => @blog_group, :format => 'js'), :html => { :multipart => true, :target => 'upload_frame', :id => "upload_file_form"}) do |f| %>
+  <%= f.file_field :uploaded_data, :onchange => "$('upload_file_form').submit();$('upload_file_form').reset();" %>
 <% end %>
+<p>
+  <div id="files">
+    <% @upload_files.each do |upload_file| %>
+      <%= render(:partial => "show", :locals => { :upload_file => upload_file }) %>
+    <% end %>
+  </div>
+</p>
+<iframe name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>
