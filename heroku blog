@@ -1,0 +1,565 @@
+no cheat sheet anymore
+
+[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload\_files/6/cheat\_sheet.jpg[/img]
+All the times I used cheat sheet to struggle my bad memory. 
+
+[red]RAILS sheet[/red]
+[red]MYSQL sheet[/red]
+[red]PROTOTYPE sheet[/red]
+[red]GIRL sheet...[/red]
+
+No need anymore!!! 
+
+[f1][link:cheat]http://cheat.errtheblog.com[/link][/f1] Comes.
+
+*install*
+sudo gem install cheat
+
+*use*
+cheat <sheet name>
+
+*check all*
+cheat sheets
+
+*help*
+cheat cheat
+
+*examples*
+cheat mysql
+cheat svn
+cheat ruby
+cheat console
+
+
+
+
+不再需要"小纸条"
+
+[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload\_files/6/cheat\_sheet.jpg[/img]
+工作以来一直用小纸条来记忆一些容易遗忘的命令。 
+
+[red]RAILS sheet[/red]
+[red]MYSQL sheet[/red]
+[red]PROTOTYPE sheet[/red]
+[red]GIRL sheet...[/red]
+
+以后这些小黄条可以都撕了!!! 
+
+因为[f1][link:cheat]http://cheat.errtheblog.com[/link][/f1].
+
+*安装*
+sudo gem install cheat
+
+*使用*
+cheat <小纸条名称>
+
+*列出已有的所有小纸条*
+cheat sheets
+
+*帮助*
+cheat cheat
+
+*例子*
+cheat mysql
+cheat svn
+cheat ruby
+cheat console
+
+
+
+我的emacs配置
+
+使用ruby on rails 两年了，期间使用过[link:Eclipse]http://www.eclipse.org[/link]和[link:Netbeans]http://netbeans.org[/link]，半年以前开始使用emacs。
+经过刚开始的不适，半年来不断到处拷代码，改配置。最近感觉逐渐使得顺手了。
+把配置贴出来做一个记录，也希望能对其他人有启发或者帮助 :) 
+
+主题：[link:color-theme-twilight]http://github.com/crafterm/twilight-emacs/blob/376aa10f6594779414ecb0e90742a8b1f3044f07/color-theme-twilight.el[/link]
+
+
+*主题*
+[img]http://s3.amazonaws.com/recordings.idapted.com/upload\_files/14/emacs\_view.gif[/img]
+
+
+*自定义常用快捷键*
+* F5              compile
+* F12             kill buffer
+* C-F12           kill rinari files
+* C-w             kill one line
+* s-m             choose model
+* s-c             choose controller
+* s-g             go to line
+* s-o             commit code
+* s-u             uncommit code
+* s-h             hide all methods
+* s-s             show all methods
+* s-t             toggle block
+* s-a             find file in rails project
+
+
+
+
+*.emacs中的代码* 
+[code:diff]
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(case-fold-search nil)
+ '(column-number-mode t)
+ '(current-language-environment "UTF-8")
+ '(default-input-method "rfc1345")
+ '(ecb-layout-name "smart")
+ '(ecb-layout-window-sizes (quote (("smart" (0.24 . 2.4029629629629627)))))
+ '(ecb-options-version "2.40")
+ '(global-font-lock-mode t nil (font-lock))
+ '(initial-buffer-choice "~/idapted")
+ '(menu-bar-mode nil)
+ '(show-paren-mode t)
+ '(speedbar-frame-parameters (quote ((minibuffer) (width . 40) (border-width . 0) 
+(menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
+ '(speedbar-hide-button-brackets-flag t)
+ '(speedbar-show-unknown-files t)
+ '(speedbar-track-mouse-flag t)
+ '(speedbar-use-tool-tips-flag nil)
+ '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify)))
+ '(tool-bar-mode nil)
+ '(tooltip-mode nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+
+(load "~/.emacs.d/my-custom.el")
+
+;;(custom-set-faces
+;; '(default ((t (:inherit nil :stipple nil :background "black" :foreground "#F8F8F8" 
+:inverse-video nil :box nil :strike-through nil :overline nil 
+:underline nil 
+:slant normal :weight normal :height 133 :width normal :foundry "microsoft" 
+:family "Microsoft YaHei")))))
+
+;;Monaco
+(set-default-font "Monaco:pixelsize=18")
+(set-fontset-font (frame-parameter nil 'font) 'han
+                  (font-spec :family "WenQuanYi Zen Hei" :size 18))
+[/code]
+
+*~/.emacs.d/my-custom.el*中的代码
+[code:diff]
+;;show file in title
+(setq frame-title-format '("%f"))
+
+;;'y' for 'yes', 'n' for 'no'
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;highlight current line
+(require 'hl-line)
+(global-hl-line-mode t)
+
+;;screen set
+(setq default-frame-alist '((top . 2) (left . 2) (height . 30) (width . 110)))
+
+;;ido
+(require 'ido)
+(setq ido-confirm-unique-completion t)
+(setq ido-default-buffer-method 'samewindow)
+(setq ido-use-filename-at-point t)
+(setq ido-enable-flex-matching t)
+(ido-mode t)
+(ido-everywhere t)
+(set-face-background 'ido-first-match "green")
+(set-face-foreground 'ido-subdir "blue3")
+
+;;cursor
+(setq-default cursor-type 'bar) 
+
+;;copy to other place
+(setq x-select-enable-clipboard t)
+
+;;no backup file
+(setq make-backup-files nil)
+
+;;twilight theme
+(setq load-path (cons "~/.emacs.d/themes" load-path))
+(require 'color-theme)
+(color-theme-initialize)
+(load-file "~/.emacs.d/themes/color-theme-twilight.el")
+(color-theme-twilight)
+
+;;ecb
+(load-file "~/.emacs.d/cedet/common/cedet.el")
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+(setq load-path (cons "~/.emacs.d/ecb" load-path))
+(require 'ecb)
+(setq ecb-auto-activate t)
+(add-hook 'ecb-activate-hook 
+          '(lambda() 
+             (setq ecb-auto-activate t
+		   ecb-tip-of-the-day nil
+		   )))
+
+;;better copy
+(defadvice kill-ring-save (before slickcopy activate compile)
+  "When called interactively with no active region, copy a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+	   (line-beginning-position 2)))))
+(defadvice kill-region (before slickcut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+	   (line-beginning-position 2)))))
+
+;;org mode
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-hide-leading-stars t)
+(setq org-log-done t)
+
+;;add one line 
+(global-set-key (kbd "s-l")
+		'(lambda ()
+		   (interactive)
+		   (end-of-line 1)
+		   (newline-and-indent)))
+
+;;ruby on rails
+(setq load-path (cons "~/.emacs.d/ruby" load-path))
+(setq load-path (cons "~/.emacs.d/rails" load-path))
+(require 'rails)
+
+;;flymake
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+
+;;smart-compile
+(require 'smart-compile)
+
+;;run
+(setq smart-compile-alist
+      '( ("\\.rb$" . "ruby %f")))
+(global-set-key [(f5)] 'smart-compile)
+
+
+(add-to-list 'load-path "~/.emacs.d/rhtml-mode")
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+	  '(lambda ()
+	     (auto-fill-mode -1)))
+
+;;yaml
+(add-to-list 'load-path "~/.emacs.d/yaml-mode")
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+;;kill-this-buffer
+(global-set-key [(f12)] 'kill-this-buffer)
+
+;; Rinari
+(setq load-path (cons "~/.emacs.d/rinari" load-path))
+(require 'rinari)
+(global-set-key (kbd "s-c") 'rinari-find-controller)
+(global-set-key (kbd "s-m") 'rinari-find-model)
+(global-set-key (kbd "s-v") 'rinari-find-view)
+(global-set-key (kbd "s-h") 'rinari-find-helper)
+(global-set-key (kbd "s-f") 'rinari-find-file-in-project)
+
+;; kill all rinari buffers
+(defun kill-buffers-in-subdir (subdir buffer)
+  "Kills the given buffer if it is linked to a file in the current rinari project."
+  (if (buffer-in-subdir-p subdir buffer)
+      (kill-buffer buffer)))
+(defun buffer-in-subdir-p (subdir buffer)
+  "Returns true if buffer belongs to the current rinari project"
+  (and (buffer-file-name buffer)
+       (string-match subdir (buffer-file-name buffer))))
+
+(defun kill-all-rinari-buffers ()
+  "Kills all buffers linked to the current rinari project"
+  (interactive)
+  (let ((path (rinari-root)))
+    (if path
+	(dolist (buffer (buffer-list))
+	  (kill-buffers-in-subdir path buffer)))))
+(global-set-key [(C-f12)] 'kill-all-rinari-buffers)
+
+;;goto line
+(global-set-key (kbd "s-g") 'goto-line)
+
+;;commit
+(global-set-key (kbd "s-o") 'comment-region)
+(global-set-key (kbd "s-u") 'uncomment-region)
+
+;;code toggle
+(global-set-key (kbd "s-h") 'hs-hide-all) 
+(global-set-key (kbd "s-s") 'hs-show-all)
+(global-set-key (kbd "s-t") 'hs-toggle-hiding)
+
+
+(global-set-key [(f8)] 'ecb-toggle-ecb-windows)
+
+(setq tramp-default-method "ssh")
+
+(load-library "color-theme")
+(color-theme-select)
+
+
+(defun woman-settings ()
+  "Settings for `woman-mode'."
+  (setq truncate-lines nil))
+
+(add-hook 'woman-mode-hook 'woman-settings)
+[/code]
+
+
+
+my Emacs configuration
+
+使用ruby on rails 两年了，期间使用过[link:Eclipse]http://www.eclipse.org[/link]和[link:Netbeans]http://netbeans.org[/link]，半年以前开始使用emacs。
+经过刚开始的不适，半年来不断到处拷代码，改配置。最近感觉逐渐使得顺手了。
+把配置贴出来做一个记录，也希望能对其他人有启发或者帮助 :) 
+
+主题：[link:color-theme-twilight]http://github.com/crafterm/twilight-emacs/blob/376aa10f6594779414ecb0e90742a8b1f3044f07/color-theme-twilight.el[/link]
+
+
+*主题*
+[img]http://s3.amazonaws.com/recordings.idapted.com/upload\_files/14/emacs\_view.gif[/img]
+
+
+*自定义常用快捷键*
+* F5              compile
+* F12             kill buffer
+* C-F12           kill rinari files
+* C-w             kill one line
+* s-m             choose model
+* s-c             choose controller
+* s-g             go to line
+* s-o             commit code
+* s-u             uncommit code
+* s-h             hide all methods
+* s-s             show all methods
+* s-t             toggle block
+* s-a             find file in rails project
+
+
+
+
+*.emacs中的代码* 
+[code:diff]
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(case-fold-search nil)
+ '(column-number-mode t)
+ '(current-language-environment "UTF-8")
+ '(default-input-method "rfc1345")
+ '(ecb-layout-name "smart")
+ '(ecb-layout-window-sizes (quote (("smart" (0.24 . 2.4029629629629627)))))
+ '(ecb-options-version "2.40")
+ '(global-font-lock-mode t nil (font-lock))
+ '(initial-buffer-choice "~/idapted")
+ '(menu-bar-mode nil)
+ '(show-paren-mode t)
+ '(speedbar-frame-parameters (quote ((minibuffer) (width . 40) (border-width . 0) 
+(menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
+ '(speedbar-hide-button-brackets-flag t)
+ '(speedbar-show-unknown-files t)
+ '(speedbar-track-mouse-flag t)
+ '(speedbar-use-tool-tips-flag nil)
+ '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify)))
+ '(tool-bar-mode nil)
+ '(tooltip-mode nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+
+(load "~/.emacs.d/my-custom.el")
+
+;;(custom-set-faces
+;; '(default ((t (:inherit nil :stipple nil :background "black" :foreground "#F8F8F8" 
+:inverse-video nil :box nil :strike-through nil :overline nil 
+:underline nil 
+:slant normal :weight normal :height 133 :width normal :foundry "microsoft" 
+:family "Microsoft YaHei")))))
+
+;;Monaco
+(set-default-font "Monaco:pixelsize=18")
+(set-fontset-font (frame-parameter nil 'font) 'han
+                  (font-spec :family "WenQuanYi Zen Hei" :size 18))
+[/code]
+
+*~/.emacs.d/my-custom.el*中的代码
+[code:diff]
+;;show file in title
+(setq frame-title-format '("%f"))
+
+;;'y' for 'yes', 'n' for 'no'
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;highlight current line
+(require 'hl-line)
+(global-hl-line-mode t)
+
+;;screen set
+(setq default-frame-alist '((top . 2) (left . 2) (height . 30) (width . 110)))
+
+;;ido
+(require 'ido)
+(setq ido-confirm-unique-completion t)
+(setq ido-default-buffer-method 'samewindow)
+(setq ido-use-filename-at-point t)
+(setq ido-enable-flex-matching t)
+(ido-mode t)
+(ido-everywhere t)
+(set-face-background 'ido-first-match "green")
+(set-face-foreground 'ido-subdir "blue3")
+
+;;cursor
+(setq-default cursor-type 'bar) 
+
+;;copy to other place
+(setq x-select-enable-clipboard t)
+
+;;no backup file
+(setq make-backup-files nil)
+
+;;twilight theme
+(setq load-path (cons "~/.emacs.d/themes" load-path))
+(require 'color-theme)
+(color-theme-initialize)
+(load-file "~/.emacs.d/themes/color-theme-twilight.el")
+(color-theme-twilight)
+
+;;ecb
+(load-file "~/.emacs.d/cedet/common/cedet.el")
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+(setq load-path (cons "~/.emacs.d/ecb" load-path))
+(require 'ecb)
+(setq ecb-auto-activate t)
+(add-hook 'ecb-activate-hook 
+          '(lambda() 
+             (setq ecb-auto-activate t
+		   ecb-tip-of-the-day nil
+		   )))
+
+;;better copy
+(defadvice kill-ring-save (before slickcopy activate compile)
+  "When called interactively with no active region, copy a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+	   (line-beginning-position 2)))))
+(defadvice kill-region (before slickcut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+	   (line-beginning-position 2)))))
+
+;;org mode
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-hide-leading-stars t)
+(setq org-log-done t)
+
+;;add one line 
+(global-set-key (kbd "s-l")
+		'(lambda ()
+		   (interactive)
+		   (end-of-line 1)
+		   (newline-and-indent)))
+
+;;ruby on rails
+(setq load-path (cons "~/.emacs.d/ruby" load-path))
+(setq load-path (cons "~/.emacs.d/rails" load-path))
+(require 'rails)
+
+;;flymake
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+
+;;smart-compile
+(require 'smart-compile)
+
+;;run
+(setq smart-compile-alist
+      '( ("\\.rb$" . "ruby %f")))
+(global-set-key [(f5)] 'smart-compile)
+
+
+(add-to-list 'load-path "~/.emacs.d/rhtml-mode")
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+	  '(lambda ()
+	     (auto-fill-mode -1)))
+
+;;yaml
+(add-to-list 'load-path "~/.emacs.d/yaml-mode")
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+;;kill-this-buffer
+(global-set-key [(f12)] 'kill-this-buffer)
+
+;; Rinari
+(setq load-path (cons "~/.emacs.d/rinari" load-path))
+(require 'rinari)
+(global-set-key (kbd "s-c") 'rinari-find-controller)
+(global-set-key (kbd "s-m") 'rinari-find-model)
+(global-set-key (kbd "s-v") 'rinari-find-view)
+(global-set-key (kbd "s-h") 'rinari-find-helper)
+(global-set-key (kbd "s-f") 'rinari-find-file-in-project)
+
+;; kill all rinari buffers
+(defun kill-buffers-in-subdir (subdir buffer)
+  "Kills the given buffer if it is linked to a file in the current rinari project."
+  (if (buffer-in-subdir-p subdir buffer)
+      (kill-buffer buffer)))
+(defun buffer-in-subdir-p (subdir buffer)
+  "Returns true if buffer belongs to the current rinari project"
+  (and (buffer-file-name buffer)
+       (string-match subdir (buffer-file-name buffer))))
+
+(defun kill-all-rinari-buffers ()
+  "Kills all buffers linked to the current rinari project"
+  (interactive)
+  (let ((path (rinari-root)))
+    (if path
+	(dolist (buffer (buffer-list))
+	  (kill-buffers-in-subdir path buffer)))))
+(global-set-key [(C-f12)] 'kill-all-rinari-buffers)
+
+;;goto line
+(global-set-key (kbd "s-g") 'goto-line)
+
+;;commit
+(global-set-key (kbd "s-o") 'comment-region)
+(global-set-key (kbd "s-u") 'uncomment-region)
+
+;;code toggle
+(global-set-key (kbd "s-h") 'hs-hide-all) 
+(global-set-key (kbd "s-s") 'hs-show-all)
+(global-set-key (kbd "s-t") 'hs-toggle-hiding)
+
+
+(global-set-key [(f8)] 'ecb-toggle-ecb-windows)
+
+(setq tramp-default-method "ssh")
+
+(load-library "color-theme")
+(color-theme-select)
+
+
+(defun woman-settings ()
+  "Settings for `woman-mode'."
+  (setq truncate-lines nil))
+
+(add-hook 'woman-mode-hook 'woman-settings)
+[/code]
+

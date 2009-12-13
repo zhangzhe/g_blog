@@ -1,24 +1,20 @@
+<p>
+<hd><%= @blog_group.created_at.to_date %></hd>
+<br>
 <% %w(chinese english).each do |version| %>
   <% if blog = @blog_group.send(version) %>
-    <div>
-      <p>
+    
 	<hv><%= blog.type %> verion</hv>
 	<br>
 	<ht> <%=h blog.title %> </ht>
 	<br>
-	<hd><%= blog.created_at.to_date %></hd>
-      </p>
       <div>   
 	<%= g_textile blog.content %>
       </div>
-    </div>
-    <br><br>
+    <br>
   <% end %>
 <% end %>
-
-<div class="meta">
-  <p class="links">
-    <%= link_to "destroy", @blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %> &nbsp;&nbsp;&nbsp; 
-    <%= link_to 'edit', edit_blog_group_path(@blog_group) if admin? %>
-  </p>
-</div>
+<%= link_to "destroy", @blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %> &nbsp;&nbsp;&nbsp; 
+<%= link_to 'edit', edit_blog_group_path(@blog_group) if admin? %>
+</p>
+<br><br><br><br>

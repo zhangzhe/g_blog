@@ -48,4 +48,16 @@ cheat cheat
       g_textile(@g_textile_input).should == @g_textile_expect_output
     end
   end
+  
+  describe "recent" do 
+    it "should return 3 of recent blog_groups" do 
+      blog_groups = []
+      3.times do |i|
+        bg = BlogGroup.create
+        blog_groups << bg
+        bg.blogs << English.create(:title => i)
+      end
+    recent.should == "<ul><li><a href=\"/blog_groups/#{blog_groups[2].id}\">(2)</a></li><li><a href=\"/blog_groups/#{blog_groups[1].id}\">(1)</a></li><li><a href=\"/blog_groups/#{blog_groups[0].id}\">(0)</a></li></ul>"
+    end
+  end
 end

@@ -1,6 +1,6 @@
 class BlogGroupsController < ApplicationController
   def index
-    @blog_groups = BlogGroup.all
+    @blog_groups = BlogGroup.paginate(:all, :page => params[:page], :per_page => 5, :order => "created_at DESC")
   end
 
   def show

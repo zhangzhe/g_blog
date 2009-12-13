@@ -9,6 +9,6 @@ class BlogGroup < ActiveRecord::Base
   end
   
   def content
-    english.content
+    "#{chinese.try(:title)}/n/n#{chinese.try(:content)}/n/n/n#{english.try(:title)}/n/n#{english.try(:content)}"
   end
 end
