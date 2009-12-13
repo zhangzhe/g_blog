@@ -7,4 +7,8 @@ class BlogGroup < ActiveRecord::Base
   def title
     "#{chinese.try(:title)}(#{english.try(:title)})"
   end
+  
+  def content
+    english.content
+  end
 end

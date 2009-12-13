@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :blogs, :collection => {:example => :get}
+  map.resources :chineses, :englishs
   map.resources :sessions
   map.resources :upload_files
   map.login 'login', :controller => 'sessions', :action => 'new'

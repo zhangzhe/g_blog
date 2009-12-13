@@ -29,9 +29,9 @@
 	<div id="sidebar">
 	  <ul>
 	    <li>
-	      <h3><%= link_to "RSS", "" %></h3>
-	      <h3><%= link_to "RSS Chinese", "" %></h3>
-	      <h3><%= link_to "RSS English", "" %></h3>
+	      <h3><%= link_to "RSS", blog_groups_path(:rss) %></h3>
+	      <h3><%= link_to "RSS Chinese", chineses_path(:rss) %></h3>
+	      <h3><%= link_to "RSS English", englishs_path(:rss) %></h3>
 	      <h3><%= link_to "Blog List", list_blog_groups_path %></h3>
 	      <h2>Recent</h2>
 	      <%= recent %>
