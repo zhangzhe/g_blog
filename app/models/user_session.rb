@@ -4,7 +4,7 @@ class UserSession
     @session[:locale] ||= :en
   end
   
-  def change_locale(locale)
+  def locale=(locale)
     @session[:locale] = locale
   end
   

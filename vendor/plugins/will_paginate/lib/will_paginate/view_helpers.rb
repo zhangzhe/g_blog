@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'will_paginate/core_ext'
 
 module WillPaginate
@@ -23,8 +24,8 @@ module WillPaginate
     # default options that can be overridden on the global level
     @@pagination_options = {
       :class          => 'pagination',
-      :previous_label => '&laquo; Previous',
-      :next_label     => 'Next &raquo;',
+      :previous_label => '&laquo; 前一页(Previous)',
+      :next_label     => '后一页(Next) &raquo;',
       :inner_window   => 4, # links around the current page
       :outer_window   => 1, # links around beginning and end
       :separator      => ' ', # single space is friendly to spiders and non-graphic browsers

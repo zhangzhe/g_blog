@@ -1,20 +1,14 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 zh:
-  new: "新建"
-  edit: "修改"
-  delete: "删除"
-  show: "显示"
-  destroy: "删除"
-  title: "标题"
-  content: "内容"
-  app_title: "张哲的博客"
-  not_logged_in: "您还没有登录"
-  login: "登录"
-  sign Up: "注册"
-  logout: "离开"
-  login_info: "您的登录帐号为"
-  recent: "近期博客"
-  flash:
-    unauthorized: "请先登录"
+  Blog: "博客"
+  Chinese: "中文"
+  English: "英语" 
+  Blog List: "全部博客列表"
+  recent: "近期的博客"
+  Chinese verion: "中文版本"  
+  English verion: "英文版本"
+  KEEPING STRONG!!: "KEEPING STRONG!!"
+  中文: "中文"
+  RSS Chinese: "RSS 中文博客"
+  RSS English: "RSS 英文博客"
+  English: "English"
+  About: "关于"

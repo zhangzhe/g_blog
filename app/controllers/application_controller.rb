@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def save_locale(locale)
-    user_session.change_locale(locale)
+    user_session.locale = locale
     I18n.locale = locale
   end
   

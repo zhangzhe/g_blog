@@ -1,22 +1,15 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  new: "New"
-  edit: "Edit"
-  delete: "delete"
-  show: "Show"
-  destroy: "Destroy"
-  title: "title"
-  content: "content"
-  app_title: "ZhangZhe's blogs"
-  not_logged_in: "You are currently not logged in"
-  login: "login"
-  logout: "Logout"
-  sign_up: "Sign Up"
-  login_info: "You are logged in as"
-  successfully_created: "Blog was successfully created."
+  Blog: "Blog"
+  Chinese: "Chinese"
+  English: "English" 
+  Blog List: "Blog List"
   recent: "recent"
-  flash:
-    unauthorized: "unauthorized access"
-  back: "back"
+  Chinese verion: "Chinese verion"  
+  English verion: "English verion"
+  KEEPING STRONG!!: "KEEPING STRONG!!"
+  Chinese: "中文"
+  RSS Chinese: "RSS Chinese"
+  RSS English: "RSS English"
+  About: "About"
+
+  
