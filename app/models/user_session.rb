@@ -5,7 +5,7 @@ class UserSession
   end
   
   def change_locale(locale)
-    @session[:locale] ||= locale
+    @session[:locale] = locale
   end
   
   def locale

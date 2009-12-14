@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale
-    I18n.locale = user_session.locale
+    I18n.locale = user_session.locale || :en
   end
 end
