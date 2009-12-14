@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   
   def admin?
     session[:password] == '1234123'
-    I18n.locale = :zh
   end
   
   def user_session
