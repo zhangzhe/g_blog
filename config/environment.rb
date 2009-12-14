@@ -36,7 +36,6 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-  config.i18n.default_locale = :en
   CONFIG = YAML.load_file(File.dirname(__FILE__) + "/site_config.yml")
 end
 
