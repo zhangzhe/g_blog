@@ -16,6 +16,7 @@ en:
   sign_up: "Sign Up"
   login_info: "You are logged in as"
   successfully_created: "Blog was successfully created."
+  recent: "recent"
   flash:
     unauthorized: "unauthorized access"
   back: "back"

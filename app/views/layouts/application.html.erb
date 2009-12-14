@@ -14,8 +14,8 @@
 	</div>
 	<div id="menu">
 	  <ul>
-	    <li><%= link_to("中文", "") %></li>
-	    <li><%= link_to("English", "") %></li>
+	    <li><%= link_to("中文", chineses_path) %></li>
+	    <li><%= link_to("English", englishs_path) %></li>
 	    <li><%= link_to("About", "") %></li>
 	  </ul>
 	</div>
@@ -33,7 +33,7 @@
 	      <h3><%= link_to "RSS Chinese", chineses_path(:rss) %></h3>
 	      <h3><%= link_to "RSS English", englishs_path(:rss) %></h3>
 	      <h3><%= link_to "Blog List", list_blog_groups_path %></h3>
-	      <h2>Recent</h2>
+	      <h2><%= t('recent') %></h2>
 	      <%= recent %>
 	    </li>
 	    <li>

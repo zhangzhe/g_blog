@@ -1,0 +1,19 @@
+<%= will_paginate @blogs %>
+<br />
+<% @blogs.each do |@blog| %>
+<p>
+  <hd><%= @blog.created_at.to_date %></hd>
+  <br>
+  <hv><%= @blog.type %> verion</hv>
+  <br>
+  <ht> <%=h @blog.title %> </ht>
+  <br>
+  <div>   
+    <%= g_textile @blog.content %>
+  </div>
+  <br>
+</p>
+<br><br><br><br>
+<% end %>
+
+<%= will_paginate @blogs %>

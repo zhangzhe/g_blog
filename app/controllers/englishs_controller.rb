@@ -1,5 +1,6 @@
 class EnglishsController < ApplicationController
   def index
-    @blogs = English.all
+    save_locale(:en)
+    @blogs = English.paginate(:all, :page => params[:page], :per_page => 5, :order => "created_at DESC")
   end
 end

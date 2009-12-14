@@ -15,5 +15,6 @@ zh:
   sign Up: "注册"
   logout: "离开"
   login_info: "您的登录帐号为"
+  recent: "近期博客"
   flash:
     unauthorized: "请先登录"
