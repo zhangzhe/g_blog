@@ -7,3 +7,4 @@ heroku rake db:migrate
 
 heroku logs
 
+heroku help commands
