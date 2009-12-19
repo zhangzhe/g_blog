@@ -8,10 +8,9 @@ xml.rss :version => "2.0" do
     for blog_group in @blog_groups
       xml.item do
         xml.title blog_group.title
-        xml.content blog_group.content
+        xml.description blog_group.content
         xml.pubDate blog_group.created_at.to_s(:rfc822)
         xml.link blog_group_url(blog_group)
-        xml.guid blog_group_url(blog_group, :rss)
       end
     end
   end
