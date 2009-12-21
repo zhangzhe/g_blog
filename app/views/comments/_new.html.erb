@@ -1,0 +1,29 @@
+<%= link_to_function "Comments", "$('comments').toggle();" %>
+<div id="comments" style="display:none;">
+  <% @blog.comments.each do |comment| %>
+    <p>
+      <div class="comment">
+	<%= comment.name %><%= comment.created_at %>
+	<br>
+	<div class="content">
+	  <%= comment.content %>
+	</div>
+      </div>
+    </p>
+  <% end %>
+
+  Add Comment:
+  <% form_for Comment.new do |f| %>
+    <p>
+      <%= hidden_field_tag :blog_id, @blog.id %>
+      <%= f.label :name, 'name' %>:<br />
+      <%= f.text_field :name, :size => 25 %><br />
+    </p>
+    <p>  
+      <%= f.label :content, 'Content' %>:<br />
+      <%= f.text_area :content, :size => "60x15" %><br />
+    </p>
+    <%= submit_tag "Create" %>
+  <% end %>
+</div>
+<br><br><br>

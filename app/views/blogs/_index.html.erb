@@ -3,15 +3,7 @@
 <% @blogs.each do |@blog| %>
 <p>
   <hd><%= @blog.created_at.to_date %></hd>
-  <br>
-  <ht> <%=h @blog.title %> </ht>
-  <br>
-  <div>   
-    <%= g_textile @blog.content %>
-  </div>
-  <br>
-</p>
-<br><br><br><br>
+  <%= render(:partial => "blogs/show") %>
+  <br><br><br><br>
 <% end %>
-
 <%= will_paginate @blogs %>

@@ -1,0 +1,9 @@
+<br>
+<ht> <%=h @blog.title %> </ht>
+<br>
+<div>   
+  <%= g_textile @blog.content %>
+</div>
+<br>
+<%= render(:partial => "comments/new") %>
+

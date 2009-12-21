@@ -4,7 +4,6 @@ xml.rss :version => "2.0" do
     xml.title "Blogs"
     xml.description "zhangzhe's blogs"
     xml.link blog_groups_url(:rss)
-    
     for blog_group in @blog_groups
       xml.item do
         xml.title blog_group.title

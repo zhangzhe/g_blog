@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091204083017) do
+ActiveRecord::Schema.define(:version => 20091221133429) do
 
   create_table "blog_groups", :force => true do |t|
     t.datetime "created_at"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20091204083017) do
     t.string   "type"
     t.text     "content"
     t.integer  "blog_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "blog_id"
+    t.text     "content"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

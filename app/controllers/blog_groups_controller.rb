@@ -30,4 +30,9 @@ class BlogGroupsController < ApplicationController
   def list
     @blog_groups = BlogGroup.all
   end
+  
+  def destroy
+    BlogGroup.find(params[:id]).destroy
+    redirect_to :back
+  end
 end

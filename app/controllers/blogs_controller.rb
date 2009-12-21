@@ -35,23 +35,15 @@ class BlogsController < ApplicationController
   end
   
   def example
-    render :text => "chinese:
-
-title:
-title here
-
-content:
-content here
-
-=====
-
-english:
-
-title:
-title here
-
-content:
-content here"
+    render :text => "
+** => b
+_ _ => i
++ + => u
+*  => list
+[img:right]url[/img]
+[f1] [/f1]
+[red][/red]
+[link:i am strong]http://www.idapted.com[/link]"
   end
 end
 
