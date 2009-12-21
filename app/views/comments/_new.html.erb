@@ -1,5 +1,5 @@
-<%= link_to_function "Comments", "$('comments').toggle();" %>
-<div id="comments" style="display:none;">
+<%= link_to_function "Comments", "$('comments#{@blog.id}').toggle();" %>
+<div id="comments<%= @blog.id %>" style="display:none;">
   <% @blog.comments.each do |comment| %>
     <p>
       <div class="comment">
