@@ -1,7 +1,8 @@
-h1, h2, h3{font-weight:bold; }
+h, h1, h2, h3{font-weight:bold; }
 h1 {font-size:28px;margin:.5em 0;}
 h2 {font-size:16px;margin-bottom:1em;}
 h3 {font-size:14px;line-height:0.5;margin-bottom:0.1em}
+h {font-size:14px;line-height: 260%;}
 
 body {
     margin: 0px;
