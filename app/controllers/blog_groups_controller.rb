@@ -35,4 +35,8 @@ class BlogGroupsController < ApplicationController
     BlogGroup.find(params[:id]).destroy
     redirect_to :back
   end
+  
+  def all_content
+    
+  end
 end
