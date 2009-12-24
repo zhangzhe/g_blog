@@ -3,8 +3,7 @@ window.onload = function(){
     var editor = new Sanskrit(textarea, {
 	    className: 'fancy',
 	    toolbar: {
-		//actions: {'strong': 's', 'em': 'i', 'ins': 'u', 'link': 'L', 'unlink': 'Unl', 'list': 'list', 'blue': 'blue','red': 'red','green': 'green', 'remove': 'remove', 'textile': 'Edit', 'list': 'list'}
-		actions: {'strong': 's', 'em': 'i', 'ins': 'u', 'list': 'list', 'blue': 'blue','red': 'red','green': 'green', 'remove': 'remove', 'textile': 'Edit', 'list': '*li'}
+		actions: {'strong': 'b', 'em': 'i', 'ins': 'u', 'list': 'list', 'link': 'L', 'unlink': 'Unl', 'blue': 'blue','red': 'red','green': 'green', 'remove': 'remove', 'textile': 'Edit', 'list': '*li'}
 	    }
 	});
     editor.addStyle('body { font-family: Arial, Verdana; color: #333; } strike { color: #999; } u { color: #000; }');
@@ -34,47 +33,28 @@ window.onload = function(){
 	var self = this;
 	this.onReady(function(){
 		self.findContentDocument();
-    
 		if (self.richTextIsAvailable()) {
 		    self.applyClassNames();
 		    self.enableEditor();
 		    self.addStyle(Sanskrit.defaultStyle);
 		    self.createToolbar();
-		
-		    if (self.textarea.value.length > 0)
-			{
-			    value = self.textarea.value;
-self.toolbar.resetListStatus();
-			    var tb = self.toolbar;
-			    var b = self.toggleTextarea();
-			    if (b) { tb.activateListItem('textile'); } else { tb.deactivateListItem('textile'); }
-			    for (var key in tb.actions) {
-				if (tb.actions.hasOwnProperty(key) && key !== 'textile') {
-				    if(b) { tb.hideListItem(key); } else { tb.showListItem(key); }
-				}
-			    }
-			    self.textarea.value = value;	}
-		    else
-			{
-			    self.toolbar.resetListStatus();
-			    var tb = self.toolbar;
-			    var b = self.toggleTextarea();
-			    if (b) { tb.activateListItem('textile'); } else { tb.deactivateListItem('textile'); }
-			    for (var key in tb.actions) {
-				if (tb.actions.hasOwnProperty(key) && key !== 'textile') {
-				    if(b) { tb.hideListItem(key); } else { tb.showListItem(key); }
-				}
-			    }
-			    self.hijackForm();}
-
-		
-		    // very importent HAHAHAHA for first go to the edit mode
-		
+		    //change here to load edit mode first and sit content
+		    value = self.textarea.value;
+		    self.toolbar.resetListStatus();
+		    var tb = self.toolbar;
+		    var b = self.toggleTextarea();
+		    if (b) { tb.activateListItem('textile'); } else { tb.deactivateListItem('textile'); }
+		    for (var key in tb.actions) {
+			if (tb.actions.hasOwnProperty(key) && key !== 'textile') {
+			    if(b) { tb.hideListItem(key); } else { tb.showListItem(key); }
+			}
+		    }
+		    self.textarea.value = value;	
+		    self.hijackForm();
 		} else {
 		    self.unreplaceTextarea();
 		}
 	    });
-  
 	Sanskrit.editors.push(this);
     };
 
@@ -124,8 +104,6 @@ Sanskrit.removeClassName = function(element, className) {
 Sanskrit.defaultStyle = 'html { padding:0; cursor:text; } body { font-size:40%; margin:0; padding:0; cursor:text; } p { margin: 0 0; }';
 
 Sanskrit.editors = [];
-
-
 
 Sanskrit.prototype = {
     //Gecko needs some time to initialise the iframe or something
@@ -292,77 +270,47 @@ Sanskrit.prototype = {
     },
   
     textilize: function(html, escape){
-	// here
-	html = html.replace(/<br ?\/?>/gi, "\n");
-	html = html.replace(/<(?:b|strong)>((.|[\r\n])*?)<\/(?:b|strong)>/gi, '*$1*');
-	html = html.replace(/<(?:i|em)>((.|[\r\n])*?)<\/(?:i|em)>/gi, '_$1_');
-	html = html.replace(/<(?:u|ins)>((.|[\r\n])*?)<\/(?:u|ins)>/gi, '+$1+');
-	html = html.replace(/<a href="(.*?)">((.|[\r\n])*?)<\/a>/gi, '"$2":$1');
-	html = html.replace(/<font color="#0000ff".*?>((.|[\r\n])*?)<\/font>/gi, '%{color:blue}$1%');
-	html = html.replace(/<font color="#FF0000".*?>((.|[\r\n])*?)<\/font>/gi, '%{color:red}$1%');
-	html = html.replace(/<font color="#088A4B".*?>((.|[\r\n])*?)<\/font>/gi, '%{color:green}$1%');
-
-	//add later list
-
-	
-	var r = /([\s\S]*)\<ul\>([\s\S]*?)\<\/ul\>([\s\S]*)/;
-
+	html = html.gsub(/<br ?\/?>/i, "\n");
+	html = html.gsub(/<(?:b|strong)>((.|[\r\n])*?)<\/(?:b|strong)>/i, '*#{1}*');
+	html = html.gsub(/<(?:i|em)>((.|[\r\n])*?)<\/(?:i|em)>/i, '_#{1}_');
+	html = html.gsub(/<(?:u|ins)>((.|[\r\n])*?)<\/(?:u|ins)>/i, '+#{1}+');
+	html = html.gsub(/<a href="(.*?)">((.|[\r\n])*?)<\/a>/i, '"#{2}":#{1}');
+	html = html.gsub(/<font color="#0000ff".*?>((.|[\r\n])*?)<\/font>/i, '%{color:blue}#{1}%');
+	html = html.gsub(/<font color="#FF0000".*?>((.|[\r\n])*?)<\/font>/i, '%{color:red}#{1}%');
+	html = html.gsub(/<font color="#088A4B".*?>((.|[\r\n])*?)<\/font>/i, '%{color:green}#{1}%');
+	//list	
+	var r = /([\s\S]*)<ul>([\s\S]*?)<\/ul>([\s\S]*)/;
 	while (r.test(html))
 	    { 
 		p = RegExp.$1;
 		c = RegExp.$2;
 		e = RegExp.$3;
-		c = c.gsub(/\<li\>([\s\S]*?)\<\/li\>/, "* #{1}\n");
+		c = c.gsub(/<li>([\s\S]*?)<\/li>/, "* #{1}\n");
 		html = p + "\n" + c + e;
 	    }
 
-	
-
-	
-	
-	//html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');//Escape any remaining HTML
-	
-	//html = html.replace(/(\r\n|\n){3,}/g, "\n\n");
-
-
-	html = html.replace(/^[\r\n]+|[\r\n]+$/g, '');
+	//unescape for link
+	html = html.gsub("%5C", '\\');
+	//delete begin and end blanks
+	html = html.gsub(/^[\r\n]+|[\r\n]+$/, '');
 	return html;
     },
   
     htmlize: function(textile, escape){
+	//escape all others
+        textile = textile.gsub(/\\\+/, "###U###");
+	textile = textile.gsub(/\\\_/, "###I###");
+	textile = textile.gsub(/\\\*/, "###B###");
+	//escape list
+	textile = textile.gsub(/(^|\r\n|\n|\r)\* (.*)/, '#{1}###LI### #{2}');
+	textile = textile.gsub(/\*(.+?)\*/, (this.internetExplorer ? '<strong>#{1}</strong>' : '<b>#{1}</b>'));
+	textile = textile.gsub(/\n/, '<br/>');
+	//unescape list
 	
-	// for escape
-        textile = textile.replace(/\\\+/gi, "0142540974231612");
-	textile = textile.replace(/\\\_/gi, "0750023893692338");
-	textile = textile.replace(/\\\*/gi, "0643004879835027");
-
-	textile = textile.replace(/(^|\r\n|\n|\r)\* (.*)/g, '$1###LI### $2');
-	textile = textile.replace(/\n/gi, '<br/>');
-	textile = textile.replace(/\*(.+?)\*/gi, (this.internetExplorer ? '<strong>$1</strong>' : '<b>$1</b>'));
-	textile = textile.replace(/_(.+?)_/gi, (this.internetExplorer ? '<em>$1</em>' : '<i>$1</i>'));
-	textile = textile.replace(/\+(.+?)\+/gi, '<u>$1</u>');
-	//textile = textile.replace(/-(.+?)-/gi, '<strike>$1</strike>');
-	textile = textile.replace(/"(.+?)":([^\s\n<]+)/gi, '<a href="$2">$1</a>');
 	textile = textile.replace(/###LI###/gi, '*');
-
-	//added
-	textile = textile.replace(/%{color:blue}(.+?)%/gi, '<font color="#0000ff">$1<\/font>');
-	textile = textile.replace(/%{color:red}(.+?)%/gi, '<font color="#FF0000">$1<\/font>');
-	textile = textile.replace(/%{color:green}(.+?)%/gi, '<font color="#088A4B">$1<\/font>');
-
-	textile = textile+'<br\>';
-	textile = textile.replace(/<p>[\s\n]*<\/p>/g, '');
-
-
-
-	//for escape char like + 
-	textile = textile.replace(/0142540974231612/, "\\\+");
-	textile = textile.replace(/0750023893692338/, "\\\_");
-	textile = textile.replace(/0643004879835027/, "\\\*");
-	
-	// added list(need test test test)
+	//list importent here
 	var r = /(\<br\/\>\* .*?\<br(\/)*\>)(?!\* )/;
-	while (r.test("<br/>" + textile))
+	while (r.test("<br/>" + textile + "<br/>"))
 	    {
 		l = RegExp.leftContext;
 		m = RegExp.lastMatch;
@@ -370,8 +318,37 @@ Sanskrit.prototype = {
 		m = m.gsub(/\* (.*?)\<br(\/)*\>/, "<li>#{1}</li>").gsub("<br/>", "");
 		textile = l + "<ul>" + m + "</ul>" + e;
 	    }
-	//textile = textile.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
+        //for url (importent:both in javascript and ruby)
+	// var r = /"(.+?)":([^\s\n<]+)/;
+	// while (r.test(textile))
+	//     {
+	// 	l = RegExp.leftContext;
+	// 	m = RegExp.lastMatch;
+        //         e = RegExp.rightContext;
+        //         //escape _ in url 
+        //         m = m.gsub(/\\\_/, "@@@U@@@");
+	// 	textile = l + m.gsub(/"(.+?)":([^\s\n<]+)/, '<a href="#{2}">#{1}</a>') + e;
+	//     }
+	//at end
+	textile = textile.gsub(/_(.+?)_/, (this.internetExplorer ? '<em>#{1}</em>' : '<i>#{1}</i>'));
+	textile = textile.gsub(/\+(.+?)\+/, '<u>#{1}</u>');
+	
+	//do not forget to escape
+	textile = textile.gsub(/"(.+?)":([^\s\n<]+)/, '<a href="#{2}">#{1}</a>');
+
+	textile = textile.gsub(/%{color:blue}(.+?)%/i, '<font color="#0000ff">#{1}<\/font>');
+	textile = textile.gsub(/%{color:red}(.+?)%/i, '<font color="#FF0000">#{1}<\/font>');
+	textile = textile.gsub(/%{color:green}(.+?)%/i, '<font color="#088A4B">#{1}<\/font>');
+
+	//unescape all others
+	textile = textile.gsub(/###U###/, "\\\+");
+	textile = textile.gsub(/###I###/, "\\\_");
+	textile = textile.gsub(/###B###/, "\\\*");
+	//unescape for _ in url
+	//textile = textile.gsub(/@@@U@@@/, "\_");
+	//delete begin and end blanks
+	textile = textile.gsub(/^(<br\/>)+|(<br\/>)+$/, '');
 	return textile;
     },
   
@@ -390,15 +367,13 @@ Sanskrit.prototype = {
 
 };
 
-
 function SanskritToolbar(editor, options) {
     this.options = options || {};
     this.editor = editor;
     this.list = document.createElement('ul');
     this.listItems = [];
     this.listItemCallbacks = {};
-    //this.availableActions = {'strong': 'strong', 'em': 'em', 'ins': 'ins', 'del': 'del', 'link': 'link', 'unlink': 'unlink','list': 'list', 'textile': 'textile'};
-    this.availableActions = {'strong': 'strong', 'em': 'em', 'ins': 'ins', 'del': 'del','list': 'list', 'textile': 'textile'};
+    this.availableActions = {'strong': 'strong', 'em': 'em', 'ins': 'ins', 'del': 'del', 'link': 'link', 'unlink': 'unlink','list': 'list', 'textile': 'textile'};
     this.callbacks = Sanskrit.inherit(SanskritToolbar.prototype.callbacks);
   
     for (var action in this.actions) {
@@ -437,7 +412,6 @@ SanskritToolbar.prototype = {
 	},
 	// added
 	list: function(editor){
-	    
 	    editor.execCommand('insertunorderedlist',false, null)
 	},
 	
