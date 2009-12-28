@@ -12,10 +12,10 @@ module ApplicationHelper
   end
   
   def recent
-    @blog_groups = BlogGroup.find(:all, :limit => 3, :order => "created_at DESC")
+    @blogs = Blog.find(:all, :limit => 10, :order => "created_at DESC")
     result = "<ul>"
-    @blog_groups.each do |blog_group|
-      result << "<li>#{link_to(blog_group.title, blog_group_path(blog_group))}</li>"
+    @blogs.each do |blog|
+      result << "<li>#{link_to(blog.title, blog_path(blog))}</li>"
     end
     result << "</ul>"
   end
