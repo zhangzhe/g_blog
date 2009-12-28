@@ -1,0 +1,3 @@
+<% Blog.all.each do |blog| %>
+  <%= link_to blog.title, blog_path(blog) %><br>
+<% end %>
