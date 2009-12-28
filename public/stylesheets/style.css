@@ -24,7 +24,7 @@ hv {
 
 ht {
     font-size: 22px;
-    color: green;
+    color: #E98C08;
 }
 
 ol, ul {
@@ -274,18 +274,11 @@ a img {
 .CodeRay .ta { color:#E7BE69 }                      /* html tag */
 .CodeRay .pc { color:#6C9CBD }                      /* boolean */
 /*buttuns*/
-.chinese_fixed_buttons {
+.fixed_buttons {
     top: 250px;
     right: 16px;
     position: absolute;
 }
-
-.english_fixed_buttons {
-    top: 673px;
-    right: 16px;
-    position: absolute;
-}
-
 
 .right {
     float: right;

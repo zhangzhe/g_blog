@@ -6,13 +6,14 @@
 
 .fancy {
     border: 1px inset #000;
-    width: 95%;
+    width: 100%;
 }
 
 .fancy iframe, .fancy textarea {
     width: 100%;
     border: none;
     height: 25em;
+    background: #FFF;
 }
 
 .fancy textarea {

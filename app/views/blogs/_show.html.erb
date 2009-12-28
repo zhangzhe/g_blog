@@ -1,5 +1,5 @@
 <br>
-<ht> <%=h @blog.title %> </ht>
+<ht> <%=h @blog.title %> </ht><%= link_to 'edit', edit_blog_path(@blog) if admin? %>
 <br>
 <div>   
   <%= g_textile @blog.content %>

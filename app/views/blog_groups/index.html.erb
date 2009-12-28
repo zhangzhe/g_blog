@@ -1,9 +1,9 @@
-<%= render :partial=> "new" %>
 <%= will_paginate @blog_groups %>
 <br />
+<%= render :partial=> "new" %>
+
 <% @blog_groups.each do |@blog_group| %>
 <%= render(:partial => "show") %> 
 <% end %>
-<%= render :partial=> "new" %>
 
 <%= will_paginate @blog_groups %>

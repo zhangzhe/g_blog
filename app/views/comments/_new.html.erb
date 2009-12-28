@@ -3,10 +3,10 @@
   <% @blog.comments.each do |comment| %>
     <p>
       <div class="comment">
-	<%= comment.name %><%= comment.created_at %>
+	<%=h comment.name %><%= comment.created_at %>
 	<br>
 	<div class="content">
-	  <%= comment.content %>
+	  <%=h comment.content %>
 	</div>
       </div>
     </p>

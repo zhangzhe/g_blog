@@ -2,12 +2,14 @@
   <hd><%= @blog_group.created_at.to_date %></hd>
   <br>
   <% %w(chinese english).each do |version| %>
-    <% if @blog = @blog_group.send(version) %>
-      <hv><%=t("#{@blog.type} verion") %></hv>
+    <% @blog = @blog_group.send(version) %>
+    <% if @blog.try(:title) %>
+      <hv><%#=t("#{@blog.type} verion") %></hv>
       <%= render(:partial => "blogs/show") %>
+    <% else %>
+      <%= link_to "add #{version} version", edit_blog_path(@blog) if admin? and @blog %>
     <% end %>
   <% end %>
   <%= link_to "destroy", @blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %> &nbsp;&nbsp;&nbsp; 
-  <%= link_to 'edit', edit_blog_group_path(@blog_group) if admin? %>
 </p>
-<br><br><br><br>
+<br><br><br>
