@@ -1,6 +1,6 @@
 h, h1, h2, h3{font-weight:bold; }
 h1 {font-size:28px;margin:.5em 0;}
-h2 {font-size:16px;margin-bottom:1em;}
+h2 {font-size:16px;margin-bottom:0.5em;}
 h3 {font-size:14px;line-height:0.5;margin-bottom:0.1em}
 h5 {font-size:12px;line-height:0.1;margin-bottom:0.5em}
 h {font-size:14px;line-height: 260%;}
@@ -166,7 +166,7 @@ a img {
 }
 
 #sidebar-content {
-    padding: 0px 20px 20px 20px;
+    padding: 0px 20px 10px 10px;
 }
 
 #sidebar ul {
