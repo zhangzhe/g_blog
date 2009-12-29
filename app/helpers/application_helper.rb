@@ -12,7 +12,7 @@ module ApplicationHelper
   end
   
   def recent
-    @blogs = Blog.find(:all, :limit => 10, :order => "created_at DESC")
+    @blogs = Blog.find(:all, :limit => 8, :order => "created_at DESC")
     result = "<ul>"
     @blogs.each do |blog|
       result << "<li>#{link_to(blog.title, blog_path(blog))}</li>"

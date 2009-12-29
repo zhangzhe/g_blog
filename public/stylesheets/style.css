@@ -1,8 +1,8 @@
 h, h1, h2, h3{font-weight:bold; }
-h1 {font-size:28px;margin:.5em 0;}
+h1 {font-size:38px;margin:.5em 0;}
 h2 {font-size:16px;margin-bottom:0.5em;}
 h3 {font-size:14px;line-height:0.5;margin-bottom:0.1em}
-h5 {font-size:12px;line-height:0.1;margin-bottom:0.5em}
+h5 {font-size:12px;line-height:0.1;margin-bottom:0.5em,font-weight: normal;}
 h {font-size:14px;line-height: 260%;}
 
 body {
@@ -14,7 +14,8 @@ body {
 }
 
 hd {
-    font-size: 15px;
+    font-size: 12px;
+    font-style: italic;
     color: #A4A4A4;
 }
 
@@ -26,6 +27,7 @@ hv {
 ht {
     font-size: 24px;
     color: #E98C08;
+    
 }
 
 ol, ul {
@@ -37,9 +39,9 @@ a {
     color: #7ECE05;
 }
 
-a:hover {
+a :hover {
     text-decoration: none;
-    color: #7ECE05;
+    color: #F1F1F1;
 }
 
 a img {
@@ -244,12 +246,12 @@ a img {
 .CodeRay {
   background-color: #232323;
   border: 1px solid black;
-  font-family: Arial, monospace, 'Courier New', 'Terminal';
+  font-family: 'Courier New', 'Terminal', monospace;
   color: #E6E0DB;
   padding: 3px 5px;
   overflow: auto;
-  font-size: 12px;
-  margin: 12px 0;
+  font-size: 13px;
+  margin: 4px 0;
 }
 .CodeRay pre {
   margin: 0px;
