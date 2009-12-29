@@ -1,7 +1,8 @@
 <div id="<%= @blog[:type] %>_form">
   <% form_for :blog, @blog ,:url => blog_path(@blog), :html => {:method => :put, :id => "blog" } do |f| %>
   <div class="fixed_buttons">
-    <h3><%#= link_to_function "Save", "$('#{@blog[:type]}').submit();" %></h3>
+    <h3><%#= link_to_remote "Save", :url => "remote_update", :with => "'content=' + $('fancypants').value, 'title=' + $('title').value"
+%></h3>
     <h3><%#= link_to 'Preview', ""%></h3>
     <h3><%#= link_to 'Save&Prev', ""%></h3>
     <h3><%= link_to_function 'Update', "$('blog').submit();" %></h3>
@@ -9,8 +10,7 @@
     <h3><%= link_to "File", blog_group_upload_files_path(:blog_group_id => @blog.blog_group_id), :popup => true %></h3>
   </div>
   <p>
-    <%= f.text_field :title, :size => 73 %>
-    
+    <%= f.text_field :title, :size => 73, :id => "title" %>
   </p>
   <%= f.text_area :content, :id => "fancypants" %>
 <% end %>

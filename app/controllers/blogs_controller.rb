@@ -29,7 +29,7 @@ class BlogsController < ApplicationController
         end
         @blog.save!; @blog.reload
       end
-      redirect_to blog_groups_path 
+      redirect_to blog_path(@blog) 
     else
       render :action => "edit"
     end
