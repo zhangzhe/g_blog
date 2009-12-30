@@ -30,10 +30,11 @@
 	  <ul>
 	    <li>
 	      <h3><%= link_to "RSS", blog_groups_path(:rss) %></h3>
-	      <h3><%= link_to t("RSS Chinese"), chineses_path(:rss) %></h3>
-	      <h3><%= link_to t("RSS English"), englishs_path(:rss) %></h3>
+	      <h3><%#= link_to t("RSS Chinese"), chineses_path(:rss) %></h3>
+	      <h3><%#= link_to t("RSS English"), englishs_path(:rss) %></h3>
 	      <h3><%= link_to t("Blog List"), blogs_path %></h3>
 	      <h3><%= link_to "All Content", all_content_blog_groups_path  if admin? %></h3>
+<br>
 	      <h2><%= t('recent') %></h2>
 	      <%= recent %>
 	    </li>
@@ -45,13 +46,13 @@
 		</fieldset>
 	      </form>
 	    </li>	  
-	  </ul>
+	    </ul>
+	  </div>
+	  <div style="clear: both;">&nbsp;</div>
 	</div>
-	<div style="clear: both;">&nbsp;</div>
       </div>
+      <div id="footer">
+	<p>(c) 2009 zhangzhe</a></p>
     </div>
-    <div id="footer">
-      <p>(c) 2009 zhangzhe</a></p>
-  </div>
-</body>
+  </body>
 </html>

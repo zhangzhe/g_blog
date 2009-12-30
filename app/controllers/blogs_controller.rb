@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
+  rescue
+    redirect_to blog_groups_path
   end
 
   def new

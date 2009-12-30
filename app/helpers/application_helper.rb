@@ -15,7 +15,7 @@ module ApplicationHelper
     @blogs = Blog.find(:all, :limit => 8, :order => "created_at DESC")
     result = "<ul>"
     @blogs.each do |blog|
-      result << "<li>#{link_to(blog.title, blog_path(blog))}</li>"
+      result << "<li>#{link_to(truncate(blog.title, :length => 22), blog_path(blog), :title => blog.title)}</li>"
     end
     result << "</ul>"
   end
