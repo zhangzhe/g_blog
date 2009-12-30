@@ -44,7 +44,7 @@ class UrlString < FormatableString
 end
 
 class RuleString < FormatableString
-  RULES = {"*" => "</b>", "_" => "</i>", "+" => "</u>"}
+  RULES = {"*" => "</b>", "_" => "</i>", "+" => "</u>", "#" => "</h>"}
   def format
     @content = self
     unescape_rule = generate_unescape_rule

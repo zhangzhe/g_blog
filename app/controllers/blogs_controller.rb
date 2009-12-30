@@ -38,15 +38,7 @@ class BlogsController < ApplicationController
   end
   
   def example
-    render :text => "
-** => b
-_ _ => i
-+ + => u
-*  => list
-[img:right]url[/img]
-[f1] [/f1]
-[red][/red]
-[link:i am strong]http://www.idapted.com[/link]"
+    @example = "*b* =&gt; <b>b</b><br><i> </i> +i+ =&gt; <i>i</i><br><u> </u> _u_ =&gt; <u>u<br></u># h # =&gt; h<br>[red]red[/red] => <font color='#ff0000'>red<br></font>[blue]blue[/blue] => <font color='#0000ff'>blue</font><font color='#ff0000'><br></font>[green]green[/green] => <font color='#088a4b'>green</font><br>* list1<u><br></u>* list2<br>* list3 =&gt;<u><br></u><ul><li>list1</li><li>list2</li><li>list3</li></ul>picture: <br>[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload_files/4/emacs.gif[/img] <br>link:<br>[link:i am strong]http://www.idapted.com[/link]"
   end
 end
 
