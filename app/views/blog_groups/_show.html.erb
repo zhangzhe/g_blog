@@ -1,5 +1,6 @@
 <p>
   <% %w(chinese english).each do |version| %>
+    
     <% @blog = @blog_group.send(version) %>
     <% if @blog.try(:title) %>
       <%= render(:partial => "blogs/show") %>
@@ -7,5 +8,4 @@
       <%= link_to "add #{version} version", edit_blog_path(@blog) if admin? and @blog %>
     <% end %>
   <% end %>
-  <%= link_to "destroy", @blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %>
 </p>

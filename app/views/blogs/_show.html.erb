@@ -2,6 +2,7 @@
 <ht> <%=h @blog.title %> </ht><br>
 <hd><%= @blog.updated_at.to_date %></hd>
 <%= link_to 'edit', edit_blog_path(@blog) if admin? %>
+<%= link_to "destroy", @blog.blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %>
 <br>
 <br>
 <div>   
