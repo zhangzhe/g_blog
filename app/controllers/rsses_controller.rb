@@ -1,0 +1,2 @@
+class RssesController < ApplicationController
+end

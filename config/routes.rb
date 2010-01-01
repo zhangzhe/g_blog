@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :blog_groups, :collection => { :all_content => :get} do |blog_group|
     blog_group.resources :upload_files
   end
-  
+  map.resources :rsses
   map.resources :comments
   map.resources :blogs, :collection => {:example => :get}
   map.resources :chineses, :englishs

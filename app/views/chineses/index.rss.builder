@@ -3,7 +3,6 @@ xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
     xml.title "张哲的博客"
-    xml.description "张哲的博客"
     xml.link blogs_url(:rss)
     
     for blog in @blogs
