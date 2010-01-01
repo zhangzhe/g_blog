@@ -8,7 +8,7 @@ h {font-size:14px;line-height: 260%;}
 body {
     margin: 0px;
     padding: 0px;
-    background: #000000  repeat-x left top;
+    background: #000000 url(images/img01.jpg) repeat-x left top;
     font: 13px Arial, sans-serif;
     color: #D9D9D9;
 }
@@ -50,8 +50,9 @@ a img {
 /* Header */
 
 #header {
+    width: 1000px;
     height: 100px;
-    background: url(images/img01.jpg) repeat-x;
+    margin: 0px auto;
     color: #000000;
 }
 
@@ -64,7 +65,6 @@ a img {
 
 #logo {
     float: left;
-    padding-left: 130px;
 }
 
 #logo h1, #logo p {
@@ -83,7 +83,6 @@ a img {
 
 #menu {
     float: right;
-    padding-right: 120px;
 }
 
 #menu ul {
