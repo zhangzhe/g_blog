@@ -39,7 +39,7 @@ end
 
 class UrlString < FormatableString
   def format
-    return self.gsub(/\[link:(.+?)\](.+?)\[\/link\]/, '<a target="_blank" style="color:Blue" href=\2><u>\1</u></a>')
+    return self.gsub(/\[link:(.+?)\](.+?)\[\/link\]/, '<a target="_blank"  style="color:blue" href=\2><u>\1</u></a>')
   end
 end
 

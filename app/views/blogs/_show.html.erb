@@ -1,5 +1,5 @@
 <br>
-<ht> <%=h @blog.title %> </ht><br>
+<ht><%=link_to h(@blog.title), blog_path(@blog) %>&nbsp;&nbsp;&nbsp;<%= link_to "(#{@blog.brother.type} version)", blog_path(@blog.brother) %></ht><br>
 <hd><%= @blog.updated_at.to_date %></hd>
 <%= link_to 'edit', edit_blog_path(@blog) if admin? %>
 <%= link_to "destroy", @blog.blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %>
