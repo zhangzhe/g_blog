@@ -1,18 +1,21 @@
+<br><br>
 <%= link_to_function "Comments", "$('comments#{@blog.id}').toggle();" %>
-<div id="comments<%= @blog.id %>" style="display:none;">
-  <% @blog.comments.each do |comment| %>
-    <p>
-      <div class="comment">
-	<%=h comment.name %><%= comment.created_at %>
+<div id="comments<%= @blog.id %>" style="display:none;" class="comments">
+-----------------------------------------------------------
+<% @blog.comments.each do |comment| %>
+      <div class="comment" >
+	<hn><%=h comment.name %></hn>
+	<hd><%= comment.created_at.to_date %></hd>
 	<br>
 	<div class="content">
-	  <%=h comment.content %>
+	  <%=g_textile comment.content %>
 	</div>
+	<br>
       </div>
-    </p>
+      ----------------------------
   <% end %>
-
-  Add Comment:
+<br><br>
+  Add Comment
   <% form_for Comment.new do |f| %>
     <p>
       <%= hidden_field_tag :blog_id, @blog.id %>

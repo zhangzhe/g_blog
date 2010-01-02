@@ -16,7 +16,12 @@ body {
 hd {
     font-size: 12px;
     font-style: italic;
-    color: #A4A4A4;
+    color: #666666;
+}
+
+hn {
+    font-size: 15px;
+    font-weight: bold;
 }
 
 hv {
@@ -293,12 +298,7 @@ a img {
     float: left;
 }
 
-#comments {
-    border:1px solid #AAAAAA;
-    margin-right:50px;
+.comments {
+    margin-right: 150px;
 }
-.comment .created_at {
-    color:#666666;
-    font-size:10px;
 }
-
