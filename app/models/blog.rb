@@ -8,7 +8,11 @@ class Blog < ActiveRecord::Base
       blog.update_attributes(:u_title => new_u_title) unless new_u_title == blog.u_title
     end
   end
-
+  
+  def to_param
+    "#{id}-#{u_title}"
+  end
+  
   def bf_content
     "#{title}\n\n#{content}"
   end
