@@ -1,14 +1,17 @@
 <br>
-<ht><%=link_to h(@blog.title), blog_path(@blog) %>&nbsp;&nbsp;&nbsp;<%= link_to "(#{@blog.brother.type} version)", blog_path(@blog.brother) %></ht><br>
-<hd><%= @blog.updated_at.to_date %></hd>
+<% cache @blog do %>
+  <ht><%=link_to h(@blog.title), blog_path(@blog) %>&nbsp;&nbsp;&nbsp;<%= link_to "(#{@blog.brother.type} version)", blog_path(@blog.brother) %></ht><br>
+  <hd><%= @blog.updated_at.to_date %></hd>
+  <br>
+  <br>
+  <div>   
+    <%= g_textile @blog.content %>
+  </div>
+<% end %>
+
+<br>
 <%= link_to 'edit', edit_blog_path(@blog) if admin? %>
 <%= link_to "destroy", @blog.blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %>
-<br>
-<br>
-<div>   
-  <%= g_textile @blog.content %>
-</div>
-<br>
 <%= render(:partial => "comments/new") %>
 <br>
 <br><br><br>

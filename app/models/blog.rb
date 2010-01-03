@@ -4,7 +4,7 @@ class Blog < ActiveRecord::Base
   require "pinyin"
   after_save do |blog|
     Blog.transaction do 
-      new_u_title = PinYin.instance.to_permlink(blog.title)
+      new_u_title = PinYin.instance.to_permlink(blog.title) if blog.title
       blog.update_attributes(:u_title => new_u_title) unless new_u_title == blog.u_title
     end
   end

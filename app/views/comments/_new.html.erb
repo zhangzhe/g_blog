@@ -1,8 +1,10 @@
 <br><br>
 <%= link_to_function "Comments", "$('comments#{@blog.id}').toggle();" %>
 <div id="comments<%= @blog.id %>" style="display:none;" class="comments">
------------------------------------------------------------
-<% @blog.comments.each do |comment| %>
+<% @comments = @blog.comments %>
+  <% cache @comments do %>
+    -----------------------------------------------------------
+    <% @comments.each do |comment| %>
       <div class="comment" >
 	<hn><%=h comment.name %></hn>
 	<hd><%= comment.created_at.to_date %></hd>
@@ -13,8 +15,9 @@
 	<br>
       </div>
       ----------------------------
+    <% end %>
   <% end %>
-<br><br>
+  <br><br>
   Add Comment
   <% form_for Comment.new do |f| %>
     <p>
