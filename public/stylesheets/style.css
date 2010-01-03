@@ -45,6 +45,7 @@ ol, ul {
 
 a {
     color: #7ECE05;
+    text-decoration: none;
 }
 
 a :hover {
