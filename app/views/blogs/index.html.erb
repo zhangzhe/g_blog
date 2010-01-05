@@ -1,6 +1,6 @@
 <% [Chinese, English].each do |blogs| %>
 <%= blogs.to_s %>
-  <% blogs.all.each do |blog| %>
+  <% blogs.all(:order => "created_at DESC").each do |blog| %>
     <div style="text-decoration: none;">
       <%= link_to blog.title, blog_path(blog) %>
     </div>
