@@ -4,18 +4,18 @@ development:
   username: root
   password: 
   host: localhost
-
+  encoding: utf8
 
 test:
   adapter: mysql
-  database: zhangzhe_test
+  database: zhangzhe_development
   username: root
   password: 
   host: localhost
 
 production:
   adapter: mysql
-  database: zhangzhe_production
+  database: zhangzhe_development
   username: root
   password: 
   host: localhost
