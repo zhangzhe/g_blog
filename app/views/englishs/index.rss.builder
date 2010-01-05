@@ -5,21 +5,11 @@ xml.rss :version => "2.0" do
     xml.description "zhangzhe's blogs"
     xml.link blogs_url(:rss)
     for blog in @blogs
-      xml.item do
-        xml.title blog.title
-        xml.description g_textile(blog.content)
-        xml.pubDate blog.created_at.to_s(:rfc822)
-        xml.link blog_url(blog)
-      end
+      xml.title blog.title
+      xml.description blog.content
+      xml.pubDate blog.created_at.to_s(:rfc822)
+      xml.link blog_url(blog, :rss)
+      xml.guid blog_url(blog, :rss)
     end
   end
 end
-
-
-
-
-        # xml.title article.name
-        # xml.description article.content
-        # xml.pubDate article.created_at.to_s(:rfc822)
-        # xml.link formatted_article_url(article, :rss)
-        # xml.guid formatted_article_url(article, :rss)
