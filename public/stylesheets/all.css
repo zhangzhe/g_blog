@@ -398,4 +398,10 @@ a img {
 .comments {
     margin-right: 150px;
 }
+
+.cut{
+    margin:5px 0;
+    padding:0;
+    height:10px;
+    background:url(images/cut.gif) 0 0 no-repeat;
 }

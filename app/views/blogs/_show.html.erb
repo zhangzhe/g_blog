@@ -1,7 +1,7 @@
 <br>
 <% cache @blog do %>
-  <ht><%=link_to h(@blog.title), blog_path(@blog) %>&nbsp;&nbsp;&nbsp;<%= link_to "(#{@blog.brother.type} version)", blog_path(@blog.brother) %></ht><br>
-  <hd><%= @blog.updated_at.to_date %></hd>
+  <ht><%=link_to h(@blog.title), blog_path(@blog) %></ht>&nbsp;&nbsp;&nbsp;<%= link_to "(#{@blog.brother.type} version)", blog_path(@blog.brother) %><br>
+  <hd><%= @blog.created_at.to_date %></hd>
   <br>
   <br>
   <div>   
