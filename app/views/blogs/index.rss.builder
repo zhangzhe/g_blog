@@ -10,7 +10,7 @@ xml.rss :version => "2.0" do
         xml.title blog.title
         xml.description g_textile(blog.content)
         xml.pubDate blog.created_at.to_s(:rfc822)
-        xml.link blog_url(blog)
+        xml.link blog_url(blog, :html)
       end
     end
   end
