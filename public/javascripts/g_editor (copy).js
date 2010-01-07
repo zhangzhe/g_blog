@@ -3,7 +3,7 @@ window.onload = function(){
     var editor = new Sanskrit(textarea, {
 	    className: 'fancy',
 	    toolbar: {
-		actions: {'strong': 's', 'em': 'i', 'ins': 'u', 'blue': 'b','red': 'r','green': 'g', 'list': '*', 'image': 'img', 'link': 'L', 'unlink': 'Unl', 'remove': 'remove', 'script': 'code',  'textile': 'Edit'}
+		actions: {'strong': 'b', 'em': 'i', 'ins': 'u', 'list': 'list', 'link': 'L', 'unlink': 'Unl', 'blue': 'blue','red': 'red','green': 'green', 'remove': 'remove', 'textile': 'Edit', 'list': '*li'}
 	    }
 	});
     editor.addStyle('body { font-family: Arial, Verdana; color: #333; } strike { color: #999; } u { color: #000; }');
@@ -274,21 +274,10 @@ Sanskrit.prototype = {
 	html = html.gsub(/<(?:b|strong)>((.|[\r\n])*?)<\/(?:b|strong)>/i, '*#{1}*');
 	html = html.gsub(/<(?:i|em)>((.|[\r\n])*?)<\/(?:i|em)>/i, '_#{1}_');
 	html = html.gsub(/<(?:u|ins)>((.|[\r\n])*?)<\/(?:u|ins)>/i, '+#{1}+');
-
-	//html = html.gsub(/<a href="(.*?)">((.|[\r\n])*?)<\/a>/i, '"#{2}":#{1}');
-	html = html.gsub(/<a href="(.*?)">((.|[\r\n])*?)<\/a>/i, '\[link:#{2}\]#{1}\[\/link\]');
-
-	html = html.gsub(/<img src="(.+?)">/i, '\[img\]#{1}[\/img\]');
-	
-	html = html.gsub(/<sub>(.+?)<\/sub>/i, '\[code:ruby\]#{1}[\/code\]');
-
-	//[img]http://s3.amazonaws.com/recordings.idapted.com/upload\_files/15/small.jpg[/img]
-
-	//<img src="http://s3.amazonaws.com/recordings.idapted.com/upload_files/15/small.jpg">
-
-	html = html.gsub(/<font color="#0000ff".*?>((.|[\r\n])*?)<\/font>/i, '\[blue\]#{1}\[\/blue\]');
-	html = html.gsub(/<font color="#FF0000".*?>((.|[\r\n])*?)<\/font>/i, '\[red\]#{1}\[\/red\]');
-	html = html.gsub(/<font color="#088A4B".*?>((.|[\r\n])*?)<\/font>/i, '\[green\]#{1}\[\/green\]');
+	html = html.gsub(/<a href="(.*?)">((.|[\r\n])*?)<\/a>/i, '"#{2}":#{1}');
+	html = html.gsub(/<font color="#0000ff".*?>((.|[\r\n])*?)<\/font>/i, '%{color:blue}#{1}%');
+	html = html.gsub(/<font color="#FF0000".*?>((.|[\r\n])*?)<\/font>/i, '%{color:red}#{1}%');
+	html = html.gsub(/<font color="#088A4B".*?>((.|[\r\n])*?)<\/font>/i, '%{color:green}#{1}%');
 	//list	
 	var r = /([\s\S]*)<ul>([\s\S]*?)<\/ul>([\s\S]*)/;
 	while (r.test(html))
@@ -302,7 +291,6 @@ Sanskrit.prototype = {
 
 	//unescape for link
 	html = html.gsub("%5C", '\\');
-	
 	//delete begin and end blanks
 	html = html.gsub(/^[\r\n]+|[\r\n]+$/, '');
 	return html;
@@ -331,43 +319,51 @@ Sanskrit.prototype = {
 		textile = l + "<ul>" + m + "</ul>" + e;
 	    }
 
+        //for url (importent:both in javascript and ruby)
+	// var r = /"(.+?)":([^\s\n<]+)/;
+	// while (r.test(textile))
+	//     {
+	// 	l = RegExp.leftContext;
+	// 	m = RegExp.lastMatch;
+        //         e = RegExp.rightContext;
+        //         //escape _ in url 
+        //         m = m.gsub(/\\\_/, "@@@U@@@");
+	// 	textile = l + m.gsub(/"(.+?)":([^\s\n<]+)/, '<a href="#{2}">#{1}</a>') + e;
+	//     }
+	//at end
 	textile = textile.gsub(/_(.+?)_/, (this.internetExplorer ? '<em>#{1}</em>' : '<i>#{1}</i>'));
 	textile = textile.gsub(/\+(.+?)\+/, '<u>#{1}</u>');
 	
-	//code
-	textile = textile.gsub(/\[code:ruby](.+?)\[\/code\]/, '<sub>#{1}</sub>');
+	//do not forget to escape
+	textile = textile.gsub(/"(.+?)":([^\s\n<]+)/, '<a href="#{2}">#{1}</a>');
 
-    textile = textile.gsub(/\[img\](.+?)\[\/img\]/, '<img src=#{1}>');
+	textile = textile.gsub(/%{color:blue}(.+?)%/i, '<font color="#0000ff">#{1}<\/font>');
+	textile = textile.gsub(/%{color:red}(.+?)%/i, '<font color="#FF0000">#{1}<\/font>');
+	textile = textile.gsub(/%{color:green}(.+?)%/i, '<font color="#088A4B">#{1}<\/font>');
 
-    textile = textile.gsub(/\[link:(.+?)\](.+?)\[\/link\]/, '<a href="#{2}">#{1}</a>');
-    textile = textile.gsub(/\[blue\](.+?)\[\/blue\]/i, '<font color="#0000ff">#{1}<\/font>');
-    textile = textile.gsub(/\[red\](.+?)\[\/red\]/i, '<font color="#FF0000">#{1}<\/font>');
-    textile = textile.gsub(/\[green\](.+?)\[\/green\]/i, '<font color="#088A4B">#{1}<\/font>');
-
-    //unescape all others
-    textile = textile.gsub(/###U###/, "\\\+");
-    textile = textile.gsub(/###I###/, "\\\_");
-    textile = textile.gsub(/###B###/, "\\\*");
-    //unescape for _ in url
-    //textile = textile.gsub(/@@@U@@@/, "\_");
-    //delete begin and end blanks
-    textile = textile.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-    textile = textile.gsub(/^(<br\/>)+|(<br\/>)+$/, '');
-    return textile;
-},
+	//unescape all others
+	textile = textile.gsub(/###U###/, "\\\+");
+	textile = textile.gsub(/###I###/, "\\\_");
+	textile = textile.gsub(/###B###/, "\\\*");
+	//unescape for _ in url
+	//textile = textile.gsub(/@@@U@@@/, "\_");
+	//delete begin and end blanks
+	textile = textile.gsub(/^(<br\/>)+|(<br\/>)+$/, '');
+	return textile;
+    },
   
     execCommand: function(name, value){
 	if (typeof value == 'undefined') { value = null; }
 	this.contentDocument.execCommand(name, false, value);
     },
   
-	richTextIsAvailable: function(){
-	    return(typeof this.contentDocument.execCommand != 'undefined');
+    richTextIsAvailable: function(){
+	return(typeof this.contentDocument.execCommand != 'undefined');
     },
   
-	callbacks: {
+    callbacks: {
 	onSubmit: function(){ return true; }
-	}
+    }
 
 };
 
@@ -402,16 +398,6 @@ SanskritToolbar.prototype = {
 	    editor.execCommand("ForeColor", "#0000FF");
 	},
 
-	image: function(editor){
-	    var uri = prompt('Enter image address:');
-	    if (typeof uri === 'string') {
-		if (!uri.match(/^[a-zA-Z]+:\/\//)) { uri = 'http://' + uri; }
-		editor.execCommand('InsertImage', uri);
-	    } else {
-		return false;
-	    }
-	},
-
 	red: function(editor){
 	    editor.execCommand("ForeColor", "#FF0000");
 	},
@@ -427,11 +413,6 @@ SanskritToolbar.prototype = {
 	// added
 	list: function(editor){
 	    editor.execCommand('insertunorderedlist',false, null)
-	},
-
-	//script
-	script: function(editor){
-	    editor.execCommand("Subscript")
 	},
 	
 	strong: function(editor){
