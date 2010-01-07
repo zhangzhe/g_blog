@@ -195,10 +195,10 @@ a img {
 }
 
 #sidebar li li {
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-top: 8px;
     margin-left: 0px;
-    border-bottom: 1px ridge;
+    border-bottom: 1px dashed;
 }
 
 #sidebar h2 {
