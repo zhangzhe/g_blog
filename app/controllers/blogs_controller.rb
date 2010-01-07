@@ -8,7 +8,7 @@ class BlogsController < ApplicationController
     format.html
     format.xml
   rescue
-    redirect_to blog_groups_path
+    redirect_to blogs_path
   end
 
   def new
