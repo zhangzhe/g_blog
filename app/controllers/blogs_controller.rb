@@ -5,6 +5,8 @@ class BlogsController < ApplicationController
   
   def show
     @blog = Blog.find(params[:id])
+    format.html
+    format.xml
   rescue
     redirect_to blog_groups_path
   end
