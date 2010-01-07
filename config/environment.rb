@@ -40,3 +40,4 @@ Rails::Initializer.run do |config|
 end
 
 require 'coderay'  
+require 'test'  
