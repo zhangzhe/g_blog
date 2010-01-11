@@ -11,8 +11,8 @@ module ApplicationHelper
     end
   end
   
-  def recent
-    @blogs = English.find(:all, :limit => 8, :order => "created_at DESC")
+  def recent(num = 3)
+    @blogs = English.find(:all, :limit => num, :order => "created_at DESC")
     result = "<ul>"
     @blogs.each do |blog|
       result << "<li>#{link_to(truncate(blog.title, :length => 30), blog_path(blog), :title => blog.title)}</li>"

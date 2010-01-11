@@ -15,9 +15,7 @@ class BlogGroup < ActiveRecord::Base
   def self.all_content
     returning content = "" do
       BlogGroup.all.each do |bg|
-        bg.blogs.each do |blog|
-           content << blog.bf_content + "\n===\n"
-        end
+        bg.blogs.each { |blog| content << blog.bf_content + "\n===\n" }
         content << "\n\n======\n\n"
       end
     end

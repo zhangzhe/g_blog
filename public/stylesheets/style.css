@@ -194,8 +194,9 @@ a img {
 }
 
 #sidebar li li {
-    padding-bottom: 8px;
-    padding-top: 8px;
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 6px;
     margin-left: 0px;
     border-bottom: 1px dashed;
 }

@@ -40,25 +40,28 @@ cheat sheets
 *help*
 cheat cheat
 '
-       @g_textile_expect_output = %(no cheat sheet anymore<br/>\n\r<br/>\n\r<img style=\"float:right\" src=\"http://s3.amazonaws.com/recordings.idapted.com/upload_files/6/cheat_sheet.jpg\"><br/>\n\rAll the times I used cheat sheet to struggle my bad memory. <br/>\n\r<br/>\n\r<ul><li><font color='#FF2D2D'>RAILS sheet</font></li><li><font color='#FF2D2D'>MYSQL sheet</font></li><li><font color='#FF2D2D'>PROTOTYPE sheet</font></li></ul><br/>\n\rNo need anymore!!! <br/>\n\r<br/>\n\r<span style=\"font-size:17px\"><a target=\"_blank\" href=http://cheat.errtheblog.com><u>cheat</u></a></span> Comes.<br/>\n\r<br/>\n\r<b>install</b><br/>\n\rsudo gem install cheat<br/>\n\r<br/>\n\r<div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"r\">def</span> <span class=\"fu\">test</span>\n   puts <span class=\"s\"><span class=\"dl\">&quot;</span><span class=\"k\">sss</span><span class=\"dl\">&quot;</span></span>\n  <span class=\"r\">end</span></pre></div>\n</div>\n<br/>\n\r<br/>\n\r<b>use</b><br/>\n\rcheat <sheet name><br/>\n\r<br/>\n\r<b>check all</b><br/>\n\rcheat sheets<br/>\n\r<br/>\n\r<div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"r\">def</span> <span class=\"fu\">test</span>\n   puts <span class=\"s\"><span class=\"dl\">&quot;</span><span class=\"k\">sss</span><span class=\"dl\">&quot;</span></span>\n  <span class=\"r\">end</span></pre></div>\n</div>\n<br/>\n\r<br/>\n\r<b>help</b><br/>\n\rcheat cheat<br/>\n\r)
+       @g_textile_expect_output = %(no cheat sheet anymore<br/>\n\r<br/>\n\r<img style=\"float:right\" src=\"http://s3.amazonaws.com/recordings.idapted.com/upload_files/6/cheat_sheet.jpg\"><br/>\n\rAll the times I used cheat sheet to struggle my bad memory. <br/>\n\r<br/>\n\r<ul><li><font color='#FF2D2D'>RAILS sheet</font></li><li><font color='#FF2D2D'>MYSQL sheet</font></li><li><font color='#FF2D2D'>PROTOTYPE sheet</font></li></ul><br/>\n\rNo need anymore!!! <br/>\n\r<br/>\n\r<span style=\"font-size:17px\"><a target=\"_blank\" style=\"color:\#2828FF\" href=http://cheat.errtheblog.com>cheat</a></span> Comes.<br/>\n\r<br/>\n\r<b>install</b><br/>\n\rsudo gem install cheat<br/>\n\r<br/>\n\r<div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"r\">def</span> <span class=\"fu\">test</span>\n   puts <span class=\"s\"><span class=\"dl\">&quot;</span><span class=\"k\">sss</span><span class=\"dl\">&quot;</span></span>\n  <span class=\"r\">end</span></pre></div>\n</div>\n<br/>\n\r<br/>\n\r<b>use</b><br/>\n\rcheat <sheet name><br/>\n\r<br/>\n\r<b>check all</b><br/>\n\rcheat sheets<br/>\n\r<br/>\n\r<div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"r\">def</span> <span class=\"fu\">test</span>\n   puts <span class=\"s\"><span class=\"dl\">&quot;</span><span class=\"k\">sss</span><span class=\"dl\">&quot;</span></span>\n  <span class=\"r\">end</span></pre></div>\n</div>\n<br/>\n\r<br/>\n\r<b>help</b><br/>\n\rcheat cheat<br/>\n\r)
   end
   
+  # FIXME
   describe "g_textile(text)" do 
     it "should do gary textile right" do 
       g_textile(@g_textile_input).should == @g_textile_expect_output
     end
   end
   
-  describe "recent" do 
+  describe "recent(num)" do 
     it "should return 3 of recent blog_groups" do 
-      blog_groups = []
+      blogs = []
       3.times do |i|
         bg = BlogGroup.create
-        blog_groups << bg
-        bg.blogs << English.create(:title => i)
+        blog = English.create(:title => i)
+        blogs << blog
+        bg.blogs << blog
       end
-      ids = blog_groups.map(&:id)
-    recent.should == "<ul><li><a href=\"/blog_groups/#{ids[2]}\">(2)</a></li><li><a href=\"/blog_groups/#{ids[1]}\">(1)</a></li><li><a href=\"/blog_groups/#{ids[0]}\">(0)</a></li></ul>"
+      ids = blogs.map(&:id)
+      recent(3).should == "<ul><li><a href=\"/blogs/#{ids[0]}-0\" title=\"0\">0</a></li><li><a href=\"/blogs/#{ids[1]}-1\" title=\"1\">1</a></li><li><a href=\"/blogs/#{ids[2]}-2\" title=\"2\">2</a></li></ul>"
+      
     end
   end
 end

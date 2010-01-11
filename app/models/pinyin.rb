@@ -30,7 +30,7 @@ class PinYin
 
   def str_to_pinyin(str,separator='',abbr_else=false,abbr=false,tone=false)
     res = []
-    str.unpack('U*').each_with_index do |t,idx|
+    str.to_s.unpack('U*').each_with_index do |t,idx|
       code = sprintf('%x',t).upcase
       val = get_value(code)
       if val

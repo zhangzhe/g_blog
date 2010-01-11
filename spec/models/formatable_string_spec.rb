@@ -3,7 +3,7 @@ describe FormatableString do
   describe "to_html_format" do 
     it "should call it's subclasses and format itself to html format(FIXME)" do
       string = FormatableString.new("*b*c\n* 11\n* 22\naa[f1]bb[/f1]cc[red]r[/red][img]www.gary.com[/img][link:gary]www.gary.com[/link]") 
-      string.to_html_format.should == "<b>b</b>c<br/>\n\r<ul><li>11</li><li>22</li></ul>aa<span style=\"font-size:17px\">bb</span>cc<font color=\'#FF2D2D\'>r</font><img style=\"float\" src=\"www.gary.com\"><a target=\"_blank\" href=www.gary.com><u>gary</u></a>"
+      string.to_html_format.should == "<b>b</b>c<br/>\n\r<ul><li>11</li><li>22</li></ul>aa<span style=\"font-size:17px\">bb</span>cc<font color='#FF2D2D'>r</font><img style=\"float\" src=\"www.gary.com\"><a target=\"_blank\" style=\"color:#2828FF\" href=www.gary.com>gary</a>"
     end 
   end
 end
@@ -50,7 +50,7 @@ describe UrlString do
   describe "format" do 
     it "should format url input into html url" do
       url_string = UrlString.new("[link:gary]www.gary.com[/link]")
-      url_string.format.should == '<a target="_blank" href=www.gary.com><u>gary</u></a>'
+      url_string.format.should == '<a target="_blank" style="color:#2828FF" href=www.gary.com>gary</a>'
      end 
   end
 end

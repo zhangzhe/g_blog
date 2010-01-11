@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3>C0 code coverage information</h3>
-    <p>Generated on Wed Dec 16 22:46:01 +0800 2009 with <a href='http://github.com/spicycode/rcov'>rcov 0.8.2.1</a>
+    <p>Generated on Sat Jan 09 17:05:41 +0800 2010 with <a href='http://github.com/spicycode/rcov'>rcov 0.8.2.1</a>
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -571,24 +571,24 @@ span.run100 {
     </thead>
   <tbody><tr class='light'><td><a href='app-controllers-blogs_controller_rb.html'>app/controllers/blogs_controller.rb</a>
         </td>
-      <td class='lines_total'><tt>57</tt>
+      <td class='lines_total'><tt>48</tt>
         </td>
-      <td class='lines_code'><tt>44</tt>
+      <td class='lines_code'><tt>42</tt>
         </td>
-      <td><table cellspacing='0' align='right' cellpadding='0'><tr><td><tt class='coverage_total'>26.3%</tt>
+      <td><table cellspacing='0' align='right' cellpadding='0'><tr><td><tt class='coverage_total'>27.1%</tt>
               &nbsp;</td>
-            <td><table class='percent_graph' cellspacing='0' width='100' cellpadding='0'><tr><td class='covered' width='26'/>
-                  <td class='uncovered' width='74'/>
+            <td><table class='percent_graph' cellspacing='0' width='100' cellpadding='0'><tr><td class='covered' width='27'/>
+                  <td class='uncovered' width='73'/>
                   </tr>
                 </table>
               </td>
             </tr>
           </table>
         </td>
-      <td><table cellspacing='0' align='right' cellpadding='0'><tr><td><tt class='coverage_code'>18.2%</tt>
+      <td><table cellspacing='0' align='right' cellpadding='0'><tr><td><tt class='coverage_code'>16.7%</tt>
               &nbsp;</td>
-            <td><table class='percent_graph' cellspacing='0' width='100' cellpadding='0'><tr><td class='covered' width='18'/>
-                  <td class='uncovered' width='82'/>
+            <td><table class='percent_graph' cellspacing='0' width='100' cellpadding='0'><tr><td class='covered' width='17'/>
+                  <td class='uncovered' width='83'/>
                   </tr>
                 </table>
               </td>
@@ -598,63 +598,54 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="marked1"><a name="line1"></a> 1 class BlogsController &lt; ApplicationController
-</span><span class="marked0"><a name="line2"></a> 2   def index
-</span><span class="uncovered1"><a name="line3"></a> 3     @blogs = Blog.all
-</span><span class="uncovered0"><a name="line4"></a> 4   end
-</span><span class="inferred1"><a name="line5"></a> 5 
-</span><span class="marked0"><a name="line6"></a> 6   def show
-</span><span class="uncovered1"><a name="line7"></a> 7     @blog = Blog.find(params[:id])
-</span><span class="uncovered0"><a name="line8"></a> 8   end
-</span><span class="inferred1"><a name="line9"></a> 9 
-</span><span class="marked0"><a name="line10"></a>10   def new
-</span><span class="uncovered1"><a name="line11"></a>11     @blog = Blog.create
-</span><span class="uncovered0"><a name="line12"></a>12     CONFIG[&quot;version_types&quot;].each do |version_type|
-</span><span class="uncovered1"><a name="line13"></a>13       @blog.versions.send(&quot;create_#{version_type}&quot;)
-</span><span class="uncovered0"><a name="line14"></a>14     end
-</span><span class="uncovered1"><a name="line15"></a>15   end
-</span><span class="inferred0"><a name="line16"></a>16 
-</span><span class="marked1"><a name="line17"></a>17   def edit
-</span><span class="uncovered0"><a name="line18"></a>18     @blog = Blog.find(params[:id])
-</span><span class="uncovered1"><a name="line19"></a>19   end
-</span><span class="inferred0"><a name="line20"></a>20 
-</span><span class="marked1"><a name="line21"></a>21   def update
-</span><span class="uncovered0"><a name="line22"></a>22     @blog = Blog.find(params[:id])
-</span><span class="uncovered1"><a name="line23"></a>23     if @blog.update_attributes(params[:blog])
-</span><span class="uncovered0"><a name="line24"></a>24       flash[:notice] = 'Blog was successfully updated.'
-</span><span class="uncovered1"><a name="line25"></a>25       redirect_to blog_groups_path 
-</span><span class="uncovered0"><a name="line26"></a>26     else
-</span><span class="uncovered1"><a name="line27"></a>27       render :action =&gt; &quot;edit&quot;
-</span><span class="uncovered0"><a name="line28"></a>28     end
-</span><span class="uncovered1"><a name="line29"></a>29   end
-</span><span class="inferred0"><a name="line30"></a>30   
-</span><span class="marked1"><a name="line31"></a>31   def destroy
-</span><span class="uncovered0"><a name="line32"></a>32     @blog = Blog.find(params[:id])
-</span><span class="uncovered1"><a name="line33"></a>33     @blog.destroy
-</span><span class="uncovered0"><a name="line34"></a>34     redirect_to(blogs_url) 
-</span><span class="uncovered1"><a name="line35"></a>35   end
-</span><span class="inferred0"><a name="line36"></a>36   
-</span><span class="marked1"><a name="line37"></a>37   def example
-</span><span class="uncovered0"><a name="line38"></a>38     render :text =&gt; &quot;chinese:
-</span><span class="uncovered1"><a name="line39"></a>39 
-</span><span class="uncovered0"><a name="line40"></a>40 title:
-</span><span class="uncovered1"><a name="line41"></a>41 title here
-</span><span class="uncovered0"><a name="line42"></a>42 
-</span><span class="uncovered1"><a name="line43"></a>43 content:
-</span><span class="uncovered0"><a name="line44"></a>44 content here
-</span><span class="uncovered1"><a name="line45"></a>45 
-</span><span class="uncovered0"><a name="line46"></a>46 =====
-</span><span class="uncovered1"><a name="line47"></a>47 
-</span><span class="uncovered0"><a name="line48"></a>48 english:
-</span><span class="uncovered1"><a name="line49"></a>49 
-</span><span class="uncovered0"><a name="line50"></a>50 title:
-</span><span class="uncovered1"><a name="line51"></a>51 title here
-</span><span class="uncovered0"><a name="line52"></a>52 
-</span><span class="uncovered1"><a name="line53"></a>53 content:
-</span><span class="uncovered0"><a name="line54"></a>54 content here&quot;
-</span><span class="uncovered1"><a name="line55"></a>55   end
-</span><span class="uncovered0"><a name="line56"></a>56 end
-</span><span class="inferred1"><a name="line57"></a>57 
+<pre><span class="marked0"><a name="line1"></a> 1 class BlogsController &lt; ApplicationController
+</span><span class="marked1"><a name="line2"></a> 2   def index
+</span><span class="uncovered0"><a name="line3"></a> 3     @blogs = Blog.all
+</span><span class="uncovered1"><a name="line4"></a> 4   end
+</span><span class="inferred0"><a name="line5"></a> 5   
+</span><span class="marked1"><a name="line6"></a> 6   def show
+</span><span class="uncovered0"><a name="line7"></a> 7     @blog = Blog.find(params[:id])
+</span><span class="uncovered1"><a name="line8"></a> 8   rescue
+</span><span class="uncovered0"><a name="line9"></a> 9     redirect_to blog_groups_path
+</span><span class="uncovered1"><a name="line10"></a>10   end
+</span><span class="inferred0"><a name="line11"></a>11 
+</span><span class="marked1"><a name="line12"></a>12   def new
+</span><span class="uncovered0"><a name="line13"></a>13     @blog_group = BlogGroup.create
+</span><span class="uncovered1"><a name="line14"></a>14     @blog = Blog.create
+</span><span class="uncovered0"><a name="line15"></a>15     @blog_group.blogs &lt;&lt; @blog
+</span><span class="uncovered1"><a name="line16"></a>16   end
+</span><span class="inferred0"><a name="line17"></a>17 
+</span><span class="marked1"><a name="line18"></a>18   def edit
+</span><span class="uncovered0"><a name="line19"></a>19     @blog = Blog.find(params[:id])
+</span><span class="uncovered1"><a name="line20"></a>20     if @blog.content.blank?
+</span><span class="uncovered0"><a name="line21"></a>21       @blog.content = @blog.brother.content
+</span><span class="uncovered1"><a name="line22"></a>22     end
+</span><span class="uncovered0"><a name="line23"></a>23   end
+</span><span class="inferred1"><a name="line24"></a>24 
+</span><span class="marked0"><a name="line25"></a>25   def update
+</span><span class="uncovered1"><a name="line26"></a>26     @blog = Blog.find(params[:id])
+</span><span class="uncovered0"><a name="line27"></a>27     if @blog.update_attributes(params[:blog])
+</span><span class="uncovered1"><a name="line28"></a>28       if @blog[&quot;type&quot;].nil? # means the first time create
+</span><span class="uncovered0"><a name="line29"></a>29         if @blog.title =~ /[\xa0-\xff]/
+</span><span class="uncovered1"><a name="line30"></a>30           @blog.type = &quot;Chinese&quot;
+</span><span class="uncovered0"><a name="line31"></a>31           @blog.blog_group.english = English.create
+</span><span class="uncovered1"><a name="line32"></a>32         else
+</span><span class="uncovered0"><a name="line33"></a>33           @blog.type = &quot;English&quot;
+</span><span class="uncovered1"><a name="line34"></a>34           @blog.blog_group.chinese = Chinese.create 
+</span><span class="uncovered0"><a name="line35"></a>35         end
+</span><span class="uncovered1"><a name="line36"></a>36         @blog.save!; @blog.reload
+</span><span class="uncovered0"><a name="line37"></a>37       end
+</span><span class="uncovered1"><a name="line38"></a>38       redirect_to blog_path(@blog) 
+</span><span class="uncovered0"><a name="line39"></a>39     else
+</span><span class="uncovered1"><a name="line40"></a>40       render :action =&gt; &quot;edit&quot;
+</span><span class="uncovered0"><a name="line41"></a>41     end
+</span><span class="uncovered1"><a name="line42"></a>42   end
+</span><span class="inferred0"><a name="line43"></a>43   
+</span><span class="marked1"><a name="line44"></a>44   def example
+</span><span class="uncovered0"><a name="line45"></a>45     @example = &quot;*b* =&amp;gt; &lt;b&gt;b&lt;/b&gt;&lt;br&gt;&lt;i&gt; &lt;/i&gt; +i+ =&amp;gt; &lt;i&gt;i&lt;/i&gt;&lt;br&gt;&lt;u&gt; &lt;/u&gt; _u_ =&amp;gt; &lt;u&gt;u&lt;br&gt;&lt;/u&gt;# h # =&amp;gt; h&lt;br&gt;[red]red[/red] =&gt; &lt;font color='#ff0000'&gt;red&lt;br&gt;&lt;/font&gt;[blue]blue[/blue] =&gt; &lt;font color='#0000ff'&gt;blue&lt;/font&gt;&lt;font color='#ff0000'&gt;&lt;br&gt;&lt;/font&gt;[green]green[/green] =&gt; &lt;font color='#088a4b'&gt;green&lt;/font&gt;&lt;br&gt;* list1&lt;u&gt;&lt;br&gt;&lt;/u&gt;* list2&lt;br&gt;* list3 =&amp;gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;ul&gt;&lt;li&gt;list1&lt;/li&gt;&lt;li&gt;list2&lt;/li&gt;&lt;li&gt;list3&lt;/li&gt;&lt;/ul&gt;picture: &lt;br&gt;[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload_files/4/emacs.gif[/img] &lt;br&gt;link:&lt;br&gt;[link:i am strong]http://www.idapted.com[/link]&quot;
+</span><span class="uncovered1"><a name="line46"></a>46   end
+</span><span class="uncovered0"><a name="line47"></a>47 end
+</span><span class="inferred1"><a name="line48"></a>48 
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.2.1.</p>
