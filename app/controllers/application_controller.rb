@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :admin?
   before_filter :set_locale
+  def authorize
+    redirect_to root_path unless admin?
+  end
   
   def admin?
     session[:password] == '1234123'

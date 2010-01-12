@@ -4,6 +4,7 @@ class BlogGroupsController < ApplicationController
   end
 
   def destroy
+    authorize
     BlogGroup.find(params[:id]).destroy
     redirect_to :back
   end
