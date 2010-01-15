@@ -21,7 +21,7 @@ class FontSizeString < FormatableString
 end
 
 class FontColorString < FormatableString
-  COLORS = {"green" => "#33CC00", "red" => "#FF2D2D", "blue" => "#2828FF"}
+  COLORS = {"purple" => "#B404AE", "green" => "#01DF01", "red" => "#FF0000", "blue" => "#0000FF"}
   def format
     content = self
     COLORS.each do |key, value|

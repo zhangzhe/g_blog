@@ -1,0 +1,10 @@
+<script src="../javascripts/prototype.js" type="text/javascript"></script>
+<link href="../stylesheets/jstoolbar.css" media="screen" rel="stylesheet" type="text/css" />							
+<form action="/projects/new">
+  <p><textarea id="textile_editor"></textarea></p>
+  <script src="../javascripts/jstoolbar.js" type="text/javascript"></script><script src="../javascripts/textile.js" type="text/javascript"></script><script type="text/javascript">
+    //<![CDATA[
+var wikiToolbar = new jsToolBar($('textile_editor')); wikiToolbar.draw();
+//]]>
+  </script>
+</form>

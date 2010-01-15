@@ -1,4 +1,4 @@
-<%= javascript_include_tag "g_editor" %>
+<%= javascript_include_tag "jstoolbar", "textile" %>
 <div id="<%= @blog[:type] %>_form">
   <% form_for :blog, @blog ,:url => blog_path(@blog), :html => {:method => :put, :id => "blog" } do |f| %>
   <div class="fixed_buttons">
@@ -9,6 +9,9 @@
   <p>
     <%= f.text_field :title, :size => 73, :id => "title" %>
   </p>
-  <%= f.text_area :content, :size => "94x20" %>
+  <%= f.text_area :content, :size => "92x18" %>
+  <script>
+    var wikiToolbar = new jsToolBar($('blog_content')); wikiToolbar.draw();
+  </script>
 <% end %>
 </div>
