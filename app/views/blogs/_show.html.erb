@@ -1,6 +1,7 @@
 <br>
 <% cache @blog do %>
   <ht><%=link_to h(@blog.title), blog_path(@blog) %></ht>&nbsp;&nbsp;&nbsp;<%= link_to "(read #{@blog.brother.type} version)", blog_path(@blog.brother) %><br>
+  <%= render(:partial => "blogs/admin_tool") %>
   <hd><%= @blog.created_at.to_date %></hd>
   <br>
   <br>
@@ -8,10 +9,8 @@
     <%= g_textile @blog.content %>
   </div>
 <% end %>
-
 <br>
-<%= link_to 'edit', edit_blog_path(@blog) if admin? %>
-<%= link_to "destroy", @blog.blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %>
+<%= render(:partial => "blogs/admin_tool") %>
 <%= render(:partial => "comments/new") %>
 <br>
 <br><br><br>

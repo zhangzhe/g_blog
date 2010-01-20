@@ -1,0 +1,5 @@
+<div class="right">
+  <%= link_to 'edit', edit_blog_path(@blog) if admin? %>
+  &nbsp;&nbsp;
+  <%= link_to "destroy", @blog.blog_group, :confirm => 'Are you sure?', :method => :delete if admin? %>
+</div>
