@@ -1,26 +1,3 @@
-/* ***** BEGIN LICENSE BLOCK *****
- * This file is part of DotClear.
- * Copyright (c) 2005 Nicolas Martin & Olivier Meunier and contributors. All
- * rights reserved.
- *
- * DotClear is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * DotClear is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with DotClear; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
- * ***** END LICENSE BLOCK *****
-*/
-
-/* Modified by JP LANG for textile formatting */
 
 function jsToolBar(textarea) {
 	if (!document.createElement) { return; }
@@ -76,6 +53,7 @@ function jsButton(title, fn, scope, className) {
 	this.scope = scope || null;
 	this.className = className || null;
 }
+
 jsButton.prototype.draw = function() {
 	if (!this.scope) return null;
 	
@@ -96,54 +74,6 @@ jsButton.prototype.draw = function() {
 		button.onclick = function() { try { This.fn.apply(This.scope, arguments) } catch (e) {} return false; };
 	}
 	return button;
-}
-
-function jsSpace(id) {
-	this.id = id || null;
-	this.width = null;
-}
-jsSpace.prototype.draw = function() {
-	var span = document.createElement('span');
-	if (this.id) span.id = this.id;
-	span.appendChild(document.createTextNode(String.fromCharCode(160)));
-	span.className = 'jstSpacer';
-	if (this.width) span.style.marginRight = this.width+'px';
-	
-	return span;
-} 
-
-function jsCombo(title, options, scope, fn, className) {
-	this.title = title || null;
-	this.options = options || null;
-	this.scope = scope || null;
-	this.fn = fn || function(){};
-	this.className = className || null;
-}
-jsCombo.prototype.draw = function() {
-	if (!this.scope || !this.options) return null;
-
-	var select = document.createElement('select');
-	if (this.className) select.className = className;
-	select.title = this.title;
-	
-	for (var o in this.options) {
-		//var opt = this.options[o];
-		var option = document.createElement('option');
-		option.value = o;
-		option.appendChild(document.createTextNode(this.options[o]));
-		select.appendChild(option);
-	}
-
-	var This = this;
-	select.onchange = function() {
-		try { 
-			This.fn.call(This.scope, this.value);
-		} catch (e) { alert(e); }
-
-		return false;
-	}
-
-	return select;
 }
 
 
@@ -345,36 +275,5 @@ jsToolBar.prototype = {
 		}
 	},
 	
-	stripBaseURL: function(url) {
-		if (this.base_url != '') {
-			var pos = url.indexOf(this.base_url);
-			if (pos == 0) {
-				url = url.substr(this.base_url.length);
-			}
-		}
-		
-		return url;
-	}
-};
 
-/** Resizer
--------------------------------------------------------- */
-jsToolBar.prototype.resizeSetStartH = function() {
-	this.dragStartH = this.textarea.offsetHeight + 0;
-};
-jsToolBar.prototype.resizeDragStart = function(event) {
-	var This = this;
-	this.dragStartY = event.clientY;
-	this.resizeSetStartH();
-	document.addEventListener('mousemove', this.dragMoveHdlr=function(event){This.resizeDragMove(event);}, false);
-	document.addEventListener('mouseup', this.dragStopHdlr=function(event){This.resizeDragStop(event);}, false);
-};
-
-jsToolBar.prototype.resizeDragMove = function(event) {
-	this.textarea.style.height = (this.dragStartH+event.clientY-this.dragStartY)+'px';
-};
-
-jsToolBar.prototype.resizeDragStop = function(event) {
-	document.removeEventListener('mousemove', this.dragMoveHdlr, false);
-	document.removeEventListener('mouseup', this.dragStopHdlr, false);
 };
