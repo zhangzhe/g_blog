@@ -10,12 +10,12 @@
     <div id="wrapper">
       <div id="header">
 	<div id="logo">
-	  <h1><%= link_to(t("Keep it simple"), "/") %></h1>
+	  <h1><%= link_to(t("Keep it simple"), reset_locale_blogs_path) %></h1>
 	</div>
 	<div id="menu">
 	  <ul>
-	    <li><%= link_to(t("Chinese"), chineses_path) %></li>
-	    <li><%= link_to(t("English"), englishs_path) %></li>
+	    <li class="<%= is_zh? %>"><%= link_to(t("Chinese"), chineses_path) %></li>
+	    <li class="<%= is_en? %>"><%= link_to(t("English"), englishs_path) %></li>
 	    <li><%= link_to(t("About Me"), abouts_path) %></li>
 	  </ul>
 	</div>
@@ -30,9 +30,7 @@
 	  <ul>
 	    <li>
 	      <h3><%= link_to "RSS", rsses_path %></h3>
-	      <h3><%#= link_to t("RSS Chinese"), chineses_path(:rss) %></h3>
-	      <h3><%#= link_to t("RSS English"), englishs_path(:rss) %></h3>
-	      <h3><%= link_to t("Blog List"), blogs_path %></h3>
+	      <h3><%= link_to t("Blog List"), list_blogs_path %></h3>
 	      <br><br>
 	      <h2><%= t('recent article') %></h2>
 	      <%= recent(8) %>

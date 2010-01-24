@@ -307,3 +307,7 @@ a img {
 .comments {
     margin-right: 150px;
 }
+
+.current_locale {
+ background: #7ECE05
+}

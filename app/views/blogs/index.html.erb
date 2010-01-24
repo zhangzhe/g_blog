@@ -1,9 +1,11 @@
-<% [Chinese, English].each do |blogs| %>
-<%= blogs.to_s %>
-  <% blogs.all(:order => "created_at DESC").each do |blog| %>
-    <div style="text-decoration: none;">
-      <%= blog.created_at.to_date %> -- <%= link_to blog.title, blog_path(blog) %>
-    </div>
+<div class="right"><%= will_paginate @blogs %></div>
+<br />
+<%= render :partial=> "new" %>
+
+<% @blogs.each do |@blog| %>
+  <% if @blog.title %>
+    <%= render(:partial => "show") %> 
   <% end %>
-  <br>
 <% end %>
+
+<%= will_paginate @blogs %>

@@ -5,9 +5,11 @@ def exe_cmd(cmd)
   system cmd
 end
 
-cmd = "heroku db:pull zhangzhe_bf"
+cmd = "heroku db:pull mysql://root@localhost/zhangzhe_bf?encoding=utf8"
 exe_cmd cmd
 
 
 cmd = "heroku db:pull"
 exe_cmd cmd
+
+

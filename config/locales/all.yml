@@ -1,0 +1,13 @@
+all:
+  new: "New"
+  Blog: "Blog"
+  English: "English" 
+  Blog List: "Blog List"
+  recent article: "Recent Articles"
+  Chinese verion: "Chinese verion"  
+  English verion: "English verion"
+  Keep it simple: "keep it simple"
+  Chinese: "中文"
+  About Me: "About Me"
+
+  
