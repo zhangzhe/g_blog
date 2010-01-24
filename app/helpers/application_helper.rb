@@ -11,7 +11,7 @@ module ApplicationHelper
     end
   end
   
-  def recent(num = 3)
+  def recent(num = 8)
     blog_type = case I18n.locale
                 when :en
                   English

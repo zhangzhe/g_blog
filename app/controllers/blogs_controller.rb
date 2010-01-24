@@ -1,12 +1,16 @@
 class BlogsController < ApplicationController
   def index
     if @template.is_zh?
-      @blogs = Chinese.paginate(:all, :page => params[:page], :per_page => 3, :order => "created_at DESC")
+      @blogs = blogs_with_type(Chinese)
     elsif @template.is_en?
-      @blogs = English.paginate(:all, :page => params[:page], :per_page => 3, :order => "created_at DESC")
+      @blogs = blogs_with_type(English)
     else
-      @blogs = Blog.paginate(:all, :page => params[:page], :per_page => 3, :order => "created_at DESC")
+      @blogs = blogs_with_type(Blog)
     end
+  end
+  
+  def blogs_with_type(type)
+    type.paginate(:all, :conditions => "title is not null", :page => params[:page], :per_page => 5, :order => "created_at DESC")
   end
   
   def list
