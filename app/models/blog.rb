@@ -10,6 +10,6 @@ class Blog < ActiveRecord::Base
   end
   
   def to_param
-    "#{id}-#{u_title}"
+    return "#{id}-#{u_title}"
   end
 end
