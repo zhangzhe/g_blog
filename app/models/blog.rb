@@ -12,8 +12,4 @@ class Blog < ActiveRecord::Base
   def to_param
     "#{id}-#{u_title}"
   end
-  
-  def bf_content
-    "#{title}\n\n#{content}"
-  end
 end
