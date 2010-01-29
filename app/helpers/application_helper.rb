@@ -28,6 +28,23 @@ module ApplicationHelper
     result << "</ul>"
   end
   
+  def tag_links(type = Blog)
+    if type == Blog
+      tags = type.tag_counts.map(&:name)
+      result = "<ul>"
+      tags.each do |t|
+        result << "<li style='border-bottom: 1px;'>#{link_to(t, tag_path(t))}</li>"
+      end
+      result << "</ul>"
+    else
+      result = "tags: "
+      type.tag_list.each do |t|
+        result << "#{link_to(t, tag_path(t))} "
+      end
+    end
+    return result
+  end
+  
   def is_zh?
     is_locale?(:zh)
   end

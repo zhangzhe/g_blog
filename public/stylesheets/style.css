@@ -75,7 +75,7 @@ a img {
 
 #logo {
     float: left;
-    position: fixed;
+    /*position: fixed;*/
 }
 
 #logo h1, #logo p {
@@ -166,7 +166,7 @@ a img {
 #sidebar {
     float: left;
     width: 200px;
-    position: fixed;
+    /*position: fixed;*/
 }
 
 #sidebar-bgtop {

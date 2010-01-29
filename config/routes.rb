@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :chineses, :englishs
   map.resources :sessions
   map.resources :upload_files
+  map.resources :tags
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.root :controller => "blogs"

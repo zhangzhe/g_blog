@@ -2,7 +2,8 @@
 <ht><%=link_to h(@blog.title), blog_path(@blog) %></ht>&nbsp;&nbsp;&nbsp;<%= link_to "(read #{@blog.brother.type} version)", blog_path(@blog.brother) %><br>
 <%= render(:partial => "blogs/admin_tool") %>
 <% cache @blog do %>
-  <hd><%= @blog.created_at.to_date %></hd>
+  <hd><%= @blog.created_at.to_date %></hd><br>
+  <%= tag_links(@blog) %>
   <br>
   <br>
   <div>   

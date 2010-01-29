@@ -33,6 +33,7 @@ class BlogsController < ApplicationController
   def edit
     authorize
     @blog = Blog.find(params[:id])
+    @tags = @blog.tag_list
     if @blog.content.blank?
       @blog.content = @blog.brother.content
     end
@@ -42,6 +43,7 @@ class BlogsController < ApplicationController
     if admin?
       @blog = Blog.find(params[:id])
       if @blog.update_attributes(params[:blog])
+        @blog.tag_list = params[:tag]; @blog.save!
         if @blog["type"].nil? # means the first time create
           if @blog.title =~ /[\xa0-\xff]/
             @blog.type = "Chinese"

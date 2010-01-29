@@ -1,0 +1,5 @@
+<% @blogs.each do |blog| %>
+  <div style="text-decoration: none;">
+    <%= blog.created_at.to_date %> -- <%= link_to blog.title, blog_path(blog) %>
+  </div>
+<% end %>

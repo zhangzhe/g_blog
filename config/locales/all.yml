@@ -1,6 +1,7 @@
 all:
   new: "New"
   Blog: "Blog"
+  Tags: "Tags"
   English: "English" 
   Blog List: "Blog List"
   recent article: "Recent Articles"
