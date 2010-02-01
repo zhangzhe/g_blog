@@ -28,20 +28,10 @@ module ApplicationHelper
     result << "</ul>"
   end
   
-  #FIXME
   def tag_links(type = Blog)
-    if type == Blog
-      tags = type.tag_counts.map(&:name)
-      result = "<ul>"
-      tags.each do |t|
-        result << "<li style='border-bottom: 1px;'>#{link_to(t, tag_path(t))}</li>"
-      end
-      result << "</ul>"
-    else
-      result = "tags: "
-      type.tag_list.each do |t|
-        result << "#{link_to(t, tag_path(t))}, "
-      end
+    result = "tags: "
+    type.tag_list.each do |t|
+      result << "#{link_to(t, tag_path(t))}, "
     end
     return result[0..-4]
   end
