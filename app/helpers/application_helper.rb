@@ -28,6 +28,7 @@ module ApplicationHelper
     result << "</ul>"
   end
   
+  #FIXME
   def tag_links(type = Blog)
     if type == Blog
       tags = type.tag_counts.map(&:name)
