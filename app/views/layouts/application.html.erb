@@ -31,28 +31,19 @@
 	    <li>
 	      <h3><%= link_to "RSS", rsses_path %></h3>
 	      <h3><%= link_to t("Blog List"), list_blogs_path %></h3>
-	      <br><br>
+	      <br />
+	      <br />
 	      <h2><%= t('recent article') %></h2>
 	      <%= recent(8) %>
 	    </li>
-	    <li>
-	    <!-- <li id="search"> -->
-	    <!--   <form method="get" action=""> -->
-	    <!-- 	<fieldset> -->
-	    <!-- 	  <input type="text" id="s" name="s" value="" /> -->
-	    <!-- 	</fieldset> -->
-	    <!--   </form> -->
-	    <!-- </li> -->	  
-	    </ul>
-<embed width="200" height="240" flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x555555&amp;tspeed=100&amp;distr=true&amp;mode=both&amp;tagcloud=<%= tags %>" allowscriptaccess="always" wmode="transparent" quality="high" bgcolor="#000000" name="tagcloudflash" id="tagcloudflash" src="tagcloud.swf" type="application/x-shockwave-flash">
-
-
-	  </div>
-	  <div style="clear: both;">&nbsp;</div>
+	  </ul>
+	  <embed width="200" height="240" flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x555555&amp;tspeed=100&amp;distr=true&amp;mode=both&amp;tagcloud=<%= tags %>" allowscriptaccess="always" wmode="transparent" quality="high" bgcolor="#000000" name="tagcloudflash" id="tagcloudflash" src="/tagcloud.swf" type="application/x-shockwave-flash"/>
 	</div>
+	<div style="clear: both;">&nbsp;</div>
       </div>
-      <div id="footer">
-	<p>(c) 2010 zhangzhe</a></p>
+    </div>
+    <div id="footer">
+      <p>(c) 2010 zhangzhe</p>
     </div>
   </body>
 </html>
