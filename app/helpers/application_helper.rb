@@ -40,10 +40,10 @@ module ApplicationHelper
     else
       result = "tags: "
       type.tag_list.each do |t|
-        result << "#{link_to(t, tag_path(t))} "
+        result << "#{link_to(t, tag_path(t))}, "
       end
     end
-    return result
+    return result[0..-4]
   end
   
   def is_zh?

@@ -3,7 +3,7 @@
 <%= render(:partial => "blogs/admin_tool") %>
 <% cache @blog do %>
   <hd><%= @blog.created_at.to_date %></hd><br>
-  <%= tag_links(@blog) %>
+  
   <br>
   <br>
   <div>   
@@ -11,6 +11,9 @@
   </div>
 <% end %>
 <br>
+<br>
+
+<hd><%= tag_links(@blog) %></hd>
 <%= render(:partial => "blogs/admin_tool") %>
 <%= render(:partial => "comments/show") %>
 <br>
