@@ -1,0 +1,21 @@
+    20.8: flog total
+    10.4: flog/method average
+
+    18.4: Blog#none
+     5.1: branch
+     3.1: title
+     2.7: assignment
+     1.7: instance
+     1.6: u_title
+     1.5: update_attributes
+     1.5: to_permlink
+     1.4: ==
+     1.2: transaction
+     1.1: belongs_to
+     1.1: has_many
+     1.1: acts_as_taggable_on
+     1.1: require
+     1.1: after_save
+     2.4: Blog#to_param
+     1.2: u_title
+     1.2: id

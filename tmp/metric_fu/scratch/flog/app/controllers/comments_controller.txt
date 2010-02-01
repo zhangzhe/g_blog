@@ -1,0 +1,12 @@
+    22.6: flog total
+    22.6: flog/method average
+
+    22.6: CommentsController#create
+     9.2: []
+     7.2: params
+     2.4: blank?
+     2.2: branch
+     1.4: merge
+     1.2: create
+     1.2: assignment
+     1.1: redirect_to

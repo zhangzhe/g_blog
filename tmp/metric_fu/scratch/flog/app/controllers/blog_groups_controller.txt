@@ -1,0 +1,16 @@
+    13.1: flog total
+     6.6: flog/method average
+
+     8.4: BlogGroupsController#destroy
+     1.8: params
+     1.6: []
+     1.4: find
+     1.2: redirect_to
+     1.2: authorize
+     1.2: destroy
+     4.7: BlogGroupsController#index
+     1.6: params
+     1.4: []
+     1.2: paginate
+     1.2: assignment
+     0.4: lit_fixnum

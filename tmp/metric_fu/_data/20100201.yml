@@ -1,0 +1,2935 @@
+--- 
+:flay: 
+  :total_score: "36"
+  :matches: 
+  - :matches: 
+    - :name: app/controllers/upload_files_controller.rb
+      :line: "4"
+    - :name: app/controllers/comments_controller.rb
+      :line: "4"
+    :reason: 1) Similar code found in :iasgn (mass = 36)
+:stats: 
+  :code_to_test_ratio: 0.7
+  :lines: 
+  - :methods: 26
+    :lines: 191
+    :loc: 166
+    :methods_per_class: 2
+    :name: Controllers
+    :loc_per_method: 4
+    :classes: 11
+  - :methods: 6
+    :lines: 69
+    :loc: 64
+    :methods_per_class: 0
+    :name: Helpers
+    :loc_per_method: 8
+    :classes: 0
+  - :methods: 24
+    :lines: 202
+    :loc: 179
+    :methods_per_class: 1
+    :name: Models
+    :loc_per_method: 5
+    :classes: 17
+  - :methods: 0
+    :lines: 0
+    :loc: 0
+    :methods_per_class: 0
+    :name: Libraries
+    :loc_per_method: 0
+    :classes: 0
+  - :methods: 1
+    :lines: 194
+    :loc: 171
+    :methods_per_class: 0
+    :name: Model specs
+    :loc_per_method: 169
+    :classes: 0
+  - :methods: 0
+    :lines: 0
+    :loc: 0
+    :methods_per_class: 0
+    :name: View specs
+    :loc_per_method: 0
+    :classes: 0
+  - :methods: 0
+    :lines: 60
+    :loc: 36
+    :methods_per_class: 0
+    :name: Controller specs
+    :loc_per_method: 0
+    :classes: 0
+  - :methods: 2
+    :lines: 122
+    :loc: 69
+    :methods_per_class: 0
+    :name: Helper specs
+    :loc_per_method: 32
+    :classes: 0
+  - :methods: 59
+    :lines: 838
+    :loc: 685
+    :methods_per_class: 2
+    :name: Total
+    :loc_per_method: 9
+    :classes: 28
+  :codeLOC: 409
+  :testLOC: 276
+:reek: 
+  :matches: 
+  - :file_path: app/controllers/abouts_controller.rb
+    :code_smells: []
+
+:roodi: 
+  :problems: 
+  - :file: app/controllers/blogs_controller.rb
+    :problem: Method "update" has 21 lines.  It should have 20 or less.
+    :line: "42"
+  :total: 
+  - Found 1 errors.
+:saikuro: 
+  :methods: 
+  - :lines: 22
+    :name: BlogsController#update
+    :complexity: 5
+  - :lines: 20
+    :name: PinYin#str_to_pinyin
+    :complexity: 5
+  - :lines: 15
+    :name: ApplicationHelper#recent
+    :complexity: 4
+  - :lines: 15
+    :name: ApplicationHelper#tag_links
+    :complexity: 4
+  - :lines: 10
+    :name: ApplicationHelper#g_textile
+    :complexity: 3
+  - :lines: 8
+    :name: UploadFilesController#create
+    :complexity: 3
+  - :lines: 6
+    :name: RuleString#generate_unescape_rule
+    :complexity: 3
+  - :lines: 6
+    :name: RuleString#convert
+    :complexity: 3
+  - :lines: 8
+    :name: BlogsController#index
+    :complexity: 3
+  - :lines: 2
+    :name: ApplicationHelper#is_locale?
+    :complexity: 2
+  - :lines: 6
+    :name: FormatableString#to_html_format
+    :complexity: 2
+  - :lines: 6
+    :name: FontColorString#format
+    :complexity: 2
+  - :lines: 6
+    :name: CoderayString#format
+    :complexity: 2
+  - :lines: 5
+    :name: CommentsController#create
+    :complexity: 2
+  - :lines: 2
+    :name: RuleString#generate_escape_rule
+    :complexity: 2
+  - :lines: 2
+    :name: RuleString#escape
+    :complexity: 2
+  - :lines: 5
+    :name: ListString#format
+    :complexity: 2
+  - :lines: 7
+    :name: BlogsController#edit
+    :complexity: 2
+  - :lines: 4
+    :name: BlogsController#show
+    :complexity: 2
+  - :lines: 2
+    :name: ApplicationController#authorize
+    :complexity: 2
+  - :lines: 2
+    :name: PinYin#to_permlink
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationController#user_session
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationController#admin?
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationController#set_locale
+    :complexity: 1
+  - :lines: 2
+    :name: Blog#to_param
+    :complexity: 1
+  - :lines: 2
+    :name: PinYin#get_value
+    :complexity: 1
+  - :lines: 2
+    :name: PinYin#to_pinyin
+    :complexity: 1
+  - :lines: 3
+    :name: ApplicationController#save_locale
+    :complexity: 1
+  - :lines: 3
+    :name: PinYin#initialize
+    :complexity: 1
+  - :lines: 4
+    :name: UploadFilesController#index
+    :complexity: 1
+  - :lines: 3
+    :name: UserSession#initialize
+    :complexity: 1
+  - :lines: 2
+    :name: UserSession#locale=
+    :complexity: 1
+  - :lines: 2
+    :name: UserSession#locale
+    :complexity: 1
+  - :lines: 1
+    :name: SessionsController#new
+    :complexity: 1
+  - :lines: 8
+    :name: RuleString#format
+    :complexity: 1
+  - :lines: 2
+    :name: UrlString#format
+    :complexity: 1
+  - :lines: 2
+    :name: ImageString#format
+    :complexity: 1
+  - :lines: 3
+    :name: SessionsController#create
+    :complexity: 1
+  - :lines: 2
+    :name: FontSizeString#format
+    :complexity: 1
+  - :lines: 2
+    :name: NString#format
+    :complexity: 1
+  - :lines: 3
+    :name: SessionsController#destroy
+    :complexity: 1
+  - :lines: 2
+    :name: BlogGroupsController#index
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationHelper#is_en?
+    :complexity: 1
+  - :lines: 2
+    :name: ApplicationHelper#is_zh?
+    :complexity: 1
+  - :lines: 4
+    :name: BlogGroupsController#destroy
+    :complexity: 1
+  - :lines: 3
+    :name: ChinesesController#index
+    :complexity: 1
+  - :lines: 2
+    :name: AboutsController#index
+    :complexity: 1
+  - :lines: 4
+    :name: BlogsController#reset_locale
+    :complexity: 1
+  - :lines: 2
+    :name: BlogsController#example
+    :complexity: 1
+  - :lines: 2
+    :name: English#brother
+    :complexity: 1
+  - :lines: 3
+    :name: EnglishsController#index
+    :complexity: 1
+  - :lines: 5
+    :name: BlogsController#new
+    :complexity: 1
+  - :lines: 2
+    :name: TagsController#show
+    :complexity: 1
+  - :lines: 2
+    :name: BlogsController#list
+    :complexity: 1
+  - :lines: 2
+    :name: BlogsController#blogs_with_type
+    :complexity: 1
+  - :lines: 2
+    :name: Chinese#brother
+    :complexity: 1
+  :files: 
+  - :filename: blogs_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 22
+        :name: BlogsController#update
+        :complexity: 5
+      - :lines: 8
+        :name: BlogsController#index
+        :complexity: 3
+      - :lines: 4
+        :name: BlogsController#show
+        :complexity: 2
+      - :lines: 7
+        :name: BlogsController#edit
+        :complexity: 2
+      - :lines: 5
+        :name: BlogsController#new
+        :complexity: 1
+      - :lines: 2
+        :name: BlogsController#example
+        :complexity: 1
+      - :lines: 2
+        :name: BlogsController#list
+        :complexity: 1
+      - :lines: 2
+        :name: BlogsController#blogs_with_type
+        :complexity: 1
+      - :lines: 4
+        :name: BlogsController#reset_locale
+        :complexity: 1
+      :lines: 74
+      :class_name: BlogsController
+      :complexity: 17
+  - :filename: application_helper.rb
+    :classes: 
+    - :methods: 
+      - :lines: 15
+        :name: ApplicationHelper#tag_links
+        :complexity: 4
+      - :lines: 15
+        :name: ApplicationHelper#recent
+        :complexity: 4
+      - :lines: 10
+        :name: ApplicationHelper#g_textile
+        :complexity: 3
+      - :lines: 2
+        :name: ApplicationHelper#is_locale?
+        :complexity: 2
+      - :lines: 2
+        :name: ApplicationHelper#is_en?
+        :complexity: 1
+      - :lines: 2
+        :name: ApplicationHelper#is_zh?
+        :complexity: 1
+      :lines: 58
+      :class_name: ApplicationHelper
+      :complexity: 15
+  - :filename: formatable_string.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ""
+      :complexity: 0
+    - :methods: 
+      - :lines: 6
+        :name: FormatableString#to_html_format
+        :complexity: 2
+      :lines: 8
+      :class_name: FormatableString
+      :complexity: 2
+    - :methods: 
+      - :lines: 2
+        :name: NString#format
+        :complexity: 1
+      :lines: 4
+      :class_name: NString
+      :complexity: 1
+    - :methods: 
+      - :lines: 2
+        :name: FontSizeString#format
+        :complexity: 1
+      :lines: 4
+      :class_name: FontSizeString
+      :complexity: 1
+    - :methods: 
+      - :lines: 6
+        :name: FontColorString#format
+        :complexity: 2
+      :lines: 9
+      :class_name: FontColorString
+      :complexity: 2
+    - :methods: 
+      - :lines: 2
+        :name: ImageString#format
+        :complexity: 1
+      :lines: 4
+      :class_name: ImageString
+      :complexity: 1
+    - :methods: 
+      - :lines: 2
+        :name: UrlString#format
+        :complexity: 1
+      :lines: 4
+      :class_name: UrlString
+      :complexity: 1
+    - :methods: 
+      - :lines: 6
+        :name: RuleString#generate_unescape_rule
+        :complexity: 3
+      - :lines: 6
+        :name: RuleString#convert
+        :complexity: 3
+      - :lines: 2
+        :name: RuleString#escape
+        :complexity: 2
+      - :lines: 2
+        :name: RuleString#generate_escape_rule
+        :complexity: 2
+      - :lines: 8
+        :name: RuleString#format
+        :complexity: 1
+      :lines: 36
+      :class_name: RuleString
+      :complexity: 11
+    - :methods: 
+      - :lines: 5
+        :name: ListString#format
+        :complexity: 2
+      :lines: 7
+      :class_name: ListString
+      :complexity: 2
+  - :filename: pinyin.rb
+    :classes: 
+    - :methods: 
+      - :lines: 20
+        :name: PinYin#str_to_pinyin
+        :complexity: 5
+      - :lines: 2
+        :name: PinYin#to_pinyin
+        :complexity: 1
+      - :lines: 2
+        :name: PinYin#get_value
+        :complexity: 1
+      - :lines: 2
+        :name: PinYin#to_permlink
+        :complexity: 1
+      - :lines: 3
+        :name: PinYin#initialize
+        :complexity: 1
+      :lines: 41
+      :class_name: PinYin
+      :complexity: 9
+  - :filename: application_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 2
+        :name: ApplicationController#authorize
+        :complexity: 2
+      - :lines: 2
+        :name: ApplicationController#user_session
+        :complexity: 1
+      - :lines: 3
+        :name: ApplicationController#save_locale
+        :complexity: 1
+      - :lines: 2
+        :name: ApplicationController#admin?
+        :complexity: 1
+      - :lines: 2
+        :name: ApplicationController#set_locale
+        :complexity: 1
+      :lines: 25
+      :class_name: ApplicationController
+      :complexity: 6
+  - :filename: blog.rb
+    :classes: 
+    - :methods: 
+      - :lines: 2
+        :name: Blog#to_param
+        :complexity: 1
+      :lines: 15
+      :class_name: Blog
+      :complexity: 5
+  - :filename: upload_files_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 8
+        :name: UploadFilesController#create
+        :complexity: 3
+      - :lines: 4
+        :name: UploadFilesController#index
+        :complexity: 1
+      :lines: 16
+      :class_name: UploadFilesController
+      :complexity: 4
+  - :filename: user_session.rb
+    :classes: 
+    - :methods: 
+      - :lines: 2
+        :name: UserSession#locale
+        :complexity: 1
+      - :lines: 2
+        :name: UserSession#locale=
+        :complexity: 1
+      - :lines: 3
+        :name: UserSession#initialize
+        :complexity: 1
+      :lines: 13
+      :class_name: UserSession
+      :complexity: 3
+  - :filename: sessions_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 3
+        :name: SessionsController#destroy
+        :complexity: 1
+      - :lines: 3
+        :name: SessionsController#create
+        :complexity: 1
+      - :lines: 1
+        :name: SessionsController#new
+        :complexity: 1
+      :lines: 13
+      :class_name: SessionsController
+      :complexity: 3
+  - :filename: blog_groups_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 4
+        :name: BlogGroupsController#destroy
+        :complexity: 1
+      - :lines: 2
+        :name: BlogGroupsController#index
+        :complexity: 1
+      :lines: 10
+      :class_name: BlogGroupsController
+      :complexity: 2
+  - :filename: coderay_string.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ""
+      :complexity: 0
+    - :methods: 
+      - :lines: 6
+        :name: CoderayString#format
+        :complexity: 2
+      :lines: 8
+      :class_name: CoderayString
+      :complexity: 2
+  - :filename: comments_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 5
+        :name: CommentsController#create
+        :complexity: 2
+      :lines: 7
+      :class_name: CommentsController
+      :complexity: 2
+  - :filename: chineses_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 3
+        :name: ChinesesController#index
+        :complexity: 1
+      :lines: 5
+      :class_name: ChinesesController
+      :complexity: 1
+  - :filename: abouts_controller.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ""
+      :complexity: 0
+    - :methods: 
+      - :lines: 2
+        :name: AboutsController#index
+        :complexity: 1
+      :lines: 4
+      :class_name: AboutsController
+      :complexity: 1
+  - :filename: english.rb
+    :classes: 
+    - :methods: 
+      - :lines: 2
+        :name: English#brother
+        :complexity: 1
+      :lines: 5
+      :class_name: English
+      :complexity: 1
+  - :filename: englishs_controller.rb
+    :classes: 
+    - :methods: 
+      - :lines: 3
+        :name: EnglishsController#index
+        :complexity: 1
+      :lines: 5
+      :class_name: EnglishsController
+      :complexity: 1
+  - :filename: tags_controller.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ""
+      :complexity: 0
+    - :methods: 
+      - :lines: 2
+        :name: TagsController#show
+        :complexity: 1
+      :lines: 4
+      :class_name: TagsController
+      :complexity: 1
+  - :filename: chinese.rb
+    :classes: 
+    - :methods: 
+      - :lines: 2
+        :name: Chinese#brother
+        :complexity: 1
+      :lines: 5
+      :class_name: Chinese
+      :complexity: 1
+  - :filename: comments_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: CommentsHelper
+      :complexity: 0
+  - :filename: rsses_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: RssesHelper
+      :complexity: 0
+  - :filename: englishs_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: EnglishsHelper
+      :complexity: 0
+  - :filename: comment.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 2
+      :class_name: Comment
+      :complexity: 0
+  - :filename: blog_group.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 5
+      :class_name: BlogGroup
+      :complexity: 0
+  - :filename: chineses_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: ChinesesHelper
+      :complexity: 0
+  - :filename: upload_file.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 3
+      :class_name: UploadFile
+      :complexity: 0
+  - :filename: rsses_controller.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: RssesController
+      :complexity: 0
+  - :filename: abouts_helper.rb
+    :classes: 
+    - :methods: []
+
+      :lines: 1
+      :class_name: AboutsHelper
+      :complexity: 0
+  :classes: 
+  - :lines: 74
+    :defs: 
+    - :lines: 8
+      :name: BlogsController#index
+      :complexity: 3
+    - :lines: 2
+      :name: BlogsController#blogs_with_type
+      :complexity: 1
+    - :lines: 2
+      :name: BlogsController#list
+      :complexity: 1
+    - :lines: 4
+      :name: BlogsController#show
+      :complexity: 2
+    - :lines: 5
+      :name: BlogsController#new
+      :complexity: 1
+    - :lines: 7
+      :name: BlogsController#edit
+      :complexity: 2
+    - :lines: 22
+      :name: BlogsController#update
+      :complexity: 5
+    - :lines: 2
+      :name: BlogsController#example
+      :complexity: 1
+    - :lines: 4
+      :name: BlogsController#reset_locale
+      :complexity: 1
+    :name: BlogsController
+    :complexity: 17
+  - :lines: 58
+    :defs: 
+    - :lines: 10
+      :name: ApplicationHelper#g_textile
+      :complexity: 3
+    - :lines: 15
+      :name: ApplicationHelper#recent
+      :complexity: 4
+    - :lines: 15
+      :name: ApplicationHelper#tag_links
+      :complexity: 4
+    - :lines: 2
+      :name: ApplicationHelper#is_zh?
+      :complexity: 1
+    - :lines: 2
+      :name: ApplicationHelper#is_en?
+      :complexity: 1
+    - :lines: 2
+      :name: ApplicationHelper#is_locale?
+      :complexity: 2
+    :name: ApplicationHelper
+    :complexity: 15
+  - :lines: 36
+    :defs: 
+    - :lines: 8
+      :name: RuleString#format
+      :complexity: 1
+    - :lines: 6
+      :name: RuleString#convert
+      :complexity: 3
+    - :lines: 6
+      :name: RuleString#generate_unescape_rule
+      :complexity: 3
+    - :lines: 2
+      :name: RuleString#generate_escape_rule
+      :complexity: 2
+    - :lines: 2
+      :name: RuleString#escape
+      :complexity: 2
+    :name: RuleString
+    :complexity: 11
+  - :lines: 41
+    :defs: 
+    - :lines: 3
+      :name: PinYin#initialize
+      :complexity: 1
+    - :lines: 2
+      :name: PinYin#to_permlink
+      :complexity: 1
+    - :lines: 2
+      :name: PinYin#to_pinyin
+      :complexity: 1
+    - :lines: 2
+      :name: PinYin#get_value
+      :complexity: 1
+    - :lines: 20
+      :name: PinYin#str_to_pinyin
+      :complexity: 5
+    :name: PinYin
+    :complexity: 9
+  - :lines: 25
+    :defs: 
+    - :lines: 2
+      :name: ApplicationController#authorize
+      :complexity: 2
+    - :lines: 2
+      :name: ApplicationController#admin?
+      :complexity: 1
+    - :lines: 2
+      :name: ApplicationController#user_session
+      :complexity: 1
+    - :lines: 3
+      :name: ApplicationController#save_locale
+      :complexity: 1
+    - :lines: 2
+      :name: ApplicationController#set_locale
+      :complexity: 1
+    :name: ApplicationController
+    :complexity: 6
+  - :lines: 15
+    :defs: 
+    - :lines: 2
+      :name: Blog#to_param
+      :complexity: 1
+    :name: Blog
+    :complexity: 5
+  - :lines: 16
+    :defs: 
+    - :lines: 8
+      :name: UploadFilesController#create
+      :complexity: 3
+    - :lines: 4
+      :name: UploadFilesController#index
+      :complexity: 1
+    :name: UploadFilesController
+    :complexity: 4
+  - :lines: 13
+    :defs: 
+    - :lines: 3
+      :name: UserSession#initialize
+      :complexity: 1
+    - :lines: 2
+      :name: UserSession#locale=
+      :complexity: 1
+    - :lines: 2
+      :name: UserSession#locale
+      :complexity: 1
+    :name: UserSession
+    :complexity: 3
+  - :lines: 13
+    :defs: 
+    - :lines: 1
+      :name: SessionsController#new
+      :complexity: 1
+    - :lines: 3
+      :name: SessionsController#create
+      :complexity: 1
+    - :lines: 3
+      :name: SessionsController#destroy
+      :complexity: 1
+    :name: SessionsController
+    :complexity: 3
+  - :lines: 8
+    :defs: 
+    - :lines: 6
+      :name: CoderayString#format
+      :complexity: 2
+    :name: CoderayString
+    :complexity: 2
+  - :lines: 7
+    :defs: 
+    - :lines: 5
+      :name: ListString#format
+      :complexity: 2
+    :name: ListString
+    :complexity: 2
+  - :lines: 8
+    :defs: 
+    - :lines: 6
+      :name: FormatableString#to_html_format
+      :complexity: 2
+    :name: FormatableString
+    :complexity: 2
+  - :lines: 9
+    :defs: 
+    - :lines: 6
+      :name: FontColorString#format
+      :complexity: 2
+    :name: FontColorString
+    :complexity: 2
+  - :lines: 10
+    :defs: 
+    - :lines: 2
+      :name: BlogGroupsController#index
+      :complexity: 1
+    - :lines: 4
+      :name: BlogGroupsController#destroy
+      :complexity: 1
+    :name: BlogGroupsController
+    :complexity: 2
+  - :lines: 7
+    :defs: 
+    - :lines: 5
+      :name: CommentsController#create
+      :complexity: 2
+    :name: CommentsController
+    :complexity: 2
+  - :lines: 4
+    :defs: 
+    - :lines: 2
+      :name: NString#format
+      :complexity: 1
+    :name: NString
+    :complexity: 1
+  - :lines: 5
+    :defs: 
+    - :lines: 3
+      :name: ChinesesController#index
+      :complexity: 1
+    :name: ChinesesController
+    :complexity: 1
+  - :lines: 4
+    :defs: 
+    - :lines: 2
+      :name: AboutsController#index
+      :complexity: 1
+    :name: AboutsController
+    :complexity: 1
+  - :lines: 5
+    :defs: 
+    - :lines: 2
+      :name: Chinese#brother
+      :complexity: 1
+    :name: Chinese
+    :complexity: 1
+  - :lines: 4
+    :defs: 
+    - :lines: 2
+      :name: FontSizeString#format
+      :complexity: 1
+    :name: FontSizeString
+    :complexity: 1
+  - :lines: 5
+    :defs: 
+    - :lines: 2
+      :name: English#brother
+      :complexity: 1
+    :name: English
+    :complexity: 1
+  - :lines: 5
+    :defs: 
+    - :lines: 3
+      :name: EnglishsController#index
+      :complexity: 1
+    :name: EnglishsController
+    :complexity: 1
+  - :lines: 4
+    :defs: 
+    - :lines: 2
+      :name: ImageString#format
+      :complexity: 1
+    :name: ImageString
+    :complexity: 1
+  - :lines: 4
+    :defs: 
+    - :lines: 2
+      :name: UrlString#format
+      :complexity: 1
+    :name: UrlString
+    :complexity: 1
+  - :lines: 4
+    :defs: 
+    - :lines: 2
+      :name: TagsController#show
+      :complexity: 1
+    :name: TagsController
+    :complexity: 1
+  - :lines: 1
+    :name: EnglishsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: ChinesesHelper
+    :complexity: 0
+  - :lines: 2
+    :name: Comment
+    :complexity: 0
+  - :lines: 3
+    :name: UploadFile
+    :complexity: 0
+  - :lines: 5
+    :name: BlogGroup
+    :complexity: 0
+  - :lines: 1
+    :name: RssesHelper
+    :complexity: 0
+  - :lines: 1
+    :name: CommentsHelper
+    :complexity: 0
+  - :lines: 1
+    :name: ""
+    :complexity: 0
+  - :lines: 1
+    :name: ""
+    :complexity: 0
+  - :lines: 1
+    :name: ""
+    :complexity: 0
+  - :lines: 1
+    :name: ""
+    :complexity: 0
+  - :lines: 1
+    :name: RssesController
+    :complexity: 0
+  - :lines: 1
+    :name: AboutsHelper
+    :complexity: 0
+:churn: 
+  :changes: 
+  - :file_path: public/stylesheets/style.css
+    :times_changed: 31
+  - :file_path: app/views/layouts/application.html.erb
+    :times_changed: 24
+  - :file_path: app/views/blogs/_show.html.erb
+    :times_changed: 20
+  - :file_path: app/helpers/application_helper.rb
+    :times_changed: 19
+  - :file_path: app/controllers/blogs_controller.rb
+    :times_changed: 18
+  - :file_path: app/views/blogs/index.rss.builder
+    :times_changed: 15
+  - :file_path: config/routes.rb
+    :times_changed: 15
+  - :file_path: app/models/blog.rb
+    :times_changed: 13
+  - :file_path: coverage/app-models-upload_file_rb.html
+    :times_changed: 12
+  - :file_path: coverage/app-models-formatable_string_rb.html
+    :times_changed: 12
+  - :file_path: coverage/index.html
+    :times_changed: 12
+  - :file_path: coverage/app-models-blog_group_rb.html
+    :times_changed: 12
+  - :file_path: coverage/app-models-blog_rb.html
+    :times_changed: 12
+  - :file_path: app/views/blogs/index.html.erb
+    :times_changed: 11
+  - :file_path: app/controllers/blog_groups_controller.rb
+    :times_changed: 10
+  - :file_path: coverage/app-models-english_rb.html
+    :times_changed: 10
+  - :file_path: coverage/app-models-chinese_rb.html
+    :times_changed: 10
+  - :file_path: coverage/app-controllers-sessions_controller_rb.html
+    :times_changed: 9
+  - :file_path: config/locales/zh.yml
+    :times_changed: 9
+  - :file_path: app/models/formatable_string.rb
+    :times_changed: 9
+  - :file_path: config/locales/en.yml
+    :times_changed: 9
+  - :file_path: coverage/app-controllers-upload_files_controller_rb.html
+    :times_changed: 9
+  - :file_path: app/models/blog_group.rb
+    :times_changed: 9
+  - :file_path: coverage/app-helpers-application_helper_rb.html
+    :times_changed: 9
+  - :file_path: coverage/app-controllers-application_controller_rb.html
+    :times_changed: 9
+  - :file_path: coverage/app-controllers-blogs_controller_rb.html
+    :times_changed: 9
+  - :file_path: coverage/app-models-coderay_string_rb.html
+    :times_changed: 9
+  - :file_path: app/views/chineses/index.rss.builder
+    :times_changed: 8
+  - :file_path: app/views/blog_groups/_show.html.erb
+    :times_changed: 8
+  - :file_path: coverage/app-models-pinyin_rb.html
+    :times_changed: 8
+  - :file_path: app/views/blogs/_form.html.erb
+    :times_changed: 8
+  - :file_path: app/views/blog_groups/index.rss.builder
+    :times_changed: 8
+  - :file_path: app/views/englishs/index.rss.builder
+    :times_changed: 8
+  - :file_path: public/stylesheets/all.css
+    :times_changed: 8
+  - :file_path: app/controllers/application_controller.rb
+    :times_changed: 7
+  - :file_path: coverage/app-controllers-blog_groups_controller_rb.html
+    :times_changed: 7
+  - :file_path: coverage/app-models-user_session_rb.html
+    :times_changed: 7
+  - :file_path: db/schema.rb
+    :times_changed: 6
+  - :file_path: public/g_editor/g_editor.html
+    :times_changed: 6
+  - :file_path: spec/models/formatable_string_spec.rb
+    :times_changed: 6
+  - :file_path: app/views/comments/_new.html.erb
+    :times_changed: 6
+  - :file_path: spec/helpers/application_helper_spec.rb
+    :times_changed: 6
+  - :file_path: app/views/blog_groups/_form.html.erb
+    :times_changed: 6
+  - :file_path: app/models/pinyin.rb
+    :times_changed: 5
+  - :file_path: coverage/app-controllers-englishs_controller_rb.html
+    :times_changed: 5
+  - :file_path: coverage/app-models-comment_rb.html
+    :times_changed: 5
+  - :file_path: app/models/chinese.rb
+    :times_changed: 5
+  - :file_path: coverage/app-helpers-englishs_helper_rb.html
+    :times_changed: 5
+  - :file_path: config/environments/development.rb
+    :times_changed: 5
+  - :file_path: coverage/app-controllers-chineses_controller_rb.html
+    :times_changed: 5
+  - :file_path: app/models/english.rb
+    :times_changed: 5
+  - :file_path: app/views/blogs/_index.html.erb
+    :times_changed: 5
+  - :file_path: coverage/app-helpers-chineses_helper_rb.html
+    :times_changed: 5
+:rcov: 
+  app/helpers/application_helper.rb: 
+    :percent_run: 20
+    :lines: 
+    - :content: "   module ApplicationHelper"
+      :was_run: true
+    - :content: "     def g_textile(text)"
+      :was_run: true
+    - :content: "       if text"
+      :was_run: false
+    - :content: "         result = \"\""
+      :was_run: false
+    - :content: "         while text =~ /(\\[code\\:([a-z].+?)\\](.+?)\\[\\/code\\])/m"
+      :was_run: false
+    - :content: "           result << FormatableString.new($`).to_html_format + $&"
+      :was_run: false
+    - :content: "           text = $'"
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "         result << FormatableString.new(text).to_html_format"
+      :was_run: false
+    - :content: "         return CoderayString.new(result).format"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def recent(num = 8)"
+      :was_run: true
+    - :content: "       blog_type = case I18n.locale"
+      :was_run: false
+    - :content: "                   when :en"
+      :was_run: false
+    - :content: "                     English"
+      :was_run: false
+    - :content: "                   when :zh"
+      :was_run: false
+    - :content: "                     Chinese"
+      :was_run: false
+    - :content: "                   else"
+      :was_run: false
+    - :content: "                     Blog"
+      :was_run: false
+    - :content: "                   end"
+      :was_run: false
+    - :content: "       @blogs = blog_type.find(:all, :conditions => \"title is not null\", :limit => num, :order => \"created_at DESC\")"
+      :was_run: false
+    - :content: "       result = \"<ul>\""
+      :was_run: false
+    - :content: "       @blogs.each do |blog|"
+      :was_run: false
+    - :content: "         result << \"<li>#{link_to(truncate(blog.title, :length => 28), blog_path(blog), :title => blog.title)}</li>\""
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "       result << \"</ul>\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def tag_links(type = Blog)"
+      :was_run: true
+    - :content: "       if type == Blog"
+      :was_run: false
+    - :content: "         tags = type.tag_counts.map(&:name)"
+      :was_run: false
+    - :content: "         result = \"<ul>\""
+      :was_run: false
+    - :content: "         tags.each do |t|"
+      :was_run: false
+    - :content: "           result << \"<li style='border-bottom: 1px;'>#{link_to(t, tag_path(t))}</li>\""
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "         result << \"</ul>\""
+      :was_run: false
+    - :content: "       else"
+      :was_run: false
+    - :content: "         result = \"tags: \""
+      :was_run: false
+    - :content: "         type.tag_list.each do |t|"
+      :was_run: false
+    - :content: "           result << \"#{link_to(t, tag_path(t))} \""
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "       return result"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def is_zh?"
+      :was_run: true
+    - :content: "       is_locale?(:zh)"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def is_en?"
+      :was_run: true
+    - :content: "       is_locale?(:en)"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def is_locale?(locale)"
+      :was_run: true
+    - :content: "       \"current_locale\" if I18n.locale == locale"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/models/coderay_string.rb: 
+    :percent_run: 46
+    :lines: 
+    - :content: "   class CoderayString < String"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       content = self "
+      :was_run: false
+    - :content: "       content.scan(/(\\[code\\:([a-z].+?)\\](.+?)\\[\\/code\\])/m).each do |match|"
+      :was_run: false
+    - :content: "         content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:css => :class)) "
+      :was_run: false
+    - :content: "       end  "
+      :was_run: false
+    - :content: "       return content"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   #content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:line_numbers => :table,:css => :class)) #with number "
+      :was_run: true
+    - :content: "   "
+      :was_run: true
+    - :content: "   "
+      :was_run: true
+  app/models/comment.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   class Comment < ActiveRecord::Base"
+      :was_run: true
+    - :content: "     belongs_to :blog, :touch => true"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/models/pinyin.rb: 
+    :percent_run: 30
+    :lines: 
+    - :content: "   require 'singleton'"
+      :was_run: true
+    - :content: "   class PinYin"
+      :was_run: true
+    - :content: "     include Singleton"
+      :was_run: true
+    - :content: "     def initialize"
+      :was_run: true
+    - :content: "       require \"yaml\""
+      :was_run: false
+    - :content: "       @codes = YAML.load_file(\"#{RAILS_ROOT}/public/Mandarin.yml\")"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def to_permlink(str)"
+      :was_run: true
+    - :content: "       str_to_pinyin(str,'-')"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def to_pinyin(str)"
+      :was_run: true
+    - :content: "       str_to_pinyin(str, '')"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     private"
+      :was_run: true
+    - :content: "     def get_value(code)"
+      :was_run: true
+    - :content: "       @codes[code]"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def str_to_pinyin(str, separator='')"
+      :was_run: true
+    - :content: "       res = []"
+      :was_run: false
+    - :content: "       str.to_s.unpack('U*').each_with_index do |t,idx|"
+      :was_run: false
+    - :content: "         code = sprintf('%x',t).upcase"
+      :was_run: false
+    - :content: "         val = get_value(code)"
+      :was_run: false
+    - :content: "         if val"
+      :was_run: false
+    - :content: "           val = val.gsub(/\\d/,'')"
+      :was_run: false
+    - :content: "           res << val.downcase+separator"
+      :was_run: false
+    - :content: "         else"
+      :was_run: false
+    - :content: "           tmp = [t].pack('U*')"
+      :was_run: false
+    - :content: "           res << tmp if tmp =~ /^[_0-9a-zA-Z\\s]*$/ "
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "       if separator==''"
+      :was_run: false
+    - :content: "         return res.join(' ')"
+      :was_run: false
+    - :content: "       else"
+      :was_run: false
+    - :content: "         re = Regexp.new(\"\\\\#{separator}+\")"
+      :was_run: false
+    - :content: "         re2 = Regexp.new(\"\\\\#{separator}$\")"
+      :was_run: false
+    - :content: "         return res.join('').gsub(/\\s+/,separator).gsub(re,separator).gsub(re2,'')"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  :global_percent_run: 37.2
+  app/controllers/englishs_controller.rb: 
+    :percent_run: 33
+    :lines: 
+    - :content: "   class EnglishsController < ApplicationController"
+      :was_run: true
+    - :content: "     def index"
+      :was_run: true
+    - :content: "       save_locale(:en)"
+      :was_run: false
+    - :content: "       redirect_to \"/\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/helpers/englishs_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   module EnglishsHelper"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/controllers/abouts_controller.rb: 
+    :percent_run: 17
+    :lines: 
+    - :content: "   # -*- coding: utf-8 -*-"
+      :was_run: true
+    - :content: "   class AboutsController < ApplicationController"
+      :was_run: true
+    - :content: "     def index"
+      :was_run: true
+    - :content: "       @about = \"My name is \xE5\xBC\xA0\xE5\x93\xB2(Gary Zhang, zhangzhe). I live in BeiJing, China."
+      :was_run: false
+    - :content: "   "
+      :was_run: false
+    - :content: "   I am a programmer, right now work for [link:idapted]http://www.idapted.com[/link]."
+      :was_run: false
+    - :content: "   I love my job and believe that my work is good for people and will make the world better."
+      :was_run: false
+    - :content: "   I love beautiful code and am trying to write them to my best. "
+      :was_run: false
+    - :content: "   "
+      :was_run: false
+    - :content: "   In spare time I like exercises. basketball is my favorite. I also like cycling, running and swimming. I took part in two marathons, one triathlon, one ironman and lots of other sport games."
+      :was_run: false
+    - :content: "   "
+      :was_run: false
+    - :content: "   I worked since 2007. Right now I am using Ruby On Rails building the [link:best e-learning system]www.eqenglish.com[/link]."
+      :was_run: false
+    - :content: "   "
+      :was_run: false
+    - :content: "   Visit [link:here]http://github.com/zhangzhe[/link] to see more about my apps. Anything unclean please email me at gary20071226@gmail.com."
+      :was_run: false
+    - :content: "   "
+      :was_run: false
+    - :content: "   I will share in this blog about most of technique things I met and part of my personal life. Enjoy:)\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/models/formatable_string.rb: 
+    :percent_run: 38
+    :lines: 
+    - :content: "   class FormatableString < String"
+      :was_run: true
+    - :content: "     def to_html_format"
+      :was_run: true
+    - :content: "       content = self "
+      :was_run: false
+    - :content: "       self.class.subclasses.each do |formatable_string|"
+      :was_run: false
+    - :content: "         content = formatable_string.constantize.new(content).format"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "       return content"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   class NString < FormatableString"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       return self.gsub(\"\\n\", \"<br/>\\n\\r\").gsub(\"\\t\", \"&nbsp;&nbsp;\")"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   class FontSizeString < FormatableString"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       return self.gsub(/\\[f1\\](.+)\\[\\/f1\\]/,'<span style=\"font-size:17px\">\\1</span>')"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   class FontColorString < FormatableString"
+      :was_run: true
+    - :content: "     COLORS = {\"purple\" => \"#B404AE\", \"green\" => \"#01DF01\", \"red\" => \"#FF0000\", \"blue\" => \"#0000FF\"}"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       content = self"
+      :was_run: false
+    - :content: "       COLORS.each do |key, value|"
+      :was_run: false
+    - :content: "         content.gsub!(/\\[#{key}\\](.+?)\\[\\/#{key}\\]/, '<font color=\\'' + value + '\\'>\\1</font>')"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "       return content"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   class ImageString < FormatableString"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       return self.gsub(/\\[img(:*.*)\\](.+?)\\[\\/img\\]/,'<img style=\"float\\1\" src=\"\\2\">')"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   class UrlString < FormatableString"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       return self.gsub(/\\[link:(.+?)\\](.+?)\\[\\/link\\]/, '<a target=\"_blank\" style=\"color:#2828FF\" href=\\2>\\1</a>')"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   class RuleString < FormatableString"
+      :was_run: true
+    - :content: "     RULES = {\"*\" => \"</b>\", \"_\" => \"</i>\", \"+\" => \"</u>\", \"#\" => \"</h>\"}"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       @content = self"
+      :was_run: false
+    - :content: "       unescape_rule = generate_unescape_rule"
+      :was_run: false
+    - :content: "       escape_rule = generate_escape_rule(unescape_rule)"
+      :was_run: false
+    - :content: "       escape(escape_rule)"
+      :was_run: false
+    - :content: "       convert"
+      :was_run: false
+    - :content: "       escape(unescape_rule)"
+      :was_run: false
+    - :content: "       return @content"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     private"
+      :was_run: true
+    - :content: "     def convert"
+      :was_run: true
+    - :content: "       RULES.each do |key, value|"
+      :was_run: false
+    - :content: "         while @content =~ /#{\"\\\\\"+key}(.+?)#{\"\\\\\"+key}/m"
+      :was_run: false
+    - :content: "           @content = $` + value.delete(\"/\") + $1 + value + $'"
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def generate_unescape_rule"
+      :was_run: true
+    - :content: "       returning un_escape_rule = [] do"
+      :was_run: false
+    - :content: "         RULES.each_key do |key|"
+      :was_run: false
+    - :content: "           un_escape_rule << [Kernel.rand.to_s, key]"
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def generate_escape_rule(un_escape_rule)"
+      :was_run: true
+    - :content: "       return un_escape_rule.map{|rule| [\"\\\\\" + rule[1], rule[0]]}"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def escape(escape_rules)"
+      :was_run: true
+    - :content: "       escape_rules.each { |escape_rule| @content.gsub!(escape_rule[0], escape_rule[1]) }"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "   #importent to put it in the end"
+      :was_run: true
+    - :content: "   class ListString < FormatableString"
+      :was_run: true
+    - :content: "     def format"
+      :was_run: true
+    - :content: "       content = self + \"\\n\" # add \\n"
+      :was_run: false
+    - :content: "       content.gsub!(/(^\\* [^\\n]+\\n)+/) {|ul| \"<ul>#{ul.gsub!(/\\* [^\\n]+\\n/){|li| \"<li>#{li[2..-2]}</li>\"} }<\\/ul>\"}"
+      :was_run: false
+    - :content: "       return content[0..-2] # remove \\n"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/controllers/tags_controller.rb: 
+    :percent_run: 50
+    :lines: 
+    - :content: "   # -*- coding: utf-8 -*-"
+      :was_run: true
+    - :content: "   class TagsController < ApplicationController"
+      :was_run: true
+    - :content: "     def show"
+      :was_run: true
+    - :content: "       @blogs = Blog.tagged_with(params[:id], :on => :tags)"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/controllers/blog_groups_controller.rb: 
+    :percent_run: 36
+    :lines: 
+    - :content: "   class BlogGroupsController < ApplicationController"
+      :was_run: true
+    - :content: "     def index"
+      :was_run: true
+    - :content: "       @blog_groups = BlogGroup.paginate(:all, :page => params[:page], :per_page => 3, :order => \"created_at DESC\")"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def destroy"
+      :was_run: true
+    - :content: "       authorize"
+      :was_run: false
+    - :content: "       BlogGroup.find(params[:id]).destroy"
+      :was_run: false
+    - :content: "       redirect_to :back"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/helpers/rsses_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   module RssesHelper"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/controllers/upload_files_controller.rb: 
+    :percent_run: 24
+    :lines: 
+    - :content: "   class UploadFilesController < ApplicationController"
+      :was_run: true
+    - :content: "     def create"
+      :was_run: true
+    - :content: "       authorize"
+      :was_run: false
+    - :content: "       @upload_file = UploadFile.create(params[:upload_file].merge(:blog_group_id => params[:blog_group_id]))"
+      :was_run: false
+    - :content: "       responds_to_parent do"
+      :was_run: false
+    - :content: "         render(:update) do |page|"
+      :was_run: false
+    - :content: "           page.insert_html :bottom, \"files\", :partial => \"show\", :locals => { :upload_file => @upload_file }"
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def index"
+      :was_run: true
+    - :content: "       authorize"
+      :was_run: false
+    - :content: "       @blog_group = BlogGroup.find(params[:blog_group_id])"
+      :was_run: false
+    - :content: "       @upload_files = @blog_group.upload_files"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/controllers/chineses_controller.rb: 
+    :percent_run: 33
+    :lines: 
+    - :content: "   class ChinesesController < ApplicationController"
+      :was_run: true
+    - :content: "     def index"
+      :was_run: true
+    - :content: "       save_locale(:zh)"
+      :was_run: false
+    - :content: "       redirect_to \"/\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/controllers/sessions_controller.rb: 
+    :percent_run: 50
+    :lines: 
+    - :content: "   class SessionsController < ApplicationController"
+      :was_run: true
+    - :content: "     def new"
+      :was_run: true
+    - :content: "     end"
+      :was_run: true
+    - :content: "     "
+      :was_run: true
+    - :content: "     def create"
+      :was_run: true
+    - :content: "       session[:password] = params[:password]"
+      :was_run: false
+    - :content: "       redirect_to blog_groups_path"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def destroy"
+      :was_run: true
+    - :content: "       reset_session"
+      :was_run: false
+    - :content: "       redirect_to login_path"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/controllers/application_controller.rb: 
+    :percent_run: 54
+    :lines: 
+    - :content: "   class ApplicationController < ActionController::Base"
+      :was_run: true
+    - :content: "     helper :all"
+      :was_run: true
+    - :content: "     protect_from_forgery"
+      :was_run: true
+    - :content: "     helper_method :admin?"
+      :was_run: true
+    - :content: "     before_filter :set_locale"
+      :was_run: true
+    - :content: "     def authorize"
+      :was_run: true
+    - :content: "       redirect_to root_path unless admin?"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def admin?"
+      :was_run: true
+    - :content: "       session[:password] == '1234123'"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def user_session"
+      :was_run: true
+    - :content: "       @user_session ||= UserSession.new(session)"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def save_locale(locale)"
+      :was_run: true
+    - :content: "       user_session.locale = locale"
+      :was_run: false
+    - :content: "       I18n.locale = locale"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def set_locale"
+      :was_run: true
+    - :content: "       I18n.locale = user_session.locale || :all"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/helpers/chineses_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   module ChinesesHelper"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/controllers/blogs_controller.rb: 
+    :percent_run: 25
+    :lines: 
+    - :content: "   class BlogsController < ApplicationController"
+      :was_run: true
+    - :content: "     def index"
+      :was_run: true
+    - :content: "       if @template.is_zh?"
+      :was_run: false
+    - :content: "         @blogs = blogs_with_type(Chinese)"
+      :was_run: false
+    - :content: "       elsif @template.is_en?"
+      :was_run: false
+    - :content: "         @blogs = blogs_with_type(English)"
+      :was_run: false
+    - :content: "       else"
+      :was_run: false
+    - :content: "         @blogs = blogs_with_type(Blog)"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def blogs_with_type(type)"
+      :was_run: true
+    - :content: "       type.paginate(:all, :conditions => \"title is not null\", :page => params[:page], :per_page => 5, :order => \"created_at DESC\")"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def list"
+      :was_run: true
+    - :content: "       @blogs = Blog.all"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def show"
+      :was_run: true
+    - :content: "       @blog = Blog.find(params[:id])"
+      :was_run: false
+    - :content: "     rescue"
+      :was_run: false
+    - :content: "       redirect_to blog_groups_path"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def new"
+      :was_run: true
+    - :content: "       authorize"
+      :was_run: false
+    - :content: "       @blog_group = BlogGroup.create"
+      :was_run: false
+    - :content: "       @blog = Blog.create"
+      :was_run: false
+    - :content: "       @blog_group.blogs << @blog"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def edit"
+      :was_run: true
+    - :content: "       authorize"
+      :was_run: false
+    - :content: "       @blog = Blog.find(params[:id])"
+      :was_run: false
+    - :content: "       @tags = @blog.tag_list"
+      :was_run: false
+    - :content: "       if @blog.content.blank?"
+      :was_run: false
+    - :content: "         @blog.content = @blog.brother.content"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+    - :content: "     def update"
+      :was_run: true
+    - :content: "       if admin?"
+      :was_run: false
+    - :content: "         @blog = Blog.find(params[:id])"
+      :was_run: false
+    - :content: "         if @blog.update_attributes(params[:blog])"
+      :was_run: false
+    - :content: "           @blog.tag_list = params[:tag]; @blog.save!"
+      :was_run: false
+    - :content: "           if @blog[\"type\"].nil? # means the first time create"
+      :was_run: false
+    - :content: "             if @blog.title =~ /[\\xa0-\\xff]/"
+      :was_run: false
+    - :content: "               @blog.type = \"Chinese\""
+      :was_run: false
+    - :content: "               @blog.blog_group.english = English.create"
+      :was_run: false
+    - :content: "             else"
+      :was_run: false
+    - :content: "               @blog.type = \"English\""
+      :was_run: false
+    - :content: "               @blog.blog_group.chinese = Chinese.create "
+      :was_run: false
+    - :content: "             end"
+      :was_run: false
+    - :content: "             @blog.save!; @blog.reload"
+      :was_run: false
+    - :content: "           end"
+      :was_run: false
+    - :content: "           redirect_to blog_path(@blog) "
+      :was_run: false
+    - :content: "         else"
+      :was_run: false
+    - :content: "           render :action => \"edit\""
+      :was_run: false
+    - :content: "         end"
+      :was_run: false
+    - :content: "       else"
+      :was_run: false
+    - :content: "         authorize"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def example"
+      :was_run: true
+    - :content: "       @example = \"*b* =&gt; <b>b</b><br><i> </i> +i+ =&gt; <i>i</i><br><u> </u> _u_ =&gt; <u>u<br></u># h # =&gt; h<br>[red]red[/red] => <font color='#ff0000'>red<br></font>[blue]blue[/blue] => <font color='#0000ff'>blue</font><font color='#ff0000'><br></font>[green]green[/green] => <font color='#088a4b'>green</font><br>* list1<u><br></u>* list2<br>* list3 =&gt;<u><br></u><ul><li>list1</li><li>list2</li><li>list3</li></ul>picture: <br>[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload_files/4/emacs.gif[/img] <br>link:<br>[link:i am strong]http://www.idapted.com[/link]\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def reset_locale"
+      :was_run: true
+    - :content: "       I18n.locale = :all"
+      :was_run: false
+    - :content: "       save_locale(:all)"
+      :was_run: false
+    - :content: "       redirect_to \"/\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+  app/models/user_session.rb: 
+    :percent_run: 43
+    :lines: 
+    - :content: "   class UserSession"
+      :was_run: true
+    - :content: "     def initialize(session)"
+      :was_run: true
+    - :content: "       @session = session"
+      :was_run: false
+    - :content: "       @session[:locale] ||= :en"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def locale=(locale)"
+      :was_run: true
+    - :content: "       @session[:locale] = locale"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def locale"
+      :was_run: true
+    - :content: "       @session[:locale]"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/models/blog.rb: 
+    :percent_run: 50
+    :lines: 
+    - :content: "   class Blog < ActiveRecord::Base"
+      :was_run: true
+    - :content: "     acts_as_taggable_on :tags"
+      :was_run: true
+    - :content: "     belongs_to :blog_group"
+      :was_run: true
+    - :content: "     has_many :comments"
+      :was_run: true
+    - :content: "     require \"pinyin\""
+      :was_run: true
+    - :content: "     after_save do |blog|"
+      :was_run: true
+    - :content: "       Blog.transaction do "
+      :was_run: false
+    - :content: "         new_u_title = PinYin.instance.to_permlink(blog.title) if blog.title"
+      :was_run: false
+    - :content: "         blog.update_attributes(:u_title => new_u_title) unless new_u_title == blog.u_title"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "     "
+      :was_run: true
+    - :content: "     def to_param"
+      :was_run: true
+    - :content: "       return \"#{id}-#{u_title}\""
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/models/english.rb: 
+    :percent_run: 50
+    :lines: 
+    - :content: "   class English < Blog"
+      :was_run: true
+    - :content: "     belongs_to :blog_group"
+      :was_run: true
+    - :content: "     def brother"
+      :was_run: true
+    - :content: "       blog_group.chinese"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+  app/models/blog_group.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   class BlogGroup < ActiveRecord::Base"
+      :was_run: true
+    - :content: "     has_many :upload_files"
+      :was_run: true
+    - :content: "     has_many :blogs, :dependent => :destroy"
+      :was_run: true
+    - :content: "     has_one :english"
+      :was_run: true
+    - :content: "     has_one :chinese"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/controllers/rsses_controller.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   class RssesController < ApplicationController"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/helpers/abouts_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   module AboutsHelper"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/controllers/comments_controller.rb: 
+    :percent_run: 33
+    :lines: 
+    - :content: "   class CommentsController < ApplicationController"
+      :was_run: true
+    - :content: "     def create"
+      :was_run: true
+    - :content: "       unless params[:comment][:name].blank? or params[:comment][:content].blank?"
+      :was_run: false
+    - :content: "         @comment = Comment.create(params[:comment].merge(:blog_id => params[:blog_id]))"
+      :was_run: false
+    - :content: "       end"
+      :was_run: false
+    - :content: "       redirect_to :back"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+    - :content: "   "
+      :was_run: true
+  app/models/upload_file.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   class UploadFile < ActiveRecord::Base"
+      :was_run: true
+    - :content: "     belongs_to :blog_group"
+      :was_run: true
+    - :content: "     has_attachment :storage => :s3, :s3_config_path => (RAILS_ROOT + '/config/amazon_s3.yml')"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/helpers/comments_helper.rb: 
+    :percent_run: 100
+    :lines: 
+    - :content: "   module CommentsHelper"
+      :was_run: true
+    - :content: "   end"
+      :was_run: true
+  app/models/chinese.rb: 
+    :percent_run: 50
+    :lines: 
+    - :content: "   class Chinese < Blog"
+      :was_run: true
+    - :content: "     belongs_to :blog_group"
+      :was_run: true
+    - :content: "     def brother"
+      :was_run: true
+    - :content: "       blog_group.english"
+      :was_run: false
+    - :content: "     end"
+      :was_run: false
+    - :content: "   end"
+      :was_run: false
+:flog: 
+  :average: 6.7
+  :total: 438.7
+  :pages: 
+  - :scanned_methods: 
+    - :score: 40.8
+      :operators: 
+      - :operator: assignment
+        :score: 11.0
+      - :operator: "[]"
+        :score: 6.6
+      - :operator: branch
+        :score: 6.0
+      - :operator: params
+        :score: 5.4
+      - :operator: create
+        :score: 4.0
+      - :operator: blog_group
+        :score: 4.0
+      - :operator: save!
+        :score: 3.4
+      - :operator: reload
+        :score: 1.8
+      - :operator: blog_path
+        :score: 1.8
+      - :operator: title
+        :score: 1.8
+      - :operator: redirect_to
+        :score: 1.6
+      - :operator: nil?
+        :score: 1.6
+      - :operator: render
+        :score: 1.5
+      - :operator: find
+        :score: 1.4
+      - :operator: update_attributes
+        :score: 1.4
+      - :operator: authorize
+        :score: 1.3
+      - :operator: admin?
+        :score: 1.2
+      :name: BlogsController#update
+    - :score: 12.6
+      :operators: 
+      - :operator: assignment
+        :score: 3.7
+      - :operator: content
+        :score: 2.7
+      - :operator: params
+        :score: 1.6
+      - :operator: brother
+        :score: 1.5
+      - :operator: "[]"
+        :score: 1.4
+      - :operator: blank?
+        :score: 1.2
+      - :operator: branch
+        :score: 1.2
+      - :operator: tag_list
+        :score: 1.2
+      - :operator: find
+        :score: 1.2
+      - :operator: authorize
+        :score: 1.2
+      :name: BlogsController#edit
+    - :score: 8.2
+      :operators: 
+      - :operator: blogs_with_type
+        :score: 4.1
+      - :operator: assignment
+        :score: 4.1
+      - :operator: branch
+        :score: 2.5
+      - :operator: is_en?
+        :score: 1.3
+      - :operator: is_zh?
+        :score: 1.2
+      :name: BlogsController#index
+    - :score: 7.5
+      :operators: 
+      - :operator: params
+        :score: 1.7
+      - :operator: blog_groups_path
+        :score: 1.5
+      - :operator: "[]"
+        :score: 1.5
+      - :operator: find
+        :score: 1.3
+      - :operator: assignment
+        :score: 1.3
+      - :operator: redirect_to
+        :score: 1.3
+      - :operator: branch
+        :score: 1.2
+      :name: BlogsController#show
+    - :score: 6.6
+      :operators: 
+      - :operator: create
+        :score: 2.4
+      - :operator: assignment
+        :score: 2.4
+      - :operator: blogs
+        :score: 1.4
+      - :operator: authorize
+        :score: 1.2
+      - :operator: "<<"
+        :score: 1.2
+      :name: BlogsController#new
+    - :score: 4.6
+      :operators: 
+      - :operator: params
+        :score: 1.6
+      - :operator: "[]"
+        :score: 1.4
+      - :operator: paginate
+        :score: 1.2
+      - :operator: lit_fixnum
+        :score: 0.4
+      :name: BlogsController#blogs_with_type
+    - :score: 2.7
+      :operators: 
+      - :operator: save_locale
+        :score: 1.2
+      - :operator: assignment
+        :score: 1.2
+      - :operator: redirect_to
+        :score: 1.2
+      :name: BlogsController#reset_locale
+    - :score: 1.7
+      :operators: 
+      - :operator: assignment
+        :score: 1.2
+      - :operator: all
+        :score: 1.2
+      :name: BlogsController#list
+    - :score: 1.2
+      :operators: 
+      - :operator: assignment
+        :score: 1.2
+      :name: BlogsController#example
+    :score: 85.8
+    :highest_score: 40.8
+    :path: /app/controllers/blogs_controller.rb
+    :average_score: 9.5
+  - :scanned_methods: 
+    - :score: 37.2
+      :operators: 
+      - :operator: assignment
+        :score: 16.2
+      - :operator: gsub
+        :score: 6.8
+      - :operator: branch
+        :score: 5.8
+      - :operator: "<<"
+        :score: 3.5
+      - :operator: join
+        :score: 3.5
+      - :operator: new
+        :score: 3.0
+      - :operator: downcase
+        :score: 2.1
+      - :operator: +
+        :score: 1.9
+      - :operator: pack
+        :score: 1.7
+      - :operator: sprintf
+        :score: 1.7
+      - :operator: to_s
+        :score: 1.7
+      - :operator: upcase
+        :score: 1.5
+      - :operator: get_value
+        :score: 1.5
+      - :operator: unpack
+        :score: 1.5
+      - :operator: ==
+        :score: 1.3
+      - :operator: each_with_index
+        :score: 1.3
+      :name: PinYin#str_to_pinyin
+    - :score: 3.6
+      :operators: 
+      - :operator: include
+        :score: 2.4
+      - :operator: private
+        :score: 1.2
+      :name: PinYin#none
+    - :score: 2.9
+      :operators: 
+      - :operator: load_file
+        :score: 1.3
+      - :operator: assignment
+        :score: 1.3
+      - :operator: require
+        :score: 1.3
+      :name: PinYin#initialize
+    - :score: 1.3
+      :operators: 
+      - :operator: "[]"
+        :score: 1.3
+      :name: PinYin#get_value
+    - :score: 1.3
+      :operators: 
+      - :operator: str_to_pinyin
+        :score: 1.3
+      :name: PinYin#to_permlink
+    - :score: 1.3
+      :operators: 
+      - :operator: str_to_pinyin
+        :score: 1.3
+      :name: PinYin#to_pinyin
+    - :score: 1.1
+      :operators: 
+      - :operator: require
+        :score: 1.1
+      :name: main#none
+    :score: 48.7
+    :highest_score: 37.2
+    :path: /app/models/pinyin.rb
+    :average_score: 7.0
+  - :scanned_methods: 
+    - :score: 31.2
+      :operators: 
+      - :operator: assignment
+        :score: 8.4
+      - :operator: to_proc_normal
+        :score: 8.0
+      - :operator: "<<"
+        :score: 4.4
+      - :operator: branch
+        :score: 4.0
+      - :operator: tag_path
+        :score: 3.8
+      - :operator: link_to
+        :score: 3.4
+      - :operator: each
+        :score: 2.8
+      - :operator: tag_list
+        :score: 1.6
+      - :operator: block_pass
+        :score: 1.6
+      - :operator: tag_counts
+        :score: 1.6
+      - :operator: map
+        :score: 1.4
+      - :operator: ==
+        :score: 1.2
+      :name: ApplicationHelper#tag_links
+    - :score: 17.3
+      :operators: 
+      - :operator: assignment
+        :score: 6.1
+      - :operator: branch
+        :score: 5.0
+      - :operator: title
+        :score: 3.6
+      - :operator: "<<"
+        :score: 2.5
+      - :operator: truncate
+        :score: 1.7
+      - :operator: blog_path
+        :score: 1.7
+      - :operator: link_to
+        :score: 1.5
+      - :operator: each
+        :score: 1.2
+      - :operator: find
+        :score: 1.2
+      - :operator: locale
+        :score: 1.2
+      - :operator: lit_fixnum
+        :score: 0.8
+      :name: ApplicationHelper#recent
+    - :score: 15.9
+      :operators: 
+      - :operator: new
+        :score: 5.6
+      - :operator: to_html_format
+        :score: 3.6
+      - :operator: assignment
+        :score: 3.0
+      - :operator: "<<"
+        :score: 3.0
+      - :operator: branch
+        :score: 2.6
+      - :operator: +
+        :score: 1.8
+      - :operator: format
+        :score: 1.4
+      :name: ApplicationHelper#g_textile
+    - :score: 2.9
+      :operators: 
+      - :operator: locale
+        :score: 1.4
+      - :operator: branch
+        :score: 1.2
+      - :operator: ==
+        :score: 1.2
+      :name: ApplicationHelper#is_locale?
+    - :score: 1.2
+      :operators: 
+      - :operator: is_locale?
+        :score: 1.2
+      :name: ApplicationHelper#is_en?
+    - :score: 1.2
+      :operators: 
+      - :operator: is_locale?
+        :score: 1.2
+      :name: ApplicationHelper#is_zh?
+    :score: 69.7
+    :highest_score: 31.2
+    :path: /app/helpers/application_helper.rb
+    :average_score: 11.6
+  - :scanned_methods: 
+    - :score: 22.6
+      :operators: 
+      - :operator: "[]"
+        :score: 9.2
+      - :operator: params
+        :score: 7.2
+      - :operator: blank?
+        :score: 2.4
+      - :operator: branch
+        :score: 2.2
+      - :operator: merge
+        :score: 1.4
+      - :operator: create
+        :score: 1.2
+      - :operator: assignment
+        :score: 1.2
+      - :operator: redirect_to
+        :score: 1.1
+      :name: CommentsController#create
+    :score: 22.6
+    :highest_score: 22.6
+    :path: /app/controllers/comments_controller.rb
+    :average_score: 22.6
+  - :scanned_methods: 
+    - :score: 18.4
+      :operators: 
+      - :operator: branch
+        :score: 5.1
+      - :operator: title
+        :score: 3.1
+      - :operator: assignment
+        :score: 2.7
+      - :operator: instance
+        :score: 1.7
+      - :operator: u_title
+        :score: 1.6
+      - :operator: update_attributes
+        :score: 1.5
+      - :operator: to_permlink
+        :score: 1.5
+      - :operator: ==
+        :score: 1.4
+      - :operator: transaction
+        :score: 1.2
+      - :operator: belongs_to
+        :score: 1.1
+      - :operator: has_many
+        :score: 1.1
+      - :operator: acts_as_taggable_on
+        :score: 1.1
+      - :operator: require
+        :score: 1.1
+      - :operator: after_save
+        :score: 1.1
+      :name: Blog#none
+    - :score: 2.4
+      :operators: 
+      - :operator: u_title
+        :score: 1.2
+      - :operator: id
+        :score: 1.2
+      :name: Blog#to_param
+    :score: 20.8
+    :highest_score: 18.4
+    :path: /app/models/blog.rb
+    :average_score: 10.4
+  - :scanned_methods: 
+    - :score: 16.9
+      :operators: 
+      - :operator: "[]"
+        :score: 5.4
+      - :operator: scan
+        :score: 2.9
+      - :operator: assignment
+        :score: 2.3
+      - :operator: strip
+        :score: 1.8
+      - :operator: to_sym
+        :score: 1.8
+      - :operator: div
+        :score: 1.4
+      - :operator: gsub!
+        :score: 1.2
+      - :operator: each
+        :score: 1.1
+      - :operator: lit_fixnum
+        :score: 1.1
+      - :operator: branch
+        :score: 1.1
+      :name: CoderayString#format
+    :score: 16.9
+    :highest_score: 16.9
+    :path: /app/models/coderay_string.rb
+    :average_score: 16.9
+  - :scanned_methods: 
+    - :score: 15.2
+      :operators: 
+      - :operator: +
+        :score: 10.2
+      - :operator: assignment
+        :score: 5.7
+      - :operator: branch
+        :score: 2.7
+      - :operator: delete
+        :score: 2.3
+      - :operator: each
+        :score: 1.3
+      :name: RuleString#convert
+    - :score: 9.6
+      :operators: 
+      - :operator: assignment
+        :score: 3.8
+      - :operator: constantize
+        :score: 1.7
+      - :operator: class
+        :score: 1.6
+      - :operator: new
+        :score: 1.5
+      - :operator: subclasses
+        :score: 1.4
+      - :operator: format
+        :score: 1.3
+      - :operator: each
+        :score: 1.2
+      - :operator: branch
+        :score: 1.2
+      :name: FormatableString#to_html_format
+    - :score: 8.8
+      :operators: 
+      - :operator: assignment
+        :score: 3.0
+      - :operator: branch
+        :score: 2.7
+      - :operator: rand
+        :score: 1.9
+      - :operator: to_s
+        :score: 1.7
+      - :operator: "<<"
+        :score: 1.5
+      - :operator: each_key
+        :score: 1.4
+      - :operator: returning
+        :score: 1.3
+      :name: RuleString#generate_unescape_rule
+    - :score: 8.3
+      :operators: 
+      - :operator: assignment
+        :score: 5.5
+      - :operator: +
+        :score: 3.4
+      - :operator: gsub!
+        :score: 1.4
+      - :operator: branch
+        :score: 1.3
+      - :operator: each
+        :score: 1.3
+      :name: FontColorString#format
+    - :score: 7.8
+      :operators: 
+      - :operator: assignment
+        :score: 3.9
+      - :operator: "[]"
+        :score: 2.6
+      - :operator: branch
+        :score: 2.5
+      - :operator: gsub!
+        :score: 2.5
+      - :operator: +
+        :score: 1.2
+      :name: ListString#format
+    - :score: 7.6
+      :operators: 
+      - :operator: assignment
+        :score: 3.9
+      - :operator: escape
+        :score: 2.6
+      - :operator: generate_unescape_rule
+        :score: 1.3
+      - :operator: convert
+        :score: 1.3
+      - :operator: generate_escape_rule
+        :score: 1.3
+      :name: RuleString#format
+    - :score: 6.6
+      :operators: 
+      - :operator: "[]"
+        :score: 3.2
+      - :operator: gsub!
+        :score: 1.4
+      - :operator: assignment
+        :score: 1.4
+      - :operator: each
+        :score: 1.3
+      - :operator: branch
+        :score: 1.3
+      - :operator: lit_fixnum
+        :score: 0.5
+      :name: RuleString#escape
+    - :score: 6.4
+      :operators: 
+      - :operator: "[]"
+        :score: 3.0
+      - :operator: assignment
+        :score: 1.4
+      - :operator: +
+        :score: 1.4
+      - :operator: branch
+        :score: 1.3
+      - :operator: map
+        :score: 1.3
+      - :operator: lit_fixnum
+        :score: 0.5
+      :name: RuleString#generate_escape_rule
+    - :score: 2.6
+      :operators: 
+      - :operator: gsub
+        :score: 2.6
+      :name: NString#format
+    - :score: 1.2
+      :operators: 
+      - :operator: private
+        :score: 1.2
+      :name: RuleString#none
+    - :score: 1.2
+      :operators: 
+      - :operator: gsub
+        :score: 1.2
+      :name: ImageString#format
+    - :score: 1.2
+      :operators: 
+      - :operator: gsub
+        :score: 1.2
+      :name: UrlString#format
+    - :score: 1.2
+      :operators: 
+      - :operator: gsub
+        :score: 1.2
+      :name: FontSizeString#format
+    :score: 77.7
+    :highest_score: 15.2
+    :path: /app/models/formatable_string.rb
+    :average_score: 6.0
+  - :scanned_methods: 
+    - :score: 14.9
+      :operators: 
+      - :operator: params
+        :score: 3.6
+      - :operator: "[]"
+        :score: 3.2
+      - :operator: assignment
+        :score: 2.6
+      - :operator: branch
+        :score: 2.5
+      - :operator: insert_html
+        :score: 1.4
+      - :operator: merge
+        :score: 1.4
+      - :operator: render
+        :score: 1.3
+      - :operator: create
+        :score: 1.2
+      - :operator: responds_to_parent
+        :score: 1.2
+      - :operator: authorize
+        :score: 1.2
+      :name: UploadFilesController#create
+    - :score: 7.0
+      :operators: 
+      - :operator: assignment
+        :score: 2.4
+      - :operator: params
+        :score: 1.6
+      - :operator: "[]"
+        :score: 1.4
+      - :operator: authorize
+        :score: 1.2
+      - :operator: find
+        :score: 1.2
+      - :operator: upload_files
+        :score: 1.2
+      :name: UploadFilesController#index
+    :score: 22.0
+    :highest_score: 14.9
+    :path: /app/controllers/upload_files_controller.rb
+    :average_score: 11.0
+  - :scanned_methods: 
+    - :score: 8.4
+      :operators: 
+      - :operator: params
+        :score: 1.8
+      - :operator: "[]"
+        :score: 1.6
+      - :operator: find
+        :score: 1.4
+      - :operator: redirect_to
+        :score: 1.2
+      - :operator: authorize
+        :score: 1.2
+      - :operator: destroy
+        :score: 1.2
+      :name: BlogGroupsController#destroy
+    - :score: 4.7
+      :operators: 
+      - :operator: params
+        :score: 1.6
+      - :operator: "[]"
+        :score: 1.4
+      - :operator: paginate
+        :score: 1.2
+      - :operator: assignment
+        :score: 1.2
+      - :operator: lit_fixnum
+        :score: 0.4
+      :name: BlogGroupsController#index
+    :score: 13.1
+    :highest_score: 8.4
+    :path: /app/controllers/blog_groups_controller.rb
+    :average_score: 6.6
+  - :scanned_methods: 
+    - :score: 6.5
+      :operators: 
+      - :operator: blog_groups_path
+        :score: 1.4
+      - :operator: params
+        :score: 1.4
+      - :operator: session
+        :score: 1.2
+      - :operator: redirect_to
+        :score: 1.2
+      - :operator: assignment
+        :score: 1.2
+      - :operator: "[]"
+        :score: 1.2
+      :name: SessionsController#create
+    - :score: 3.8
+      :operators: 
+      - :operator: login_path
+        :score: 1.4
+      - :operator: redirect_to
+        :score: 1.2
+      - :operator: reset_session
+        :score: 1.2
+      :name: SessionsController#destroy
+    :score: 10.3
+    :highest_score: 6.5
+    :path: /app/controllers/sessions_controller.rb
+    :average_score: 5.2
+  - :scanned_methods: 
+    - :score: 4.4
+      :operators: 
+      - :operator: helper
+        :score: 1.1
+      - :operator: protect_from_forgery
+        :score: 1.1
+      - :operator: helper_method
+        :score: 1.1
+      - :operator: before_filter
+        :score: 1.1
+      :name: ApplicationController#none
+    - :score: 4.2
+      :operators: 
+      - :operator: session
+        :score: 1.6
+      - :operator: "[]"
+        :score: 1.4
+      - :operator: ==
+        :score: 1.2
+      :name: ApplicationController#admin?
+    - :score: 4.2
+      :operators: 
+      - :operator: root_path
+        :score: 1.5
+      - :operator: redirect_to
+        :score: 1.3
+      - :operator: admin?
+        :score: 1.2
+      - :operator: branch
+        :score: 1.2
+      :name: ApplicationController#authorize
+    - :score: 3.3
+      :operators: 
+      - :operator: user_session
+        :score: 1.5
+      - :operator: locale
+        :score: 1.3
+      - :operator: branch
+        :score: 1.2
+      - :operator: assignment
+        :score: 1.2
+      :name: ApplicationController#set_locale
+    - :score: 2.9
+      :operators: 
+      - :operator: session
+        :score: 1.4
+      - :operator: assignment
+        :score: 1.2
+      - :operator: new
+        :score: 1.2
+      :name: ApplicationController#user_session
+    - :score: 2.7
+      :operators: 
+      - :operator: assignment
+        :score: 2.4
+      - :operator: user_session
+        :score: 1.2
+      :name: ApplicationController#save_locale
+    :score: 21.6
+    :highest_score: 4.4
+    :path: /app/controllers/application_controller.rb
+    :average_score: 3.6
+  - :scanned_methods: 
+    - :score: 4.4
+      :operators: 
+      - :operator: has_one
+        :score: 2.2
+      - :operator: has_many
+        :score: 2.2
+      :name: BlogGroup#none
+    :score: 4.4
+    :highest_score: 4.4
+    :path: /app/models/blog_group.rb
+    :average_score: 4.4
+  - :scanned_methods: 
+    - :score: 4.1
+      :operators: 
+      - :operator: params
+        :score: 1.5
+      - :operator: "[]"
+        :score: 1.3
+      - :operator: assignment
+        :score: 1.1
+      - :operator: tagged_with
+        :score: 1.1
+      :name: TagsController#show
+    :score: 4.1
+    :highest_score: 4.1
+    :path: /app/controllers/tags_controller.rb
+    :average_score: 4.1
+  - :scanned_methods: 
+    - :score: 3.5
+      :operators: 
+      - :operator: +
+        :score: 1.3
+      - :operator: belongs_to
+        :score: 1.1
+      - :operator: has_attachment
+        :score: 1.1
+      :name: UploadFile#none
+    :score: 3.5
+    :highest_score: 3.5
+    :path: /app/models/upload_file.rb
+    :average_score: 3.5
+  - :scanned_methods: 
+    - :score: 2.6
+      :operators: 
+      - :operator: blog_group
+        :score: 1.4
+      - :operator: english
+        :score: 1.2
+      :name: Chinese#brother
+    - :score: 1.1
+      :operators: 
+      - :operator: belongs_to
+        :score: 1.1
+      :name: Chinese#none
+    :score: 3.7
+    :highest_score: 2.6
+    :path: /app/models/chinese.rb
+    :average_score: 1.9
+  - :scanned_methods: 
+    - :score: 2.6
+      :operators: 
+      - :operator: blog_group
+        :score: 1.4
+      - :operator: chinese
+        :score: 1.2
+      :name: English#brother
+    - :score: 1.1
+      :operators: 
+      - :operator: belongs_to
+        :score: 1.1
+      :name: English#none
+    :score: 3.7
+    :highest_score: 2.6
+    :path: /app/models/english.rb
+    :average_score: 1.9
+  - :scanned_methods: 
+    - :score: 2.2
+      :operators: 
+      - :operator: save_locale
+        :score: 1.1
+      - :operator: redirect_to
+        :score: 1.1
+      :name: ChinesesController#index
+    :score: 2.2
+    :highest_score: 2.2
+    :path: /app/controllers/chineses_controller.rb
+    :average_score: 2.2
+  - :scanned_methods: 
+    - :score: 2.2
+      :operators: 
+      - :operator: save_locale
+        :score: 1.1
+      - :operator: redirect_to
+        :score: 1.1
+      :name: EnglishsController#index
+    :score: 2.2
+    :highest_score: 2.2
+    :path: /app/controllers/englishs_controller.rb
+    :average_score: 2.2
+  - :scanned_methods: 
+    - :score: 1.2
+      :operators: 
+      - :operator: assignment
+        :score: 1.2
+      :name: UserSession#locale=
+    - :score: 1.2
+      :operators: 
+      - :operator: "[]"
+        :score: 1.2
+      :name: UserSession#locale
+    - :score: 1.2
+      :operators: 
+      - :operator: assignment
+        :score: 1.2
+      :name: UserSession#initialize
+    :score: 3.6
+    :highest_score: 1.2
+    :path: /app/models/user_session.rb
+    :average_score: 1.2
+  - :scanned_methods: 
+    - :score: 1.1
+      :operators: 
+      - :operator: assignment
+        :score: 1.1
+      :name: AboutsController#index
+    :score: 1.1
+    :highest_score: 1.1
+    :path: /app/controllers/abouts_controller.rb
+    :average_score: 1.1
+  - :scanned_methods: 
+    - :score: 1.0
+      :operators: 
+      - :operator: belongs_to
+        :score: 1.0
+      :name: Comment#none
+    :score: 1.0
+    :highest_score: 1.0
+    :path: /app/models/comment.rb
+    :average_score: 1.0

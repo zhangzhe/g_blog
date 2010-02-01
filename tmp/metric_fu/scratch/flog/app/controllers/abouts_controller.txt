@@ -1,0 +1,5 @@
+     1.1: flog total
+     1.1: flog/method average
+
+     1.1: AboutsController#index
+     1.1: assignment

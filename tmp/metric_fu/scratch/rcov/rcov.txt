@@ -1,0 +1,543 @@
+================================================================================
+app/helpers/application_helper.rb
+================================================================================
+   module ApplicationHelper
+     def g_textile(text)
+!!     if text
+!!       result = ""
+!!       while text =~ /(\[code\:([a-z].+?)\](.+?)\[\/code\])/m
+!!         result << FormatableString.new($`).to_html_format + $&
+!!         text = $'
+!!       end
+!!       result << FormatableString.new(text).to_html_format
+!!       return CoderayString.new(result).format
+!!     end
+!!   end
+     
+     def recent(num = 8)
+!!     blog_type = case I18n.locale
+!!                 when :en
+!!                   English
+!!                 when :zh
+!!                   Chinese
+!!                 else
+!!                   Blog
+!!                 end
+!!     @blogs = blog_type.find(:all, :conditions => "title is not null", :limit => num, :order => "created_at DESC")
+!!     result = "<ul>"
+!!     @blogs.each do |blog|
+!!       result << "<li>#{link_to(truncate(blog.title, :length => 28), blog_path(blog), :title => blog.title)}</li>"
+!!     end
+!!     result << "</ul>"
+!!   end
+     
+     def tag_links(type = Blog)
+!!     if type == Blog
+!!       tags = type.tag_counts.map(&:name)
+!!       result = "<ul>"
+!!       tags.each do |t|
+!!         result << "<li style='border-bottom: 1px;'>#{link_to(t, tag_path(t))}</li>"
+!!       end
+!!       result << "</ul>"
+!!     else
+!!       result = "tags: "
+!!       type.tag_list.each do |t|
+!!         result << "#{link_to(t, tag_path(t))} "
+!!       end
+!!     end
+!!     return result
+!!   end
+     
+     def is_zh?
+!!     is_locale?(:zh)
+!!   end
+     
+     def is_en?
+!!     is_locale?(:en)
+!!   end
+     
+     def is_locale?(locale)
+!!     "current_locale" if I18n.locale == locale
+!!   end
+!! end
+================================================================================
+app/controllers/blogs_controller.rb
+================================================================================
+   class BlogsController < ApplicationController
+     def index
+!!     if @template.is_zh?
+!!       @blogs = blogs_with_type(Chinese)
+!!     elsif @template.is_en?
+!!       @blogs = blogs_with_type(English)
+!!     else
+!!       @blogs = blogs_with_type(Blog)
+!!     end
+!!   end
+     
+     def blogs_with_type(type)
+!!     type.paginate(:all, :conditions => "title is not null", :page => params[:page], :per_page => 5, :order => "created_at DESC")
+!!   end
+     
+     def list
+!!     @blogs = Blog.all
+!!   end
+     
+     def show
+!!     @blog = Blog.find(params[:id])
+!!   rescue
+!!     redirect_to blog_groups_path
+!!   end
+   
+     def new
+!!     authorize
+!!     @blog_group = BlogGroup.create
+!!     @blog = Blog.create
+!!     @blog_group.blogs << @blog
+!!   end
+   
+     def edit
+!!     authorize
+!!     @blog = Blog.find(params[:id])
+!!     @tags = @blog.tag_list
+!!     if @blog.content.blank?
+!!       @blog.content = @blog.brother.content
+!!     end
+!!   end
+   
+     def update
+!!     if admin?
+!!       @blog = Blog.find(params[:id])
+!!       if @blog.update_attributes(params[:blog])
+!!         @blog.tag_list = params[:tag]; @blog.save!
+!!         if @blog["type"].nil? # means the first time create
+!!           if @blog.title =~ /[\xa0-\xff]/
+!!             @blog.type = "Chinese"
+!!             @blog.blog_group.english = English.create
+!!           else
+!!             @blog.type = "English"
+!!             @blog.blog_group.chinese = Chinese.create 
+!!           end
+!!           @blog.save!; @blog.reload
+!!         end
+!!         redirect_to blog_path(@blog) 
+!!       else
+!!         render :action => "edit"
+!!       end
+!!     else
+!!       authorize
+!!     end
+!!   end
+     
+     def example
+!!     @example = "*b* =&gt; <b>b</b><br><i> </i> +i+ =&gt; <i>i</i><br><u> </u> _u_ =&gt; <u>u<br></u># h # =&gt; h<br>[red]red[/red] => <font color='#ff0000'>red<br></font>[blue]blue[/blue] => <font color='#0000ff'>blue</font><font color='#ff0000'><br></font>[green]green[/green] => <font color='#088a4b'>green</font><br>* list1<u><br></u>* list2<br>* list3 =&gt;<u><br></u><ul><li>list1</li><li>list2</li><li>list3</li></ul>picture: <br>[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload_files/4/emacs.gif[/img] <br>link:<br>[link:i am strong]http://www.idapted.com[/link]"
+!!   end
+     
+     def reset_locale
+!!     I18n.locale = :all
+!!     save_locale(:all)
+!!     redirect_to "/"
+!!   end
+!! end
+   
+================================================================================
+app/controllers/abouts_controller.rb
+================================================================================
+   # -*- coding: utf-8 -*-
+   class AboutsController < ApplicationController
+     def index
+!!     @about = "My name is 张哲(Gary Zhang, zhangzhe). I live in BeiJing, China.
+!! 
+!! I am a programmer, right now work for [link:idapted]http://www.idapted.com[/link].
+!! I love my job and believe that my work is good for people and will make the world better.
+!! I love beautiful code and am trying to write them to my best. 
+!! 
+!! In spare time I like exercises. basketball is my favorite. I also like cycling, running and swimming. I took part in two marathons, one triathlon, one ironman and lots of other sport games.
+!! 
+!! I worked since 2007. Right now I am using Ruby On Rails building the [link:best e-learning system]www.eqenglish.com[/link].
+!! 
+!! Visit [link:here]http://github.com/zhangzhe[/link] to see more about my apps. Anything unclean please email me at gary20071226@gmail.com.
+!! 
+!! I will share in this blog about most of technique things I met and part of my personal life. Enjoy:)"
+!!   end
+!! end
+================================================================================
+app/controllers/upload_files_controller.rb
+================================================================================
+   class UploadFilesController < ApplicationController
+     def create
+!!     authorize
+!!     @upload_file = UploadFile.create(params[:upload_file].merge(:blog_group_id => params[:blog_group_id]))
+!!     responds_to_parent do
+!!       render(:update) do |page|
+!!         page.insert_html :bottom, "files", :partial => "show", :locals => { :upload_file => @upload_file }
+!!       end
+!!     end
+!!   end
+   
+     def index
+!!     authorize
+!!     @blog_group = BlogGroup.find(params[:blog_group_id])
+!!     @upload_files = @blog_group.upload_files
+!!   end
+!! end
+================================================================================
+app/models/coderay_string.rb
+================================================================================
+   class CoderayString < String
+     def format
+!!     content = self 
+!!     content.scan(/(\[code\:([a-z].+?)\](.+?)\[\/code\])/m).each do |match|
+!!       content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:css => :class)) 
+!!     end  
+!!     return content
+!!   end
+!! end
+   
+   #content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:line_numbers => :table,:css => :class)) #with number 
+   
+   
+================================================================================
+app/models/pinyin.rb
+================================================================================
+   require 'singleton'
+   class PinYin
+     include Singleton
+     def initialize
+!!     require "yaml"
+!!     @codes = YAML.load_file("#{RAILS_ROOT}/public/Mandarin.yml")
+!!   end
+   
+     def to_permlink(str)
+!!     str_to_pinyin(str,'-')
+!!   end
+     
+     def to_pinyin(str)
+!!     str_to_pinyin(str, '')
+!!   end
+     
+     private
+     def get_value(code)
+!!     @codes[code]
+!!   end
+   
+     def str_to_pinyin(str, separator='')
+!!     res = []
+!!     str.to_s.unpack('U*').each_with_index do |t,idx|
+!!       code = sprintf('%x',t).upcase
+!!       val = get_value(code)
+!!       if val
+!!         val = val.gsub(/\d/,'')
+!!         res << val.downcase+separator
+!!       else
+!!         tmp = [t].pack('U*')
+!!         res << tmp if tmp =~ /^[_0-9a-zA-Z\s]*$/ 
+!!       end
+!!     end
+!!     if separator==''
+!!       return res.join(' ')
+!!     else
+!!       re = Regexp.new("\\#{separator}+")
+!!       re2 = Regexp.new("\\#{separator}$")
+!!       return res.join('').gsub(/\s+/,separator).gsub(re,separator).gsub(re2,'')
+!!     end
+!!   end
+!! end
+================================================================================
+app/controllers/comments_controller.rb
+================================================================================
+   class CommentsController < ApplicationController
+     def create
+!!     unless params[:comment][:name].blank? or params[:comment][:content].blank?
+!!       @comment = Comment.create(params[:comment].merge(:blog_id => params[:blog_id]))
+!!     end
+!!     redirect_to :back
+!!   end
+!! end
+   
+================================================================================
+app/models/formatable_string.rb
+================================================================================
+   class FormatableString < String
+     def to_html_format
+!!     content = self 
+!!     self.class.subclasses.each do |formatable_string|
+!!       content = formatable_string.constantize.new(content).format
+!!     end
+!!     return content
+!!   end
+!! end
+   
+   class NString < FormatableString
+     def format
+!!     return self.gsub("\n", "<br/>\n\r").gsub("\t", "&nbsp;&nbsp;")
+!!   end
+!! end
+   
+   class FontSizeString < FormatableString
+     def format
+!!     return self.gsub(/\[f1\](.+)\[\/f1\]/,'<span style="font-size:17px">\1</span>')
+!!   end
+!! end
+   
+   class FontColorString < FormatableString
+     COLORS = {"purple" => "#B404AE", "green" => "#01DF01", "red" => "#FF0000", "blue" => "#0000FF"}
+     def format
+!!     content = self
+!!     COLORS.each do |key, value|
+!!       content.gsub!(/\[#{key}\](.+?)\[\/#{key}\]/, '<font color=\'' + value + '\'>\1</font>')
+!!     end
+!!     return content
+!!   end
+!! end
+   
+   class ImageString < FormatableString
+     def format
+!!     return self.gsub(/\[img(:*.*)\](.+?)\[\/img\]/,'<img style="float\1" src="\2">')
+!!   end
+!! end
+   
+   class UrlString < FormatableString
+     def format
+!!     return self.gsub(/\[link:(.+?)\](.+?)\[\/link\]/, '<a target="_blank" style="color:#2828FF" href=\2>\1</a>')
+!!   end
+!! end
+   
+   class RuleString < FormatableString
+     RULES = {"*" => "</b>", "_" => "</i>", "+" => "</u>", "#" => "</h>"}
+     def format
+!!     @content = self
+!!     unescape_rule = generate_unescape_rule
+!!     escape_rule = generate_escape_rule(unescape_rule)
+!!     escape(escape_rule)
+!!     convert
+!!     escape(unescape_rule)
+!!     return @content
+!!   end
+     
+     private
+     def convert
+!!     RULES.each do |key, value|
+!!       while @content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m
+!!         @content = $` + value.delete("/") + $1 + value + $'
+!!       end
+!!     end
+!!   end
+     
+     def generate_unescape_rule
+!!     returning un_escape_rule = [] do
+!!       RULES.each_key do |key|
+!!         un_escape_rule << [Kernel.rand.to_s, key]
+!!       end
+!!     end
+!!   end
+     
+     def generate_escape_rule(un_escape_rule)
+!!     return un_escape_rule.map{|rule| ["\\" + rule[1], rule[0]]}
+!!   end
+     
+     def escape(escape_rules)
+!!     escape_rules.each { |escape_rule| @content.gsub!(escape_rule[0], escape_rule[1]) }
+!!   end
+!! end
+   
+   #importent to put it in the end
+   class ListString < FormatableString
+     def format
+!!     content = self + "\n" # add \n
+!!     content.gsub!(/(^\* [^\n]+\n)+/) {|ul| "<ul>#{ul.gsub!(/\* [^\n]+\n/){|li| "<li>#{li[2..-2]}</li>"} }<\/ul>"}
+!!     return content[0..-2] # remove \n
+!!   end
+!! end
+================================================================================
+app/controllers/blog_groups_controller.rb
+================================================================================
+   class BlogGroupsController < ApplicationController
+     def index
+!!     @blog_groups = BlogGroup.paginate(:all, :page => params[:page], :per_page => 3, :order => "created_at DESC")
+!!   end
+   
+     def destroy
+!!     authorize
+!!     BlogGroup.find(params[:id]).destroy
+!!     redirect_to :back
+!!   end
+!! end
+================================================================================
+app/models/user_session.rb
+================================================================================
+   class UserSession
+     def initialize(session)
+!!     @session = session
+!!     @session[:locale] ||= :en
+!!   end
+     
+     def locale=(locale)
+!!     @session[:locale] = locale
+!!   end
+     
+     def locale
+!!     @session[:locale]
+!!   end
+!! end
+================================================================================
+app/controllers/englishs_controller.rb
+================================================================================
+   class EnglishsController < ApplicationController
+     def index
+!!     save_locale(:en)
+!!     redirect_to "/"
+!!   end
+!! end
+================================================================================
+app/controllers/chineses_controller.rb
+================================================================================
+   class ChinesesController < ApplicationController
+     def index
+!!     save_locale(:zh)
+!!     redirect_to "/"
+!!   end
+!! end
+================================================================================
+app/controllers/tags_controller.rb
+================================================================================
+   # -*- coding: utf-8 -*-
+   class TagsController < ApplicationController
+     def show
+!!     @blogs = Blog.tagged_with(params[:id], :on => :tags)
+!!   end
+!! end
+================================================================================
+app/controllers/sessions_controller.rb
+================================================================================
+   class SessionsController < ApplicationController
+     def new
+     end
+     
+     def create
+!!     session[:password] = params[:password]
+!!     redirect_to blog_groups_path
+!!   end
+   
+     def destroy
+!!     reset_session
+!!     redirect_to login_path
+!!   end
+!! end
+================================================================================
+app/controllers/application_controller.rb
+================================================================================
+   class ApplicationController < ActionController::Base
+     helper :all
+     protect_from_forgery
+     helper_method :admin?
+     before_filter :set_locale
+     def authorize
+!!     redirect_to root_path unless admin?
+!!   end
+     
+     def admin?
+!!     session[:password] == '1234123'
+!!   end
+     
+     def user_session
+!!     @user_session ||= UserSession.new(session)
+!!   end
+     
+     def save_locale(locale)
+!!     user_session.locale = locale
+!!     I18n.locale = locale
+!!   end
+     
+     def set_locale
+!!     I18n.locale = user_session.locale || :all
+!!   end
+!! end
+================================================================================
+app/models/blog.rb
+================================================================================
+   class Blog < ActiveRecord::Base
+     acts_as_taggable_on :tags
+     belongs_to :blog_group
+     has_many :comments
+     require "pinyin"
+     after_save do |blog|
+!!     Blog.transaction do 
+!!       new_u_title = PinYin.instance.to_permlink(blog.title) if blog.title
+!!       blog.update_attributes(:u_title => new_u_title) unless new_u_title == blog.u_title
+!!     end
+!!   end
+     
+     def to_param
+!!     return "#{id}-#{u_title}"
+!!   end
+!! end
+================================================================================
+app/models/english.rb
+================================================================================
+   class English < Blog
+     belongs_to :blog_group
+     def brother
+!!     blog_group.chinese
+!!   end
+!! end
+================================================================================
+app/models/chinese.rb
+================================================================================
+   class Chinese < Blog
+     belongs_to :blog_group
+     def brother
+!!     blog_group.english
+!!   end
+!! end
+================================================================================
+app/models/blog_group.rb
+================================================================================
+   class BlogGroup < ActiveRecord::Base
+     has_many :upload_files
+     has_many :blogs, :dependent => :destroy
+     has_one :english
+     has_one :chinese
+   end
+================================================================================
+app/helpers/chineses_helper.rb
+================================================================================
+   module ChinesesHelper
+   end
+================================================================================
+app/controllers/rsses_controller.rb
+================================================================================
+   class RssesController < ApplicationController
+   end
+================================================================================
+app/helpers/rsses_helper.rb
+================================================================================
+   module RssesHelper
+   end
+================================================================================
+app/helpers/abouts_helper.rb
+================================================================================
+   module AboutsHelper
+   end
+================================================================================
+app/models/upload_file.rb
+================================================================================
+   class UploadFile < ActiveRecord::Base
+     belongs_to :blog_group
+     has_attachment :storage => :s3, :s3_config_path => (RAILS_ROOT + '/config/amazon_s3.yml')
+   end
+================================================================================
+app/helpers/englishs_helper.rb
+================================================================================
+   module EnglishsHelper
+   end
+================================================================================
+app/helpers/comments_helper.rb
+================================================================================
+   module CommentsHelper
+   end
+================================================================================
+app/models/comment.rb
+================================================================================
+   class Comment < ActiveRecord::Base
+     belongs_to :blog, :touch => true
+   end

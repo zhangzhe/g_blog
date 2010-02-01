@@ -1,0 +1,6 @@
+     2.2: flog total
+     2.2: flog/method average
+
+     2.2: ChinesesController#index
+     1.1: save_locale
+     1.1: redirect_to

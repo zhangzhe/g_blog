@@ -1,0 +1,3204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content='en' http-equiv='Content-Language' />
+    <title>metrics</title>
+    <style>
+    /*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+    /* --------------------------------------------------------------
+
+   buttons.css
+   * Gives you some great CSS-only buttons.
+
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+button {
+  display:block;
+  float:left;
+  margin:0 0.583em 0.667em 0;
+  padding:5px 10px 5px 7px;   /* Links */
+
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px;   /* IE6 */
+}
+button[type] {
+  padding:4px 10px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px;   /* IE7 */
+}
+button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover {
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+
+/* Positive */
+body .positive {
+  color:#529214;
+}
+button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+
+/* Negative */
+body .negative {
+  color:#d12f19;
+}
+button.negative:hover {
+  background:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+
+    html {
+  background-color: #e0e0e0; }
+
+body {
+  font-size: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+a {
+  color: #ed1556;
+  text-decoration: none; }
+  a:hover {
+    color: #ffffff;
+    background-color: #ed1556; }
+
+#header, #content, #footer {
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0 2em;
+  z-index: 0;
+  position: relative;
+  font-size: 1em; }
+
+#header {
+  background: #ffffff; }
+  #header h1 {
+    font-weight: bold;
+    font-size: 1.5em; }
+  #header address.watermark {
+    position: absolute;
+    font-weight: bold;
+    right: 3em;
+    top: 0;
+    font-size: .75em;
+    color: #cccccc; }
+    #header address.watermark a {
+      color: #cccccc;
+      font-weight: bold;
+      font-size: 2em; }
+      #header address.watermark a:hover {
+        background: transparent;
+        color: #aaaaaa; }
+
+#content {
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  #content strong {
+    font-weight: bold; }
+  #content em {
+    font-style: italic; }
+  #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #4e4e4e; }
+  #content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: .75em;
+    padding: .25em 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #c0c0c0; }
+  #content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0 .2em; }
+  #content h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: .25em 0; }
+  #content h4, #content h5, #content h6 {
+    font-weight: bold;
+    margin-top: .5em; }
+  #content code, #content pre, #content textarea, #content input {
+    font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+  #content form p {
+    margin-top: 1em;
+    position: relative; }
+    #content form p.checkbox label {
+      margin-top: 0 !important; }
+  #content form input.text, #content form textarea {
+    width: 30em;
+    padding: .2em .4em;
+    color: #4e4e4e; }
+  #content form input.text {
+    height: 1.4em; }
+  #content form label {
+    float: left;
+    display: block;
+    margin-top: .5em;
+    width: 8em;
+    margin-right: .75em; }
+  #content form .with_errors label {
+    background: red;
+    color: white;
+    position: relative;
+    top: -.7em; }
+  #content form .with_errors.required label {
+    position: static;
+    margin-right: .25em;
+    padding: 0 .2em; }
+  #content form .with_errors input, #content form .with_errors textarea {
+    border: 2px solid #f22;
+    background: #fee;
+    color: #222222; }
+  #content form .required label {
+    float: none;
+    display: block;
+    width: auto;
+    position: relative;
+    font-weight: bold;
+    margin-top: 1em;
+    text-indent: -.65em; }
+    #content form .required label:before {
+      content: "* ";
+      color: #ed1556; }
+  #content form .required input.text {
+    width: 25.6em;
+    font-size: 24px;
+    font-weight: bold; }
+  #content form .normal {
+    margin-top: 2em; }
+  #content form h2.notifier label {
+    float: none;
+    width: auto;
+    margin-right: 0; }
+    #content form h2.notifier label .warning {
+      font-size: .5em;
+      font-weight: normal;
+      color: #999999; }
+  #content form fieldset {
+    padding-bottom: 1em;
+    margin-left: 1.35em;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 1em; }
+    #content form fieldset h3 {
+      margin-top: 1em;
+      margin-bottom: 0; }
+    #content form fieldset p.normal {
+      margin-top: 1em; }
+    #content form fieldset p label {
+      width: 6.7em; }
+  #content form p.submit {
+    margin-top: 2em; }
+    #content form p.submit:after {
+      display: block;
+      clear: both;
+      float: none;
+      content: ".";
+      text-indent: -9999em;
+      text-align: left; }
+    #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+      float: none;
+      display: inline; }
+    #content form p.submit.manual-build button {
+      margin-right: 0; }
+  #content #build form, #content #last_build form {
+    font-size: .75em; }
+    #content #build form p.submit,     #content #last_build form p.submit {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: .5em;
+      top: 1.25em; }
+  #content .blank_slate p,   #content .error p {
+    position: relative;
+    top: .3em; }
+  #content .blank_slate h1,   #content .error h1 {
+    border-width: 0;
+    margin: 0;
+    padding: 0; }
+    #content .blank_slate h1 button,     #content .error h1 button {
+      float: none;
+      border: 0 none;
+      background: transparent;
+      display: inline;
+      color: #ed1556;
+      padding: 0.25em 0;
+      margin: 0; }
+      #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+        background: #ed1556;
+        color: #ffffff; }
+  #content .error dt {
+    margin-top: 1.4em;
+    margin-bottom: .3em;
+    font-size: 1.75em;
+    font-family: Georgia, Times New Roman, serif; }
+  #content .error dd {
+    line-height: 1.4; }
+  #content .error .backtrace {
+    margin: 1em 0;
+    overflow: scroll;
+    height: 30em;
+    border: 1px solid #c0c0c0;
+    line-height: 1.6; }
+  #content #projects {
+    margin: 1em 0 2em;
+    border-top: 1px solid #c0c0c0; }
+    #content #projects li {
+      position: relative;
+      border-bottom: 1px solid #c0c0c0; }
+      #content #projects li.odd {
+        background: #e6e6e6; }
+      #content #projects li.building {
+        background: transparent url(/spinner.gif) no-repeat scroll right; }
+      #content #projects li a {
+        font-size: 2em;
+        padding: .25em;
+        line-height: 1.2;
+        font-weight: bold;
+        display: block; }
+        #content #projects li a.success {
+          color: #337022; }
+        #content #projects li a.failed {
+          color: #ff1100; }
+      #content #projects li .meta {
+        position: absolute;
+        right: .6em;
+        top: 1.5em;
+        font-size: 0.8em;
+        color: #999999;
+        text-align: right; }
+      #content #projects li.building .meta {
+        right: 1.6em; }
+      #content #projects li.success .meta {
+        color: #337022; }
+      #content #projects li.failed .meta {
+        color: #ff1100; }
+  #content #previous_builds li a {
+    display: block;
+    padding: .25em;
+    margin-bottom: .25em;
+    border-width: 1px;
+    border-style: solid; }
+    #content #previous_builds li a strong {
+      font-size: 1.3em; }
+    #content #previous_builds li a .attribution {
+      font-size: .9em; }
+  #content #projects li.success a,   #content #previous_builds li.success a {
+    background-color: #bbf8aa;
+    border-color: #99d688;
+    color: #337022; }
+    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+      color: #77b466; }
+    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+      background-color: #ddffcc; }
+  #content #projects li.failed a,   #content #previous_builds li.failed a {
+    background-color: #ffbbaa;
+    border-color: #dd9988;
+    color: #ff1100; }
+    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+      color: #bb7766; }
+    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+      background-color: #ffddcc; }
+  #content #build, #content #last_build {
+    position: relative; }
+    #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+      border-width: 0 1px;
+      border-style: solid; }
+    #content #build h1,     #content #last_build h1 {
+      border-top-width: 1px; }
+    #content #build blockquote,     #content #last_build blockquote {
+      bottom-bottom-width: 1px;
+      line-height: 1.4; }
+    #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+      background-color: #bbf8aa;
+      border-color: #99d688 #ccffbb #ccffbb #99d688; }
+    #content #build.success h1,     #content #last_build.success h1 {
+      color: #337022; }
+    #content #build.success .meta,     #content #last_build.success .meta {
+      color: #77b466; }
+    #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+      background-color: #ffbbaa;
+      border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+    #content #build.failed h1,     #content #last_build.failed h1 {
+      color: #ff1100; }
+    #content #build.failed .meta,     #content #last_build.failed .meta {
+      color: #bb7766; }
+    #content #build h1,     #content #last_build h1 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      padding: .25em;
+      color: #337022; }
+    #content #build blockquote,     #content #last_build blockquote {
+      padding: .75em;
+      margin-bottom: 2em; }
+      #content #build blockquote .meta,       #content #last_build blockquote .meta {
+        margin-top: 1em;
+        display: block;
+        font-size: .9em; }
+    #content #build pre.output,     #content #last_build pre.output {
+      background: #111;
+      color: #fff;
+      padding: .5em;
+      overflow: auto;
+      max-height: 50em;
+      font-size: .825em; }
+      #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+        color: #333; }
+      #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+        color: #e33; }
+      #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+        color: #3e3; }
+      #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+        color: #ee3; }
+      #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+        color: #33e; }
+      #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+        color: #e3e; }
+      #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+        color: #3ee; }
+      #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+        color: #fff; }
+  #content #push_path {
+    display: block;
+    margin-top: 1em;
+    margin-left: 2em; }
+
+a.success {
+  color: #bbf8aa; }
+  a.success:hover {
+    background-color: #bbf8aa;
+    color: white; }
+a.failed {
+  color: #ffbbaa; }
+  a.failed:hover {
+    background-color: #ffbbaa;
+    color: white; }
+
+#footer {
+  padding: 1.5em 2.5em;
+  border-top: 1px solid #ccc;
+  font-size: .8em;
+  color: #666;
+  text-align: right; }
+  #footer strong {
+    font-weight: bold; }
+    
+    table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #666;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+table tr.light {
+   background: #fff;
+}
+
+table tr.dark {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #FFFFC0;
+}
+
+table td, table th {
+  padding: 4px;
+  font-size: 11px;
+}
+table th {
+  text-align: center;
+  color: #337022;
+  background: #DDFFCC;
+  font-weight: bold;
+  border: #99D688 1px solid;
+}
+
+table td {
+  border: #d0d0d0 1px solid;
+}
+
+table td.score {
+  text-align: right;
+}
+
+.warning {
+  background: yellow;
+}
+.rcov_code td {
+  border-bottom: 1px solid #ddd ;
+  padding: 0;
+  margin: 0;
+}
+.rcov_code tr {
+  border: 0px;
+  padding:0px;
+  margin: 0px;
+}
+.rcov_code pre {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+.rcov_run {}
+.rcov_not_run {
+  background-color: #d88;
+}
+.rcov_run a, .rcov_not_run a {
+  text-decoration: none;
+}
+.rcov_run a {
+  color: #333;
+}
+.rcov_not_run a {
+  color: #000;
+}
+.rcov_overflow {
+  overflow: auto;
+  font-size: 50%;
+}
+
+    </style>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+  </head>
+  <body>
+    <div id='header'>
+      <h1><a href="/">metrics</a> | <a href="index.html">zhangzhe</a></h1>
+      <address class='watermark'>
+        built with
+        <a href='http://metric-fu.rubyforge.org/'>metric-fu</a>
+      </address>
+    </div>
+    <div id='content'>
+      <h3>Rcov Code Coverage Results</h3>
+
+<p>C0 code coverage information.</p>
+
+<img src="rcov.png?Mon Feb 01 16:29:32 +0800 2010">
+
+<p>Total Coverage: 37.2% </p>
+<table>
+  <tr>
+    <th>File Path</th>
+    <th>Percent run</th>
+  </tr>
+  
+  
+    <tr>
+      <td><a href="#app_controllers_abouts_controller_rb">app/controllers/abouts_controller.rb</a></td>
+      <td>17</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_application_helper_rb">app/helpers/application_helper.rb</a></td>
+      <td>20</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_upload_files_controller_rb">app/controllers/upload_files_controller.rb</a></td>
+      <td>24</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_blogs_controller_rb">app/controllers/blogs_controller.rb</a></td>
+      <td>25</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_pinyin_rb">app/models/pinyin.rb</a></td>
+      <td>30</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_chineses_controller_rb">app/controllers/chineses_controller.rb</a></td>
+      <td>33</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_englishs_controller_rb">app/controllers/englishs_controller.rb</a></td>
+      <td>33</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_comments_controller_rb">app/controllers/comments_controller.rb</a></td>
+      <td>33</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_blog_groups_controller_rb">app/controllers/blog_groups_controller.rb</a></td>
+      <td>36</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_formatable_string_rb">app/models/formatable_string.rb</a></td>
+      <td>38</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_user_session_rb">app/models/user_session.rb</a></td>
+      <td>43</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_coderay_string_rb">app/models/coderay_string.rb</a></td>
+      <td>46</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_sessions_controller_rb">app/controllers/sessions_controller.rb</a></td>
+      <td>50</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_chinese_rb">app/models/chinese.rb</a></td>
+      <td>50</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_blog_rb">app/models/blog.rb</a></td>
+      <td>50</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_tags_controller_rb">app/controllers/tags_controller.rb</a></td>
+      <td>50</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_english_rb">app/models/english.rb</a></td>
+      <td>50</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_application_controller_rb">app/controllers/application_controller.rb</a></td>
+      <td>54</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_blog_group_rb">app/models/blog_group.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_chineses_helper_rb">app/helpers/chineses_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_englishs_helper_rb">app/helpers/englishs_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_controllers_rsses_controller_rb">app/controllers/rsses_controller.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_abouts_helper_rb">app/helpers/abouts_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_comment_rb">app/models/comment.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_models_upload_file_rb">app/models/upload_file.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_comments_helper_rb">app/helpers/comments_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+    <tr>
+      <td><a href="#app_helpers_rsses_helper_rb">app/helpers/rsses_helper.rb</a></td>
+      <td>100</td>
+    </tr>
+    
+  
+</table>
+
+
+  <h2 id="app_controllers_abouts_controller_rb"> app/controllers/abouts_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   # -*- coding: utf-8 -*-</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   class AboutsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>       @about = "My name is 张哲(Gary Zhang, zhangzhe). I live in BeiJing, China.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   I am a programmer, right now work for [link:idapted]http://www.idapted.com[/link].</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   I love my job and believe that my work is good for people and will make the world better.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   I love beautiful code and am trying to write them to my best. </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   In spare time I like exercises. basketball is my favorite. I also like cycling, running and swimming. I took part in two marathons, one triathlon, one ironman and lots of other sport games.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   I worked since 2007. Right now I am using Ruby On Rails building the [link:best e-learning system]www.eqenglish.com[/link].</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   Visit [link:here]http://github.com/zhangzhe[/link] to see more about my apps. Anything unclean please email me at gary20071226@gmail.com.</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   I will share in this blog about most of technique things I met and part of my personal life. Enjoy:)"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/abouts_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_application_helper_rb"> app/helpers/application_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>   module ApplicationHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     def g_textile(text)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       if text</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         result = ""</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         while text =~ /(\[code\:([a-z].+?)\](.+?)\[\/code\])/m</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>           result << FormatableString.new($`).to_html_format + $&</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>           text = $'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         result << FormatableString.new(text).to_html_format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         return CoderayString.new(result).format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     def recent(num = 8)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       blog_type = case I18n.locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                   when :en</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                     English</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                   when :zh</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                     Chinese</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                   else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                     Blog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>                   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       @blogs = blog_type.find(:all, :conditions => "title is not null", :limit => num, :order => "created_at DESC")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       result = "<ul>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       @blogs.each do |blog|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         result << "<li>#{link_to(truncate(blog.title, :length => 28), blog_path(blog), :title => blog.title)}</li>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       result << "</ul>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     def tag_links(type = Blog)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       if type == Blog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         tags = type.tag_counts.map(&:name)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         result = "<ul>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         tags.each do |t|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>           result << "<li style='border-bottom: 1px;'>#{link_to(t, tag_path(t))}</li>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         result << "</ul>"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         result = "tags: "</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         type.tag_list.each do |t|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>           result << "#{link_to(t, tag_path(t))} "</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       return result</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     def is_zh?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       is_locale?(:zh)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     def is_en?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       is_locale?(:en)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     def is_locale?(locale)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>       "current_locale" if I18n.locale == locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/application_helper.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_upload_files_controller_rb"> app/controllers/upload_files_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>   class UploadFilesController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       @upload_file = UploadFile.create(params[:upload_file].merge(:blog_group_id => params[:blog_group_id]))</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       responds_to_parent do</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>         render(:update) do |page|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>           page.insert_html :bottom, "files", :partial => "show", :locals => { :upload_file => @upload_file }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       @blog_group = BlogGroup.find(params[:blog_group_id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>       @upload_files = @blog_group.upload_files</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/upload_files_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_blogs_controller_rb"> app/controllers/blogs_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>   class BlogsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       if @template.is_zh?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         @blogs = blogs_with_type(Chinese)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       elsif @template.is_en?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         @blogs = blogs_with_type(English)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         @blogs = blogs_with_type(Blog)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def blogs_with_type(type)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       type.paginate(:all, :conditions => "title is not null", :page => params[:page], :per_page => 5, :order => "created_at DESC")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def list</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @blogs = Blog.all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @blog = Blog.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     rescue</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       redirect_to blog_groups_path</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @blog_group = BlogGroup.create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @blog = Blog.create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @blog_group.blogs << @blog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def edit</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @blog = Blog.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @tags = @blog.tag_list</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       if @blog.content.blank?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         @blog.content = @blog.brother.content</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def update</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       if admin?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         @blog = Blog.find(params[:id])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         if @blog.update_attributes(params[:blog])</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>           @blog.tag_list = params[:tag]; @blog.save!</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>           if @blog["type"].nil? # means the first time create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>             if @blog.title =~ /[\xa0-\xff]/</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>               @blog.type = "Chinese"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>               @blog.blog_group.english = English.create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>             else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>               @blog.type = "English"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>               @blog.blog_group.chinese = Chinese.create </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>             end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>             @blog.save!; @blog.reload</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>           end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>           redirect_to blog_path(@blog) </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>           render :action => "edit"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>         authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def example</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       @example = "*b* =&gt; <b>b</b><br><i> </i> +i+ =&gt; <i>i</i><br><u> </u> _u_ =&gt; <u>u<br></u># h # =&gt; h<br>[red]red[/red] => <font color='#ff0000'>red<br></font>[blue]blue[/blue] => <font color='#0000ff'>blue</font><font color='#ff0000'><br></font>[green]green[/green] => <font color='#088a4b'>green</font><br>* list1<u><br></u>* list2<br>* list3 =&gt;<u><br></u><ul><li>list1</li><li>list2</li><li>list3</li></ul>picture: <br>[img:right]http://s3.amazonaws.com/recordings.idapted.com/upload_files/4/emacs.gif[/img] <br>link:<br>[link:i am strong]http://www.idapted.com[/link]"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     def reset_locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       I18n.locale = :all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       save_locale(:all)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>       redirect_to "/"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blogs_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_pinyin_rb"> app/models/pinyin.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>   require 'singleton'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>   class PinYin</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     include Singleton</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     def initialize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       require "yaml"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       @codes = YAML.load_file("#{RAILS_ROOT}/public/Mandarin.yml")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     def to_permlink(str)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       str_to_pinyin(str,'-')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     def to_pinyin(str)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       str_to_pinyin(str, '')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     private</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     def get_value(code)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       @codes[code]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     def str_to_pinyin(str, separator='')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       res = []</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       str.to_s.unpack('U*').each_with_index do |t,idx|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         code = sprintf('%x',t).upcase</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         val = get_value(code)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         if val</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>           val = val.gsub(/\d/,'')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>           res << val.downcase+separator</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>           tmp = [t].pack('U*')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>           res << tmp if tmp =~ /^[_0-9a-zA-Z\s]*$/ </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       if separator==''</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         return res.join(' ')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       else</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         re = Regexp.new("\\#{separator}+")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         re2 = Regexp.new("\\#{separator}$")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>         return res.join('').gsub(/\s+/,separator).gsub(re,separator).gsub(re2,'')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/pinyin.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_chineses_controller_rb"> app/controllers/chineses_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/chineses_controller.rb'><pre>   class ChinesesController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/chineses_controller.rb'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/chineses_controller.rb'><pre>       save_locale(:zh)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/chineses_controller.rb'><pre>       redirect_to "/"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/chineses_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/chineses_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_englishs_controller_rb"> app/controllers/englishs_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/englishs_controller.rb'><pre>   class EnglishsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/englishs_controller.rb'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/englishs_controller.rb'><pre>       save_locale(:en)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/englishs_controller.rb'><pre>       redirect_to "/"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/englishs_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/englishs_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_comments_controller_rb"> app/controllers/comments_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>   class CommentsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>       unless params[:comment][:name].blank? or params[:comment][:content].blank?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>         @comment = Comment.create(params[:comment].merge(:blog_id => params[:blog_id]))</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>       redirect_to :back</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/comments_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_blog_groups_controller_rb"> app/controllers/blog_groups_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>   class BlogGroupsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>     def index</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>       @blog_groups = BlogGroup.paginate(:all, :page => params[:page], :per_page => 3, :order => "created_at DESC")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>       authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>       BlogGroup.find(params[:id]).destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>       redirect_to :back</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/blog_groups_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_formatable_string_rb"> app/models/formatable_string.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class FormatableString < String</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def to_html_format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       content = self </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       self.class.subclasses.each do |formatable_string|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>         content = formatable_string.constantize.new(content).format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return content</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class NString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return self.gsub("\n", "<br/>\n\r").gsub("\t", "&nbsp;&nbsp;")</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class FontSizeString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return self.gsub(/\[f1\](.+)\[\/f1\]/,'<span style="font-size:17px">\1</span>')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class FontColorString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     COLORS = {"purple" => "#B404AE", "green" => "#01DF01", "red" => "#FF0000", "blue" => "#0000FF"}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       content = self</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       COLORS.each do |key, value|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>         content.gsub!(/\[#{key}\](.+?)\[\/#{key}\]/, '<font color=\'' + value + '\'>\1</font>')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return content</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class ImageString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return self.gsub(/\[img(:*.*)\](.+?)\[\/img\]/,'<img style="float\1" src="\2">')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class UrlString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return self.gsub(/\[link:(.+?)\](.+?)\[\/link\]/, '<a target="_blank" style="color:#2828FF" href=\2>\1</a>')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class RuleString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     RULES = {"*" => "</b>", "_" => "</i>", "+" => "</u>", "#" => "</h>"}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       @content = self</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       unescape_rule = generate_unescape_rule</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       escape_rule = generate_escape_rule(unescape_rule)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       escape(escape_rule)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       convert</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       escape(unescape_rule)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return @content</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     private</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def convert</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       RULES.each do |key, value|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>         while @content =~ /#{"\\"+key}(.+?)#{"\\"+key}/m</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>           @content = $` + value.delete("/") + $1 + value + $'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def generate_unescape_rule</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       returning un_escape_rule = [] do</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>         RULES.each_key do |key|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>           un_escape_rule << [Kernel.rand.to_s, key]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>         end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def generate_escape_rule(un_escape_rule)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return un_escape_rule.map{|rule| ["\\" + rule[1], rule[0]]}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def escape(escape_rules)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       escape_rules.each { |escape_rule| @content.gsub!(escape_rule[0], escape_rule[1]) }</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   #importent to put it in the end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   class ListString < FormatableString</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       content = self + "\n" # add \n</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       content.gsub!(/(^\* [^\n]+\n)+/) {|ul| "<ul>#{ul.gsub!(/\* [^\n]+\n/){|li| "<li>#{li[2..-2]}</li>"} }<\/ul>"}</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>       return content[0..-2] # remove \n</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/formatable_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_user_session_rb"> app/models/user_session.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>   class UserSession</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     def initialize(session)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>       @session = session</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>       @session[:locale] ||= :en</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     def locale=(locale)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>       @session[:locale] = locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     def locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>       @session[:locale]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/user_session.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_coderay_string_rb"> app/models/coderay_string.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>   class CoderayString < String</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>     def format</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>       content = self </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>       content.scan(/(\[code\:([a-z].+?)\](.+?)\[\/code\])/m).each do |match|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>         content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:css => :class)) </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>       end  </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>       return content</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>   #content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:line_numbers => :table,:css => :class)) #with number </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/coderay_string.rb'><pre>   </pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_sessions_controller_rb"> app/controllers/sessions_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>   class SessionsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     def new</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     def create</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>       session[:password] = params[:password]</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>       redirect_to blog_groups_path</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>   </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     def destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>       reset_session</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>       redirect_to login_path</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/sessions_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_chinese_rb"> app/models/chinese.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/chinese.rb'><pre>   class Chinese < Blog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/chinese.rb'><pre>     belongs_to :blog_group</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/chinese.rb'><pre>     def brother</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/chinese.rb'><pre>       blog_group.english</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/chinese.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/chinese.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_blog_rb"> app/models/blog.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>   class Blog < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     acts_as_taggable_on :tags</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     belongs_to :blog_group</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     has_many :comments</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     require "pinyin"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     after_save do |blog|</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>       Blog.transaction do </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>         new_u_title = PinYin.instance.to_permlink(blog.title) if blog.title</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>         blog.update_attributes(:u_title => new_u_title) unless new_u_title == blog.u_title</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>       end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     def to_param</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>       return "#{id}-#{u_title}"</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_tags_controller_rb"> app/controllers/tags_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/tags_controller.rb'><pre>   # -*- coding: utf-8 -*-</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/tags_controller.rb'><pre>   class TagsController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/tags_controller.rb'><pre>     def show</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/tags_controller.rb'><pre>       @blogs = Blog.tagged_with(params[:id], :on => :tags)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/tags_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/tags_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_english_rb"> app/models/english.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/english.rb'><pre>   class English < Blog</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/english.rb'><pre>     belongs_to :blog_group</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/english.rb'><pre>     def brother</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/english.rb'><pre>       blog_group.chinese</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/english.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/english.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_application_controller_rb"> app/controllers/application_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>   class ApplicationController < ActionController::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     helper :all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     protect_from_forgery</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     helper_method :admin?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     before_filter :set_locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     def authorize</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>       redirect_to root_path unless admin?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     def admin?</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>       session[:password] == '1234123'</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     def user_session</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>       @user_session ||= UserSession.new(session)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     def save_locale(locale)</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>       user_session.locale = locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>       I18n.locale = locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     </pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     def set_locale</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>       I18n.locale = user_session.locale || :all</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>     end</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/application_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_blog_group_rb"> app/models/blog_group.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog_group.rb'><pre>   class BlogGroup < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog_group.rb'><pre>     has_many :upload_files</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog_group.rb'><pre>     has_many :blogs, :dependent => :destroy</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog_group.rb'><pre>     has_one :english</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog_group.rb'><pre>     has_one :chinese</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/blog_group.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_chineses_helper_rb"> app/helpers/chineses_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/chineses_helper.rb'><pre>   module ChinesesHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/chineses_helper.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_englishs_helper_rb"> app/helpers/englishs_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/englishs_helper.rb'><pre>   module EnglishsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/englishs_helper.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_controllers_rsses_controller_rb"> app/controllers/rsses_controller.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/rsses_controller.rb'><pre>   class RssesController < ApplicationController</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/controllers/rsses_controller.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_abouts_helper_rb"> app/helpers/abouts_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/abouts_helper.rb'><pre>   module AboutsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/abouts_helper.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_comment_rb"> app/models/comment.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/comment.rb'><pre>   class Comment < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/comment.rb'><pre>     belongs_to :blog, :touch => true</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/comment.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_models_upload_file_rb"> app/models/upload_file.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/upload_file.rb'><pre>   class UploadFile < ActiveRecord::Base</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/upload_file.rb'><pre>     belongs_to :blog_group</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/upload_file.rb'><pre>     has_attachment :storage => :s3, :s3_config_path => (RAILS_ROOT + '/config/amazon_s3.yml')</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/models/upload_file.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_comments_helper_rb"> app/helpers/comments_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/comments_helper.rb'><pre>   module CommentsHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/comments_helper.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+  <h2 id="app_helpers_rsses_helper_rb"> app/helpers/rsses_helper.rb</h2>
+  <div class="rcov_overflow">
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/rsses_helper.rb'><pre>   module RssesHelper</pre></a></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><a href='file:///home/gary/idapted/zhangzhe/app/helpers/rsses_helper.rb'><pre>   end</pre></a></td>
+      </tr>
+    
+    </table>
+  </div>
+
+<p>Generated on Mon Feb 01 16:29:32 +0800 2010</p>	
+
+    </div>
+  </body>
+</html>

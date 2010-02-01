@@ -1,0 +1,8 @@
+     3.7: flog total
+     1.9: flog/method average
+
+     2.6: Chinese#brother
+     1.4: blog_group
+     1.2: english
+     1.1: Chinese#none
+     1.1: belongs_to

@@ -1,0 +1,9 @@
+     3.6: flog total
+     1.2: flog/method average
+
+     1.2: UserSession#locale=
+     1.2: assignment
+     1.2: UserSession#locale
+     1.2: []
+     1.2: UserSession#initialize
+     1.2: assignment

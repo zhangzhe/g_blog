@@ -1,0 +1,21 @@
+    22.0: flog total
+    11.0: flog/method average
+
+    14.9: UploadFilesController#create
+     3.6: params
+     3.2: []
+     2.6: assignment
+     2.5: branch
+     1.4: insert_html
+     1.4: merge
+     1.3: render
+     1.2: create
+     1.2: responds_to_parent
+     1.2: authorize
+     7.0: UploadFilesController#index
+     2.4: assignment
+     1.6: params
+     1.4: []
+     1.2: authorize
+     1.2: find
+     1.2: upload_files

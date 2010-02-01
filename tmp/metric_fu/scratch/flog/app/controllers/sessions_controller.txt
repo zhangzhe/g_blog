@@ -1,0 +1,14 @@
+    10.3: flog total
+     5.2: flog/method average
+
+     6.5: SessionsController#create
+     1.4: blog_groups_path
+     1.4: params
+     1.2: session
+     1.2: redirect_to
+     1.2: assignment
+     1.2: []
+     3.8: SessionsController#destroy
+     1.4: login_path
+     1.2: redirect_to
+     1.2: reset_session

@@ -1,0 +1,6 @@
+     4.4: flog total
+     4.4: flog/method average
+
+     4.4: BlogGroup#none
+     2.2: has_one
+     2.2: has_many

@@ -1,0 +1,14 @@
+    16.9: flog total
+    16.9: flog/method average
+
+    16.9: CoderayString#format
+     5.4: []
+     2.9: scan
+     2.3: assignment
+     1.8: strip
+     1.8: to_sym
+     1.4: div
+     1.2: gsub!
+     1.1: each
+     1.1: lit_fixnum
+     1.1: branch

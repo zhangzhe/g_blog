@@ -1,0 +1,44 @@
+    69.7: flog total
+    11.6: flog/method average
+
+    31.2: ApplicationHelper#tag_links
+     8.4: assignment
+     8.0: to_proc_normal
+     4.4: <<
+     4.0: branch
+     3.8: tag_path
+     3.4: link_to
+     2.8: each
+     1.6: tag_list
+     1.6: block_pass
+     1.6: tag_counts
+     1.4: map
+     1.2: ==
+    17.3: ApplicationHelper#recent
+     6.1: assignment
+     5.0: branch
+     3.6: title
+     2.5: <<
+     1.7: truncate
+     1.7: blog_path
+     1.5: link_to
+     1.2: each
+     1.2: find
+     1.2: locale
+     0.8: lit_fixnum
+    15.9: ApplicationHelper#g_textile
+     5.6: new
+     3.6: to_html_format
+     3.0: assignment
+     3.0: <<
+     2.6: branch
+     1.8: +
+     1.4: format
+     2.9: ApplicationHelper#is_locale?
+     1.4: locale
+     1.2: branch
+     1.2: ==
+     1.2: ApplicationHelper#is_en?
+     1.2: is_locale?
+     1.2: ApplicationHelper#is_zh?
+     1.2: is_locale?
