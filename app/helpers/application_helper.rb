@@ -56,4 +56,20 @@ module ApplicationHelper
   def is_locale?(locale)
     "current_locale" if I18n.locale == locale
   end
+  
+  def tags
+    %(<tags>#{tag_parts}</tags>)
+  end
+  
+  def tag_parts 
+    r = ""
+    Blog.tag_counts.map(&:name).each do |t|
+      r << tag_part(t, tag_path(t))
+    end
+    return r
+  end
+  
+  def tag_part(t, l)
+    %(<a href='#{l}' style='12' color='0x333333' hicolor='0xffffff'>#{t}</a>)
+  end
 end

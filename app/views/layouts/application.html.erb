@@ -34,8 +34,6 @@
 	      <br><br>
 	      <h2><%= t('recent article') %></h2>
 	      <%= recent(8) %>
-	      <h2><%= t('Tags') %></h2>
-	      <%= tag_links %>
 	    </li>
 	    <li>
 	    <!-- <li id="search"> -->
@@ -46,6 +44,9 @@
 	    <!--   </form> -->
 	    <!-- </li> -->	  
 	    </ul>
+<embed width="200" height="240" flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x555555&amp;tspeed=100&amp;distr=true&amp;mode=both&amp;tagcloud=<%= tags %>" allowscriptaccess="always" wmode="transparent" quality="high" bgcolor="#ffffff" name="tagcloudflash" id="tagcloudflash" src="tagcloud.swf" type="application/x-shockwave-flash">
+
+
 	  </div>
 	  <div style="clear: both;">&nbsp;</div>
 	</div>
