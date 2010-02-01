@@ -31,7 +31,7 @@ module ApplicationHelper
   def tag_links(type = Blog)
     result = "tags: "
     type.tag_list.each do |t|
-      result << "#{link_to(t, tag_path(t))}, "
+      result << "#{link_to(t, tag_url(t))}, "
     end
     return result[0..-4]
   end
@@ -55,7 +55,7 @@ module ApplicationHelper
   def tag_parts 
     r = ""
     Blog.tag_counts.map(&:name).each do |t|
-      r << tag_part(t, tag_path(t))
+      r << tag_part(t, tag_url(t))
     end
     return r
   end
