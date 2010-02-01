@@ -7,7 +7,4 @@ class CoderayString < String
     return content
   end
 end
-
 #content.gsub!(match[0], CodeRay.scan(match[2].strip, match[1].to_sym).div(:line_numbers => :table,:css => :class)) #with number 
-
-
