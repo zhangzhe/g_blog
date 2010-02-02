@@ -49,18 +49,14 @@ module ApplicationHelper
   end
   
   def tags
-    %(<tags>#{tag_parts}</tags>)
+    cloud_tag(tag_url_hash)
   end
   
-  def tag_parts 
-    r = ""
-    Blog.tag_counts.map(&:name).each do |t|
-      r << tag_part(t, tag_url(t))
+  def tag_url_hash
+    returning r = { } do 
+      Blog.tag_counts.map(&:name).each do |t|
+        r[t] = tag_url(t)
+      end
     end
-    return r
-  end
-  
-  def tag_part(t, l)
-    %(<a href='#{l}' style='12' color='0x333333' hicolor='0xffffff'>#{t}</a>)
   end
 end
