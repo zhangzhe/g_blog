@@ -13,4 +13,8 @@ class Blog < ActiveRecord::Base
   def to_param
     return "#{id}-#{u_title}"
   end
+  
+  def content_blank?
+    title.blank? or content.blank?
+  end
 end

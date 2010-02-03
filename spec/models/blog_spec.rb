@@ -18,4 +18,13 @@ describe Blog do
       @chinese.brother.should == @english
     end
   end
+  
+  describe "content_blank?" do
+    it "should be true if either title or content is blank" do 
+      @blog = Blog.create
+      @blog.content_blank?.should == true
+      @blog.update_attributes(:title => "title", :content => "content")
+      @blog.content_blank?.should == false
+    end
+  end 
 end
