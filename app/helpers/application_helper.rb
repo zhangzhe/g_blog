@@ -55,7 +55,7 @@ module ApplicationHelper
   def tag_url_hash 
     returning r = { } do 
       Blog.tag_counts.map(&:name).each do |t|
-        r[t] = tag_url(t)
+        r[t] = CGI.unescape(tag_url(t))
       end
     end
   end
