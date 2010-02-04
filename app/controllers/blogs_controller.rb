@@ -33,10 +33,9 @@ class BlogsController < ApplicationController
   def edit
     authorize
     @blog = Blog.find(params[:id])
-    @tags = @blog.tag_list
-    if @blog.content.blank?
-      @blog.content = @blog.brother.content
-    end
+    @tags = @blog.tag_list.blank? ? @blog.brother.tag_list : @blog.tag_list
+    @blog.title = @blog.title ? @blog.title : @blog.brother.title
+    @blog.content = @blog.content ? @blog.content : @blog.brother.content
   end
 
   def update
