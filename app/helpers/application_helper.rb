@@ -52,7 +52,7 @@ module ApplicationHelper
     cloud_tag(tag_url_hash)
   end
   
-  def tag_url_hash
+  def tag_url_hash 
     returning r = { } do 
       Blog.tag_counts.map(&:name).each do |t|
         r[t] = tag_url(t)
