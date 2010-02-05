@@ -19,8 +19,14 @@ class BlogsController < ApplicationController
   
   def show
     @blog = Blog.find(params[:id])
-  rescue
-    redirect_to blog_groups_path
+    respond_to do |format|
+      format.html 
+      format.pdf do
+        render :pdf => "file_name"
+      end
+    end
+  # rescue
+  #   redirect_to blog_groups_path
   end
 
   def new
