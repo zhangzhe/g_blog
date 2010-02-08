@@ -5,6 +5,11 @@ h3 {font-size:14px;line-height:0.5;margin-bottom:0.1em}
 h5 {font-size:12px;line-height:0.1;margin-bottom:0.5em,font-weight: normal;}
 h {font-size:14px;line-height: 260%;}
 
+.print_body {
+    margin: 40px;
+    padding: 40px;
+}
+
 body {
     margin: 0px;
     padding: 0px;

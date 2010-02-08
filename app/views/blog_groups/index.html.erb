@@ -1,9 +1,22 @@
-<div class="right"><%= will_paginate @blog_groups %></div>
-<br />
-<%= render :partial=> "new" %>
+<div class="print_body">
+<%#= render :partial => "blogs/list" %>
 
 <% @blog_groups.each do |@blog_group| %>
-<%= render(:partial => "show") %> 
+<p>
+  <% %w(chinese english).each do |version| %>
+    <% @blog = @blog_group.send(version) %>
+    <br>
+    <% if @blog.try(:title) %>
+      <h1><ht><%=link_to h(@blog.title), blog_path(@blog) %></ht></h1>
+      <% cache @blog do %>
+	<div>   
+	  <%= g_textile @blog.content %>
+	</div>
+      <% end %>
+      <br>
+      <br>
+    <% end %>
+  <% end %>
+</p>
 <% end %>
-
-<%= will_paginate @blog_groups %>
+</div>

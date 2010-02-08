@@ -1,0 +1,11 @@
+<% [Chinese, English].each do |blogs| %>
+  <%= blogs.to_s %>
+  <% blogs.all(:order => "created_at DESC").each do |blog| %>
+    <div style="text-decoration: none;">
+      <% unless blog.content_blank? %>
+	<%= blog.created_at.to_date %> -- <%= link_to blog.title, blog_path(blog) %>
+      <% end %>
+    </div>
+  <% end %>
+  <br>
+<% end %>

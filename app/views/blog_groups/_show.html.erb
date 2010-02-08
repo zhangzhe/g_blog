@@ -1,6 +1,5 @@
 <p>
   <% %w(chinese english).each do |version| %>
-    
     <% @blog = @blog_group.send(version) %>
     <% if @blog.try(:title) %>
       <%= render(:partial => "blogs/show") %>

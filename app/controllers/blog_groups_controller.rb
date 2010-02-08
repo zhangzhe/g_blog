@@ -1,6 +1,7 @@
 class BlogGroupsController < ApplicationController
   def index
-    @blog_groups = BlogGroup.paginate(:all, :page => params[:page], :per_page => 3, :order => "created_at DESC")
+    @blog_groups = BlogGroup.all(:order => "created_at DESC", :limit => 30)
+    render :layout => "print"
   end
 
   def destroy

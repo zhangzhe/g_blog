@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :passwords
+
   map.resources :blog_groups do |blog_group|
     blog_group.resources :upload_files
   end
@@ -12,5 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tags
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
+  map.reset 'reset', :controller => 'passwords', :action => 'edit'
   map.root :controller => "blogs"
 end

@@ -18,3 +18,4 @@ config.action_mailer.raise_delivery_errors = false
 require 'ruby-debug'
 #config.gem "newrelic_rpm"
 
+ActionController::Base.asset_host = "localhost:81"
