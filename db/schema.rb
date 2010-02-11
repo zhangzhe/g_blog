@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100208064335) do
+ActiveRecord::Schema.define(:version => 20100208073325) do
 
   create_table "blog_groups", :force => true do |t|
     t.datetime "created_at"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20100208064335) do
 
   create_table "passwords", :force => true do |t|
     t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pdfs", :force => true do |t|
+    t.integer  "size"
+    t.string   "filename"
+    t.string   "content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

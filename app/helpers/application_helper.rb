@@ -28,6 +28,11 @@ module ApplicationHelper
     result << "</ul>"
   end
   
+  def e_book
+    book = Pdf.last
+    link_to book.filename, book.s3_url
+  end
+  
   def tag_links(type = Blog)
     result = "tags: "
     type.tag_list.each do |t|
