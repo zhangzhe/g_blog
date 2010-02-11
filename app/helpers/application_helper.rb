@@ -29,8 +29,9 @@ module ApplicationHelper
   end
   
   def e_book
-    book = Pdf.last
-    link_to book.filename, book.s3_url
+    if book = Pdf.last
+      link_to book.filename, book.s3_url
+    end
   end
   
   def tag_links(type = Blog)
