@@ -26,4 +26,4 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
-ActionController::Base.asset_host = "zhangzhe.heroku.com"
+#ActionController::Base.asset_host = "zhangzhe.heroku.com"

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :admin?
   before_filter :set_locale
   filter_parameter_logging "password"
+  
   def authorize
     redirect_to root_path unless admin?
   end

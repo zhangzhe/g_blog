@@ -1,7 +1,7 @@
 class UserSession
   def initialize(session)
     @session = session
-    @session[:locale] ||= :en
+    @session[:locale] ||= :all
   end
   
   def locale=(locale)
