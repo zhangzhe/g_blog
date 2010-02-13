@@ -77,7 +77,11 @@ module ApplicationHelper
   end
   
   def title
-    @blog.try(:title) || "Keep it simple"
+    if @blogs
+      "Keep it simple"
+    else
+      @blog.try(:title) || "Keep it simple"
+    end
   end
   
   def share_to_renren
