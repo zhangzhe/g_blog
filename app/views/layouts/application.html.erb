@@ -32,15 +32,16 @@
 	      <h3><%= link_to "RSS", rsses_path %></h3>
 	      <h3><%= link_to t("Blog List"), list_blogs_path %></h3>
 	      <br />
-	      <br />
-	      <h2><%= t('recent article') %></h2>
-	      <%= recent(8) %>
+	      <%= tags %>
+	      <h2><%= t('recent articles') %></h2>
+	      <%= recent_articles %>
+	      <h2><%= t('recent comments') %></h2>
+	      <%= recent_comments %>
+	      <h2><%= t('E-book') %></h2>
+	      <%= e_book %>
 	    </li>
 	  </ul>
-	  <h2><%= t('Tags') %></h2>
-	  <%= tags %>
-	  <h2><%= t('E-book') %></h2>
-	  <%= e_book %>
+  
 	</div>
 	<div style="clear: both;">&nbsp;</div>
       </div>

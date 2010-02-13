@@ -11,7 +11,7 @@ module ApplicationHelper
     end
   end
   
-  def recent(num = 8)
+  def recent_articles(num = 8)
     blog_type = case I18n.locale
                 when :en
                   English
@@ -24,6 +24,15 @@ module ApplicationHelper
     result = "<ul>"
     @blogs.each do |blog|
       result << "<li>#{link_to(truncate(blog.title, :length => 28), blog_path(blog), :title => blog.title)}</li>"
+    end
+    result << "</ul>"
+  end
+  
+  def recent_comments(num = 8)
+    @comments = Comment.find(:all, :limit => num, :order => "created_at DESC")
+    result = "<ul>"
+    @comments.each do |c|
+      result << "<li>#{link_to(truncate(c.name + ": " + c.content, :length => 28), blog_path(c.blog), :title => c.blog.title)}</li>"
     end
     result << "</ul>"
   end
