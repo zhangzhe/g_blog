@@ -26,7 +26,7 @@ I will share in this blog about most of technique things I met and part of my pe
 
 可以访问[link:我的 github 账户]http://github.com/zhangzhe[/link]了解我写的代码。我的邮箱地址是： gary20071226@gmail.com。
 
-我会在这个博客上记录大部分技术问题，以及少部分生活中有趣的事：）"
+我会在这个博客上记录大部分技术问题，以及部分生活中有趣的事：）"
     
     if @template.is_en? 
       @about = about_en
