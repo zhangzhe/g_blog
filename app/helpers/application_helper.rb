@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module ApplicationHelper
   def g_textile(text)
     if text
@@ -73,5 +74,15 @@ module ApplicationHelper
         r[t] = CGI.unescape(tag_url(t))
       end
     end
+  end
+  
+  def title
+    @blog.try(:title) || "Keep it simple"
+  end
+  
+  def share_to_renren
+    %(<a href="javascript:window.open('http://share.renren.com/share/buttonshare.do?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;link='+encodeURIComponent(location.href)+'&amp;content=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0" style="color: rgb(255, 255, 255); text-decoration: none; font-size: 12px; font-weight: normal;">
+<span style="padding: 5px 5px 0px; font-size: 12px; margin-left: 10px; cursor: pointer;">
+<img alt="转帖到人人网" src="http://s.xnimg.cn/favicon-rr.ico" align="absMiddle" border="0">&nbsp;转帖到人人网</span></a>)
   end
 end
