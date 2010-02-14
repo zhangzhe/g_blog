@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :passwords
-
+  map.resources :admins
   map.resources :blog_groups do |blog_group|
     blog_group.resources :upload_files
   end

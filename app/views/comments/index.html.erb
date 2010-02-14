@@ -1,0 +1,6 @@
+<% @comments.each do |@comment| %>
+<span class="right"><%= link_to "delete", comment_path(@comment), :method => :delete %></span>
+<%= render(:partial => "comments/show_comment") %>
+<br><br>
+<% end %>
+<%= will_paginate @blogs %>

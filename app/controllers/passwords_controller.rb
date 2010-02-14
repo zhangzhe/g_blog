@@ -5,6 +5,6 @@ class PasswordsController < ApplicationController
 
   def update
     @password = Password.first.update_attributes(params[:password])
-    redirect_to "/"
+    redirect_to admins_path
   end
 end

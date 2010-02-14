@@ -4,19 +4,11 @@
 <div id="comments<%= @blog.id %>" style="display:none;" class="comments">
   <% cache @comments do %>
     -----------------------------------------------------------
-    <% @comments.each do |comment| %>
-      <div class="comment" >
-	<hn><%=h comment.name %></hn>
-	<hd><%= comment.created_at.to_date %></hd>
-	<br>
-	<div class="content">
-	  <%=g_textile comment.content %>
-	</div>
-	<br>
-      </div>
-      ----------------------------
-    <% end %>
+    <% @comments.each do |@comment| %>
+    <%= render(:partial => "comments/show_comment") %>
+    ----------------------------
   <% end %>
-  <%= render(:partial => "comments/new") %>
+<% end %>
+<%= render(:partial => "comments/new") %>
 </div>
 <br><br><br>

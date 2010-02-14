@@ -72,4 +72,3 @@ class BlogsController < ApplicationController
     redirect_to "/"
   end
 end
-

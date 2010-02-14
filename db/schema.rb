@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100208073325) do
+ActiveRecord::Schema.define(:version => 20100214090251) do
 
   create_table "blog_groups", :force => true do |t|
     t.datetime "created_at"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20100208073325) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "web_site"
   end
 
   add_index "comments", ["blog_id"], :name => "index_comments_on_blog_id"

@@ -5,7 +5,7 @@ describe UserSession do
     it "should initialize and set locale" do 
       session = {:first_key => "first_value"}
       user_session = UserSession.new(session)
-      user_session.locale.should == :en
+      user_session.locale.should == :all
     end
   end
   

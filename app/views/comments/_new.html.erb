@@ -3,11 +3,13 @@ Add Comment
 <% form_for Comment.new do |f| %>
   <p>
     <%= hidden_field_tag :blog_id, @blog.id %>
-    <%= f.label :name, 'name' %>:<br />
-    <%= f.text_field :name, :size => 25 %><br />
+    <%= f.label :name, 'name' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :name, :size => 35 %><br />
+    <%= f.label :web_site, 'web_site' %>
+    <%= f.text_field :web_site, :size => 35 %><br />
   </p>
   <p>  
-    <%= f.label :content, 'Content' %>:<br />
+    <%= f.label :content, 'Content' %><br />
     <%= f.text_area :content, :size => "60x15" %><br />
   </p>
   <%= submit_tag "Create" %>
