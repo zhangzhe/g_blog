@@ -14,7 +14,9 @@ body {
     margin: 0px;
     padding: 0px;
     background: #000000 url(images/img01.jpg) repeat-x left top;
-    font: 13px Arial, sans-serif;
+    /*Arial, sans-serif;*/
+    font-family: 'Terminal', monospace;
+    font-size: 13px;    
     color: #D9D9D9;
 }
 
