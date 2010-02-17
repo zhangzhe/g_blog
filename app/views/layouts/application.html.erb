@@ -16,6 +16,8 @@
 	  <ul>
 	    <li class="<%= is_zh? %>"><%= link_to(t("Chinese"), chineses_path) %></li>
 	    <li class="<%= is_en? %>"><%= link_to(t("English"), englishs_path) %></li>
+	    <li><%= link_to "RSS", rsses_path %></li>
+	    <li><%= link_to t("Blog List"), list_blogs_path %></li>
 	    <li><%= link_to(t("About Me"), abouts_path) %></li>
 	  </ul>
 	</div>
@@ -29,9 +31,6 @@
 	<div id="sidebar">
 	  <ul>
 	    <li>
-	      <h3><%= link_to "RSS", rsses_path %></h3>
-	      <h3><%= link_to t("Blog List"), list_blogs_path %></h3>
-	      <br />
 	      <%= tags %>
 	      <h2><%= t('recent articles') %></h2>
 	      <%= recent_articles %>
@@ -41,7 +40,7 @@
 	      <%= e_book %>
 	    </li>
 	  </ul>
-  
+	  
 	</div>
 	<div style="clear: both;">&nbsp;</div>
       </div>
