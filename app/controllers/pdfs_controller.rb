@@ -1,11 +1,11 @@
 class PdfsController < ApplicationController
+  before_filter :authorize, :only => [:new, :create]
+
   def new 
-    authorize
     @pdf = Pdf.new
   end
   
   def create
-    authorize
     @pdf = Pdf.create(params[:pdf])
     redirect_to "/"
   end

@@ -1,6 +1,6 @@
 class BlogGroupsController < ApplicationController
   def index
-    @blog_groups = BlogGroup.all(:order => "created_at DESC", :limit => 30)
+    @blog_groups = BlogGroup.all
     render :layout => "print"
   end
 

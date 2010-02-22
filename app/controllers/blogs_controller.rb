@@ -1,4 +1,7 @@
 class BlogsController < ApplicationController
+  before_filter :find_blog, :only => [:show, :edit]
+  before_filter :authorize, :only => [:new, :edit, :update]
+  
   def index
     if @template.is_zh?
       @blogs = blogs_with_type(Chinese)
@@ -18,47 +21,39 @@ class BlogsController < ApplicationController
   end
   
   def show
-    @blog = Blog.find(params[:id])
   rescue
     redirect_to blog_groups_path
   end
 
   def new
-    authorize
     @blog_group = BlogGroup.create
     @blog = Blog.create
     @blog_group.blogs << @blog
   end
 
   def edit
-    authorize
-    @blog = Blog.find(params[:id])
-    @tags = @blog.tag_list.blank? ? @blog.brother.tag_list : @blog.tag_list
-    @blog.title = @blog.title ? @blog.title : @blog.brother.title
-    @blog.content = @blog.content ? @blog.content : @blog.brother.content
+    @tags = @blog.capable_tags
+    @blog.title = @blog.capable_title
+    @blog.content = @blog.capable_content
   end
 
   def update
-    if admin?
-      @blog = Blog.find(params[:id])
-      if @blog.update_attributes(params[:blog])
-        @blog.tag_list = params[:tag]; @blog.save!
-        if @blog["type"].nil? # means the first time create
-          if @blog.title =~ /[\xa0-\xff]/
-            @blog.type = "Chinese"
-            @blog.blog_group.english = English.create
-          else
-            @blog.type = "English"
-            @blog.blog_group.chinese = Chinese.create 
-          end
-          @blog.save!; @blog.reload
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(params[:blog])
+      @blog.tag_list = params[:tag]; @blog.save!
+      if @blog["type"].nil? # means the first time create
+        if @blog.title =~ /[\xa0-\xff]/
+          @blog.type = "Chinese"
+          @blog.blog_group.english = English.create
+        else
+          @blog.type = "English"
+          @blog.blog_group.chinese = Chinese.create 
         end
-        redirect_to blog_path(@blog) 
-      else
-        render :action => "edit"
+        @blog.save!; @blog.reload
       end
+      redirect_to blog_path(@blog) 
     else
-      authorize
+      render :action => "edit"
     end
   end
   

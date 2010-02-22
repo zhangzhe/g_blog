@@ -4,7 +4,6 @@ class CreatePasswords < ActiveRecord::Migration
       t.string :password
       t.timestamps
     end
-    Password.create(:password => 1234)
   end
 
   def self.down

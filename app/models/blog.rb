@@ -17,4 +17,16 @@ class Blog < ActiveRecord::Base
   def content_blank?
     title.blank? or content.blank?
   end
+  
+  def capable_tags
+    tag_list.blank? ? brother.tag_list : tag_list
+  end
+  
+  def capable_content
+    title ? title : brother.title
+  end
+  
+  def capable_title
+    content ? content : brother.content
+  end
 end
