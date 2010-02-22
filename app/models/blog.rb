@@ -29,4 +29,18 @@ class Blog < ActiveRecord::Base
   def capable_title
     content ? content : brother.content
   end
+  
+  # not finished
+  def save_type
+    if self["type"].nil? # means the first time create
+      if title =~ /[\xa0-\xff]/
+        type = "Chinese"
+        blog_group.english = English.create
+      else
+        type = "English"
+        blog_group.chinese = Chinese.create 
+      end
+      self.save!
+    end
+  end
 end

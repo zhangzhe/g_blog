@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_filter :find_blog, :only => [:show, :edit]
+  before_filter :find_blog, :only => [:show, :edit, :update]
   before_filter :authorize, :only => [:new, :edit, :update]
   
   def index
@@ -32,13 +32,12 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @tags = @blog.capable_tags
-    @blog.title = @blog.capable_title
-    @blog.content = @blog.capable_content
+    @tags = @blog.tag_list.blank? ? @blog.brother.tag_list : @blog.tag_list
+    @blog.title = @blog.title ? @blog.title : @blog.brother.title
+    @blog.content = @blog.content ? @blog.content : @blog.brother.content
   end
 
   def update
-    @blog = Blog.find(params[:id])
     if @blog.update_attributes(params[:blog])
       @blog.tag_list = params[:tag]; @blog.save!
       if @blog["type"].nil? # means the first time create
@@ -65,5 +64,9 @@ class BlogsController < ApplicationController
     I18n.locale = :all
     save_locale(:all)
     redirect_to "/"
+  end
+  
+  def find_blog
+    @blog = Blog.find(params[:id])
   end
 end
