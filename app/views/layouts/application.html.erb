@@ -32,6 +32,10 @@
 	  <ul>
 	    <li>
 	      <%= tags %>
+	      <% form_tag tags_url, :method => :get do %>
+		<%= text_field_tag 'q' %>
+	      <% end %>
+	      <br>
 	      <h2><%= t('recent articles') %></h2>
 	      <%= recent_articles %>
 	      <h2><%= t('recent comments') %></h2>
