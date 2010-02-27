@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag :all, :media => "all", :cache => true %>
     <%= javascript_include_tag :defaults, :cache => true %>
     <title><%= title %></title>
+    <link rel="me" type="text/html" href="http://www.google.com/profiles/gary20071226" />
   </head>
   <body>
     <div id="wrapper">
@@ -19,6 +20,7 @@
 	    <li><%= link_to "RSS", rsses_path %></li>
 	    <li><%= link_to t("Blog List"), list_blogs_path %></li>
 	    <li><%= link_to(t("About Me"), abouts_path) %></li>
+
 	  </ul>
 	</div>
       </div>
