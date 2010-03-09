@@ -2,7 +2,7 @@ class Blog < ActiveRecord::Base
   acts_as_taggable_on :tags
   belongs_to :blog_group
   has_many :comments
-  pinyin_title :title
+  pinyinlize :title
   
   def content_blank?
     title.blank? or content.blank?

@@ -4,7 +4,7 @@ module PinyinTitle
     end
 
   module ClassMethods
-    def pinyin_title(pinyin_type = :title)
+    def pinyinlize(pinyin_type = :title)
       include PinyinTitle::InstanceMethods
       class_variable_set(:@@pinyin_type, pinyin_type.to_s)
     end
@@ -16,7 +16,6 @@ module PinyinTitle
   
   module InstanceMethods
     require "pinyin"
-    
     define_method("pinyin_type_of") do |type|
       PinYin.instance.to_permlink(self.send(type))
     end 

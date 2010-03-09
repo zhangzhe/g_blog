@@ -47,7 +47,7 @@ module ApplicationHelper
   def tag_links(type = Blog)
     result = "tags: "
     type.tag_list.each do |t|
-      result << "#{link_to(t, tag_url(t))}, "
+      result << "#{link_to(t, tags_url(:q => t))}, "
     end
     return result[0..-4]
   end
