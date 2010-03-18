@@ -33,7 +33,7 @@ module ApplicationHelper
     @comments = Comment.find(:all, :limit => num, :order => "created_at DESC")
     result = "<ul>"
     @comments.each do |c|
-      result << "<li>#{link_to(truncate(c.name + ": " + c.content, :length => 28), blog_path(c.blog), :title => c.blog.title)}</li>"
+      result << "<li>#{link_to(truncate(c.name + ": " + c.content, :length => 28), blog_path(c.blog), :title => c.blog.title)}</li>" if c.blog
     end
     result << "</ul>"
   end
