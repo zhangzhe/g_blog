@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 class AboutsController < ApplicationController
   def index
-    about_en = "My name is Gary Zhang(zhangzhe). I live in BeiJing, China.
+    about_en = %{
+My name is Gary Zhang(zhangzhe). I live in BeiJing, China.
 
 I am a programmer, right now work for [link:idapted]http://www.idapted.com[/link].
 I love my job and believe that my work is good for people and will make the world better.
@@ -13,7 +14,7 @@ I worked since 2007. Right now I am using Ruby On Rails building the [link:best 
 
 Visit [link:here]http://github.com/zhangzhe[/link] to see more about my apps. Anything unclean please email me at gary20071226@gmail.com.
 
-I will share in this blog about most of technique things I met and part of my personal life. Enjoy:)"
+I will share in this blog about most of technique things I met and part of my personal life. Enjoy:)}
     blank = "<br><br><br><br><br>"
     about_zh = "我叫张哲。居住在中国，北京。
 
