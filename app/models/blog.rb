@@ -1,6 +1,6 @@
 class Blog < ActiveRecord::Base
   acts_as_taggable_on :tags
-  named_scope :by_created_at, :order => "created_at DESC"
+  named_scope :by_created_at, :order => "type DESC, created_at DESC"
   belongs_to :blog_group
   has_many :comments
   pinyinlize :title
