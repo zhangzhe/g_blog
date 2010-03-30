@@ -36,26 +36,37 @@
 	  <ul>
 	    <li>
 	      
-		<%= tags %>
+	      <%= tags %>
 	      <% form_tag tags_url, :method => :get do %>
 		<%= text_field_tag 'q' %>
 	      <% end %>
 	      <br>
-	      <h2><%= t('recent articles') %></h2>
-	      <%= recent_articles %>
-	      <h2><%= t('recent comments') %></h2>
-	      <%= recent_comments %>
-	      <h2><%= t('E-book') %></h2>
-	      <%= e_book %>
-	    </li>
-	  </ul>
-	  
+		<h2><%= t('recent articles') %></h2>
+		<%= recent_articles %>
+		<h2><%= t('recent comments') %></h2>
+		<%= recent_comments %>
+		<h2><%= t('E-book') %></h2>
+		<%= e_book %>
+	      </li>
+	    </ul>
+	    
+	  </div>
+	  <div style="clear: both;">&nbsp;</div>
 	</div>
-	<div style="clear: both;">&nbsp;</div>
       </div>
-    </div>
-    <div id="footer">
-      <p>(c) 2010 zhangzhe</p>
-    </div>
-  </body>
-</html>
+      <div id="footer">
+	<p>(c) 2010 zhangzhe</p>
+      </div>
+
+      <script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-15552784-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+
+    </body>
+  </html>
