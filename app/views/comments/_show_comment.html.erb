@@ -1,14 +1,15 @@
+
 <div class="comment" >
   <% if @comment.web_site.blank? %>
-    <hn><%= @comment.name%></hn>
+    <hn><%= @comment.name %></hn>
   <% else %>
-    
     <hn><%= link_to h(@comment.name), complete(h(@comment.web_site)), :popup => true %></hn>
   <% end %>
   <hd><%= @comment.created_at.to_date %></hd>
-  <br>
   <div class="content">
     <%= g_textile @comment.content %>
   </div>
-  <br>
 </div>
+
+
+

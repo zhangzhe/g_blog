@@ -1,0 +1,47 @@
+<%= javascript_include_tag :all %>
+
+Blank Template:
+<br><br><br>
+<span style="width:120px;float:left;" >Motor Carrier</span>
+
+<% (31..39).each do |e| %>
+
+  <span id="drop_<%= e %>" style="border:solid;width:50px;float:left;"> &nbsp;</span>
+  <%= drop_receiving_element("drop_#{e}", :onDrop => "function(drag, drop){ $('drop_#{e}').update(drag.id) }" ) %>
+
+<% end %>
+<br><br>
+<span style="width:120px;float:left;" >Agent</span>
+<% (1..9).each do |e| %>
+  <span id="drop_<%= e %>" style="border:solid;width:50px;float:left;"> &nbsp;</span>
+  <%= drop_receiving_element("drop_#{e}", :onDrop => "function(drag, drop){ $('drop_#{e}').update(drag.id) }" ) %>
+
+<% end %>
+<br>
+<br>
+<span style="width:120px;float:left;" >Contractor</span>
+<% (11..19).each do |e| %>
+
+  <span id="drop_<%= e %>" style="border:solid;width:50px;float:left;"> &nbsp;</span>
+  <%= drop_receiving_element("drop_#{e}", :onDrop => "function(drag, drop){ $('drop_#{e}').update(drag.id) }" ) %>
+
+<% end %>
+
+<br><br>
+
+<span style="width:120px;float:left;" >Automated</span>
+
+<% (21..29).each do |e| %>
+
+  <span id="drop_<%= e %>" style="border:solid;width:50px;float:left;"> &nbsp;</span>
+  <%= drop_receiving_element("drop_#{e}", :onDrop => "function(drag, drop){ $('drop_#{e}').update(drag.id) }" ) %>
+
+<% end %>
+
+<br><br>
+
+<% %w(a b c d e).each do |e| %>
+  <%= label_tag e, nil, :id => "#{e}" %>
+  <%= draggable_element("#{e}", :revert => true) %>
+<% end %>
+

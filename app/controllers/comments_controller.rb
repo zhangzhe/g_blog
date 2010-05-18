@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
   
   def index
-    @comments = Comment.paginate(:all, :page => params[:page], :per_page => 20)
+    @comments = Comment.paginate(:all, :page => params[:page], :per_page => 20, :order => "created_at DESC")
   end
   
   def destroy
