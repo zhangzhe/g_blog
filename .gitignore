@@ -1,4 +1,6 @@
 *~
 log/*
 tmp/*
+config/amazon_s3.yml
 !.gitignore
+
